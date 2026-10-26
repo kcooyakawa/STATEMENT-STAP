@@ -1,0 +1,7 @@
+Stap · Sentimentos se constroem — apresentação (site estático)
+
+Netlify: arraste esta pasta inteira em app.netlify.com/drop (ou conecte o repositório; pasta de publicação = raiz).
+GitHub Pages: suba o conteúdo desta pasta num repositório e ative Settings › Pages › Deploy from branch (main, /root).
+
+Navegação: setas do teclado, espaço, clique ou deslize. Home/End vão para o início/fim.
+A fonte Instrument Serif carrega do Google Fonts (precisa de internet). Tusker e PPR Text estão em /fonts.
