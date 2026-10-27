@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Stap · Sentimentos se constroem</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500&display=swap">
 <style>
 /* Layout: palco 1920×1080 escalado. Sem movimento pelo mouse: a animação mora na troca de página.
    A cena nova entra por um recorte que corre na horizontal; os planos de cada cena viajam em velocidades
@@ -123,6 +123,37 @@ img{max-width:none;display:block}
 .menu a:focus-visible{outline:2px solid var(--light);outline-offset:6px}
 .menu a.soon{pointer-events:none}.menu a.soon .t{color:rgba(238,233,225,.4)}
 
+
+/* ——— linguagem antiga (até a virada no statement) ——— */
+.old{background:#E9E9EA!important;color:#404040!important;--blue:#404040;--light:#B5B5B5;--off:#404040;--label:#7A7A7A;--muted:#595959;--navy:#404040;--navy2:#404040;--ice:#BDBDBD;font-family:'Poppins',Arial,sans-serif}
+.old.bg-white{background:#F2F2F2!important}
+.old.bg-light{background:#DADBDC!important}
+.old.bg-navy,.old.bg-grad{background:#2B2B2B!important;color:#F2F2F2!important;--off:#F2F2F2;--light:#A8A8A8;--label:#A8A8A8;--bluegray:#C8C8C8}
+.old .serif{font-family:'Poppins',Arial,sans-serif!important;font-weight:300!important;letter-spacing:-1px!important;line-height:1.12!important}
+.old .serif i,.old i.acc,.old .acc i,.old i{font-family:'Poppins',Arial,sans-serif!important;font-style:normal!important;font-weight:300!important}
+.old .acc{color:inherit!important}
+.old .xl{font-size:116px!important}.old .lg{font-size:86px!important}.old .md{font-size:58px!important}.old .sm{font-size:36px!important}.old .xs{font-size:28px!important}
+.old h1.serif{font-size:96px!important}
+.old h2.serif:not(.md):not(.lg):not(.xl){font-size:92px!important}
+.old .tk{font-family:'Poppins',Arial,sans-serif!important;font-weight:300!important;text-transform:none!important;letter-spacing:-3px;font-size:100px!important;line-height:1.1!important}
+.old [style*="font-size:170px"],.old [style*="font-size:150px"],.old [style*="font-size:160px"]{font-size:96px!important;letter-spacing:-1px!important}
+.old.act .tk{font-size:320px!important;color:#5A5A5A!important}
+.old .lbl,.old .q{font-family:'Poppins',Arial,sans-serif!important;letter-spacing:2px!important;text-transform:none!important;font-size:18px!important}
+.old .body,.old p,.old span,.old b{font-family:'Poppins',Arial,sans-serif;font-weight:300}
+.old .rule,.old .row{border-color:#BDBDBD!important}
+.old #mx{background:transparent!important;border-color:#BDBDBD!important}
+.old #mx .target{background:#D2D3D4!important}
+.old #mx path{stroke:#404040!important}
+.old #mx .ax{background:#9A9A9A!important}
+.old::after{content:"";position:absolute;right:128px;top:44px;width:110px;height:70px;background:url(a/logo-2024-navy.svg) right top/contain no-repeat;opacity:.85;z-index:3}
+.old.bg-navy::after,.old.bg-grad::after{background-image:url(a/logo-2024-off.svg)}
+/* virada: a casca antiga sai */
+.casca{position:absolute;inset:0;z-index:4;background:#E9E9EA;display:flex;align-items:center;padding:0 128px;clip-path:inset(0 0 0 0);transition:clip-path 1.2s var(--ease) 1.3s;pointer-events:none}
+.casca p{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:96px;color:#404040;margin:0}
+.casca img{position:absolute;right:128px;top:44px;width:110px}
+.on .casca{clip-path:inset(0 0 0 100%)}
+.past .casca{clip-path:inset(0 0 0 100%)}
+.old[data-n="Capa"]::after{display:none}
 /* HUD */
 #hud{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:12px max(18px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));z-index:5;pointer-events:none;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#fff;mix-blend-mode:difference}
 #hud button{pointer-events:auto;background:none;border:1px solid currentColor;color:inherit;font:inherit;letter-spacing:inherit;padding:8px 14px;cursor:pointer}
@@ -138,16 +169,19 @@ img{max-width:none;display:block}
 <div id="viewport"><div id="stage">
 
 <!-- CAPA -->
-<section class="scene bg-off" data-n="Abertura">
-  <div class="l pad" style="--d:1;display:grid;grid-template-rows:auto 1fr auto">
-    <p class="lbl rv">Stap · Statement e marca · 2026</p>
-    <h1 class="serif rv" style="--i:1;align-self:center;font-size:156px;line-height:.98;letter-spacing:-4px;width:1560px">Todo mundo fala da experiência. <i class="acc">A Stap mostra como ela é construída.</i></h1>
-    <div class="rv rule" style="--i:2;display:flex;justify-content:space-between;padding-top:20px"><span class="lbl">Mercado · Statement · Marca · Peças</span><span class="lbl">Outubro 2026</span></div>
+<section class="scene old bg-off" data-n="Capa">
+  <div class="l pad" style="--d:1;display:flex;flex-direction:column;justify-content:space-between">
+    <p class="lbl rv">Outubro 2026</p>
+    <div class="rv" style="--i:1;display:flex;flex-direction:column;gap:48px">
+      <img src="a/logo-2024-navy.svg" alt="Stap feelings" style="width:520px">
+      <h1 class="serif" style="font-size:150px;line-height:1">Statement</h1>
+    </div>
+    <p class="lbl rv" style="--i:2">Posicionamento, marca e peças</p>
   </div>
 </section>
 
 <!-- PONTO DE PARTIDA -->
-<section class="scene bg-white" data-n="Ponto de partida">
+<section class="scene old bg-white" data-n="Ponto de partida">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center;gap:64px">
     <h2 class="serif lg rv">A Stap é a mesma.<br><i class="acc">Muda o ponto de onde ela fala.</i></h2>
     <p class="body rv" style="--i:2">Antes de mexer em qualquer peça, voltamos um passo: olhamos o mercado, ouvimos quem contrata a Stap e definimos o que ela passa a dizer. A marca e as peças são consequência disso.</p>
@@ -155,7 +189,7 @@ img{max-width:none;display:block}
 </section>
 
 <!-- ATO 01 -->
-<section class="scene bg-navy act" data-n="01 · O mercado">
+<section class="scene old bg-navy act" data-n="01 · O mercado">
   <p class="l tk" style="--d:5;right:128px;top:150px">01</p>
   <div class="l" style="--d:2;left:128px;bottom:140px;width:1100px;display:flex;flex-direction:column;gap:24px">
     <h2 class="serif xl rv">O mercado.</h2>
@@ -164,7 +198,7 @@ img{max-width:none;display:block}
 </section>
 
 <!-- OITO SITES -->
-<section class="scene bg-navy" data-n="Oito sites">
+<section class="scene old bg-navy" data-n="Oito sites">
   <h2 class="l serif md rv" style="--d:1;left:128px;top:100px;color:var(--off)">Oito sites, <i class="acc">quase a mesma promessa.</i></h2>
   <div class="l" style="--d:4;left:128px;top:290px;width:1664px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px 32px">
     <figure class="rv" style="--i:1"><img src="a/site-tm1.jpg" alt="Site da TM1" style="width:100%;aspect-ratio:2.08;object-fit:cover"><figcaption class="serif" style="font-size:29px;line-height:1.15;color:var(--off);margin-top:12px"><i>“crie experiências memoráveis”</i><br><span class="lbl" style="font-size:16px">TM1</span></figcaption></figure>
@@ -180,7 +214,7 @@ img{max-width:none;display:block}
 </section>
 
 <!-- TODOS PROMETEM -->
-<section class="scene bg-white" data-n="Todos prometem emoção">
+<section class="scene old bg-white" data-n="Todos prometem emoção">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
     <h2 class="serif md rv">Todos prometem <i class="acc">a mesma emoção.</i></h2>
     <div>
@@ -194,7 +228,7 @@ img{max-width:none;display:block}
 </section>
 
 <!-- NINGUÉM MOSTRA COMO -->
-<section class="scene bg-off" data-n="Ninguém mostra como">
+<section class="scene old bg-off" data-n="Ninguém mostra como">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
     <h2 class="serif md rv">Prometem a emoção. <i class="acc">Ninguém mostra como ela é feita.</i></h2>
     <div class="cols" style="grid-template-columns:repeat(3,1fr)">
@@ -207,7 +241,7 @@ img{max-width:none;display:block}
 </section>
 
 <!-- EXEMPLO SPEED -->
-<section class="scene bg-white" data-n="Exemplo · Grupo Speed">
+<section class="scene old bg-white" data-n="Exemplo · Grupo Speed">
   <figure class="l rv" style="--d:3;left:128px;top:96px;width:820px;height:820px;overflow:hidden;border:1px solid rgba(7,17,31,.2);background:#F6F5F1"><img class="pan" src="a/case-speed.jpg" alt="Página completa do case GWM na Agrishow no site do Grupo Speed" style="width:820px;height:auto"></figure>
   <div class="l" style="--d:1;left:1030px;top:96px;width:762px;height:820px;display:flex;flex-direction:column;justify-content:space-between">
     <div><p class="lbl rv">Grupo Speed · GWM na Agrishow</p><h2 class="serif rv" style="--i:1;margin-top:16px;font-size:76px;line-height:1.04;letter-spacing:-2px">O concorrente mais direto <i class="acc">não mostra o que construiu.</i></h2></div>
@@ -222,7 +256,7 @@ img{max-width:none;display:block}
 </section>
 
 <!-- EXEMPLO NETZA / INNOVA -->
-<section class="scene bg-off" data-n="Exemplo · Netza e Innova">
+<section class="scene old bg-off" data-n="Exemplo · Netza e Innova">
   <div class="l" style="--d:1;left:128px;top:100px;width:1664px"><p class="lbl rv">Netza · Fórmula E &nbsp;/&nbsp; Innova AATB · Cummins</p><h2 class="serif md rv" style="--i:1;margin-top:12px">As que mostram números <i class="acc">medem tamanho, não entrega.</i></h2></div>
   <figure class="l rv" style="--d:3;--i:2;left:128px;top:300px;width:800px"><div style="height:500px;background:#161616;display:grid;place-items:center"><img src="a/case-netza.jpg" alt="Texto do case Fórmula E no site da Netza" style="width:720px;height:auto"></div><figcaption class="body" style="margin-top:18px;font-size:24px">Netza · Fórmula E. Área, camarotes, ativações e público.</figcaption></figure>
   <figure class="l rv" style="--d:6;--i:3;left:992px;top:300px;width:800px"><div style="height:500px;background:#EFEFF4;display:grid;place-items:center"><img src="a/case-innova.jpg" alt="Texto do case Cummins na Fenatran 2024 no site da Innova AATB" style="width:760px;height:auto"></div><figcaption class="body" style="margin-top:18px;font-size:24px">Innova AATB · Cummins na Fenatran 2024. Desafio, solução e metragem.</figcaption></figure>
@@ -231,7 +265,7 @@ img{max-width:none;display:block}
 </section>
 
 <!-- MATRIZ (etapas) -->
-<section class="scene bg-white" data-n="Onde cada uma se coloca" data-steps="3">
+<section class="scene old bg-white" data-n="Onde cada uma se coloca" data-steps="3">
   <div class="l" style="--d:1;left:128px;top:150px;width:560px;display:flex;flex-direction:column;gap:32px">
     <h2 class="serif md rv">Onde cada agência <i class="acc">se coloca.</i></h2>
     <p class="body rv" style="--i:1;font-size:25px">Leitura do discurso: o que cada uma promete e o que prova no site, nos cases e nas redes. Não mede tamanho nem qualidade de entrega.</p>
@@ -263,6 +297,20 @@ img{max-width:none;display:block}
     <div data-s="3" style="position:absolute;left:730px;top:130px"><p class="serif" style="font-size:96px;line-height:1"><i>Stap</i></p><p class="lbl" style="color:var(--navy);margin-top:8px">Para onde vamos</p></div>
   </div>
   <p class="foot" style="left:760px">Posições aproximadas, a partir de sites e redes · out/2026</p>
+</section>
+
+<!-- A VIRADA -->
+<section class="scene bg-navy" data-n="Como chegamos lá">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <p class="lbl rv" style="--i:6">Como chegamos lá</p>
+    <h2 class="serif lg rv" style="--i:7;color:var(--off);max-width:1500px">Para ocupar o canto da prova, a Stap muda <i class="acc">por dentro e por fora.</i></h2>
+    <div class="cols" style="grid-template-columns:repeat(3,1fr);color:var(--off)">
+      <div class="rv rule" style="--i:8;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">O que dizemos</p><p class="body">Posicionamento e statement. Da emoção prometida para a emoção construída e provada.</p></div>
+      <div class="rv rule" style="--i:9;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">Como dizemos</p><p class="body">Tom de voz. Fato e emoção na mesma frase; prova no lugar do adjetivo.</p></div>
+      <div class="rv rule" style="--i:10;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">Como aparecemos</p><p class="body">Identidade visual. Uma casca à altura do que a Stap entrega.</p></div>
+    </div>
+  </div>
+  <div class="casca"><p>Como a Stap chega lá?</p><img src="a/logo-2024-navy.svg" alt=""></div>
 </section>
 
 <!-- O CLIENTE COMPRA SEGURANÇA -->
@@ -440,14 +488,6 @@ img{max-width:none;display:block}
     <p class="lbl">Essenciais · só azuis &nbsp;|&nbsp; Atmosferas · com terrosos</p>
     <p class="body" style="font-size:24px;max-width:none">Entram em aberturas, títulos de impacto, motion e posts. Nunca no logo, atrás de texto corrido ou sobre a cor do cliente.</p>
   </div>
-</section>
-
-<!-- DEGRADÊ EM USO -->
-<section class="scene bg-navy" data-n="Degradê em uso">
-  <div class="l" style="--d:4;left:0;top:0;width:1920px;height:1080px;background:linear-gradient(170deg,#07111F 0%,#1F4FA8 45%,#C9A27E 82%,#EEE9E1 100%)"></div>
-  <p class="l tk gelo rv" style="--d:2;left:110px;top:90px;font-size:400px;line-height:1.2;padding:0 30px 0 0">+4.000</p>
-  <p class="l serif rv" style="--d:6;--i:2;left:128px;top:600px;font-size:130px;line-height:1.1;color:var(--off)"><i>projetos.</i></p>
-  <p class="l lbl rv" style="--d:2;--i:3;left:128px;bottom:110px;color:var(--navy)">Aplicação · grad entardecer + Tusker em gelo</p>
 </section>
 
 <!-- O TRAÇO -->
