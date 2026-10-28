@@ -119,7 +119,7 @@ img{max-width:none;display:block}
 .menu a{display:grid;grid-template-columns:110px 1fr auto;align-items:baseline;gap:32px;padding:14px 0;border-top:1px solid rgba(238,233,225,.35);color:var(--off);text-decoration:none;transition:color .3s}
 .menu a:last-child{border-bottom:1px solid rgba(238,233,225,.35)}
 .menu .n{font-family:var(--sans);font-size:22px;letter-spacing:4px;color:var(--light)}
-.menu .t{font-family:var(--impact);font-size:150px;line-height:.9;text-transform:uppercase;transition:letter-spacing .5s var(--out)}
+.menu .t{font-family:var(--impact);font-size:124px;line-height:.9;text-transform:uppercase;transition:letter-spacing .5s var(--out)}
 .menu .d{font-family:var(--serif);font-style:italic;font-size:36px;color:var(--bluegray)}
 .menu a:hover .t,.menu a:focus-visible .t{color:var(--light);letter-spacing:2px}
 .menu a:focus-visible{outline:2px solid var(--light);outline-offset:6px}
@@ -150,6 +150,19 @@ img{max-width:none;display:block}
 .old::after{content:"";position:absolute;right:128px;top:44px;width:110px;height:70px;background:url(a/logo-2024-navy.svg) right top/contain no-repeat;opacity:.85;z-index:3}
 .old.bg-navy::after,.old.bg-grad::after{background-image:url(a/logo-2024-off.svg)}
 /* virada: a casca antiga sai */
+.flip{display:flex;flex-direction:column;color:var(--off)}
+.flip .fr{display:grid;grid-template-columns:300px 1fr 90px 1fr;align-items:center;gap:24px;padding:26px 0;border-color:rgba(238,233,225,.35)}
+.flip .fa,.flip .fb{display:flex;align-items:center;gap:22px;min-height:80px}
+.flip .ov{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:30px;color:#A8A8A8;transition:opacity .6s,filter .6s}
+.flip .nv{font-family:var(--serif);font-size:44px;line-height:1.1;color:var(--off)}
+.flip .nv i{color:var(--light)}
+.flip .ar{font-size:44px;color:var(--light);text-align:center}
+.st1 .fr:nth-child(1) .ov,.st2 .fr:nth-child(-n+2) .ov,.st3 .fr .ov,.st3 .fr .fa img{opacity:.35;text-decoration:line-through}
+.flip [data-s]{translate:40px 0}
+.mf span{display:block;transition:opacity .8s var(--out),transform 1.2s var(--ease)}
+.mf .last{transform-origin:left center}
+.st1 .mf span:not(.last),.st1 .mfl{opacity:0;transition:opacity .8s var(--out)}
+.st1 .mf .last{transform:translateY(-280px) scale(2.6)}
 .casca{position:absolute;inset:0;z-index:4;background:#E9E9EA;display:flex;align-items:center;padding:0 128px;clip-path:inset(0 0 0 0);transition:clip-path 1.2s var(--ease) 1.3s;pointer-events:none}
 .casca p{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:96px;color:#404040;margin:0}
 .casca img{position:absolute;right:128px;top:44px;width:110px}
@@ -184,17 +197,63 @@ img{max-width:none;display:block}
 <!-- PONTO DE PARTIDA -->
 <section class="scene old bg-white" data-n="Ponto de partida">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center;gap:64px">
-    <h2 class="serif lg rv">A Stap é a mesma.<br><i class="acc">Muda o ponto de onde ela fala.</i></h2>
-    <p class="body rv" style="--i:2">Antes de mexer em qualquer peça, voltamos um passo: olhamos o mercado, ouvimos quem contrata a Stap e definimos o que ela passa a dizer. A marca e as peças são consequência disso.</p>
+    <h2 class="serif lg rv">Zoom out: <i class="acc">a Stap e o mercado.</i></h2>
+    <p class="body rv" style="--i:2">Antes de mexer em qualquer peça, voltamos um passo: olhamos para a gente e para o mercado. O posicionamento é uma consequência disso.</p>
   </div>
 </section>
 
-<!-- ATO 01 -->
-<section class="scene old bg-navy act" data-n="01 · O mercado">
+<!-- ATO 01 STAP HOJE -->
+<section class="scene old bg-navy act" data-n="01 · A Stap hoje">
   <p class="l tk" style="--d:5;right:128px;top:150px">01</p>
   <div class="l" style="--d:2;left:128px;bottom:140px;width:1100px;display:flex;flex-direction:column;gap:24px">
+    <h2 class="serif xl rv">A Stap hoje.</h2>
+    <p class="body rv" style="--i:1">Onde a marca aparece hoje: site, apresentação comercial e Instagram.</p>
+  </div>
+</section>
+
+<!-- SITE ATUAL -->
+<section class="scene old bg-white" data-n="O site hoje">
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O site <i class="acc">abre com uma imagem que não é nossa.</i></h2>
+  <figure class="l rv" style="--d:3;--i:1;left:128px;top:250px;width:1060px"><img src="a/stap-site-atual.jpg" alt="Primeira tela do site atual da Stap" style="width:100%;display:block;border:1px solid #CFCFCF"></figure>
+  <div class="l" style="--d:2;left:1260px;top:260px;width:532px;display:flex;flex-direction:column;gap:30px">
+    <div class="rv rule" style="--i:2;padding-top:18px"><p class="lbl" style="font-size:17px">Primeira tela</p><p class="body" style="font-size:25px;margin-top:8px">Uma imagem genérica de escritório, não um projeto da Stap.</p></div>
+    <div class="rv rule" style="--i:3;padding-top:18px"><p class="lbl" style="font-size:17px">O discurso</p><p class="body" style="font-size:25px;margin-top:8px">“Transformamos design em emoção”: a mesma promessa do mercado.</p></div>
+    <div class="rv rule" style="--i:4;padding-top:18px"><p class="lbl" style="font-size:17px">O que falta</p><p class="body" style="font-size:25px;margin-top:8px">O render aprovado e o projeto montado. A prova de que a Stap entrega.</p></div>
+  </div>
+  <p class="foot">stap.com.br · primeira tela · 28/out/2026</p>
+</section>
+
+<!-- APRESENTAÇÃO ATUAL -->
+<section class="scene old bg-off" data-n="A apresentação hoje">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">A apresentação comercial <i class="acc">não sai do computador.</i></h2>
+    <div class="cols" style="grid-template-columns:repeat(3,1fr)">
+      <div class="rv rule" style="--i:1;padding-top:28px"><p class="tk" style="font-size:230px">4 GB</p><p class="body" style="margin-top:22px">Pesada demais para mandar por e-mail ou WhatsApp.</p></div>
+      <div class="rv rule" style="--i:2;padding-top:28px"><p class="tk" style="font-size:230px">+100</p><p class="body" style="margin-top:22px">slides, extensa e repetitiva.</p></div>
+      <div class="rv rule" style="--i:3;padding-top:28px"><p class="tk" style="font-size:230px">Lenta</p><p class="body" style="margin-top:22px">para abrir e para navegar na frente do cliente.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM ATUAL -->
+<section class="scene old bg-white" data-n="O Instagram hoje">
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O Instagram não é ruim. <i class="acc">Falta constância.</i></h2>
+  <figure class="l rv" style="--d:3;--i:1;left:128px;top:240px;width:380px"><img src="a/ig-stapfeelings.jpg" alt="Últimos 12 posts do @stapfeelings" style="width:100%;display:block"></figure>
+  <div class="l" style="--d:2;left:640px;top:250px;width:1152px;display:flex;flex-direction:column;gap:34px">
+    <div class="rv rule" style="--i:2;padding-top:18px"><p class="lbl" style="font-size:17px">O que funciona</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Os KVs dos eventos dos clientes fazem do feed um portfólio bonito.</p></div>
+    <div class="rv rule" style="--i:3;padding-top:18px"><p class="lbl" style="font-size:17px">Ritmo</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">47 posts no total. O último é de 20/fev/2026.</p></div>
+    <div class="rv rule" style="--i:4;padding-top:18px"><p class="lbl" style="font-size:17px">Formato</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Os posts saem em trincas, três no mesmo dia, para montar o mosaico do feed. Entre um bloco e outro, meses sem nada.</p></div>
+    <div class="rv rule" style="--i:5;padding-top:18px"><p class="lbl" style="font-size:17px">O que falta</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Uma linha editorial com frequência: processo, bastidores e render × real.</p></div>
+  </div>
+  <p class="foot">@stapfeelings · últimos 12 posts · 28/out/2026</p>
+</section>
+
+<!-- ATO 01 -->
+<section class="scene old bg-navy act" data-n="02 · O mercado">
+  <p class="l tk" style="--d:5;right:128px;top:150px">02</p>
+  <div class="l" style="--d:2;left:128px;bottom:140px;width:1100px;display:flex;flex-direction:column;gap:24px">
     <h2 class="serif xl rv">O mercado.</h2>
-    <p class="body rv" style="--i:1">Oito agências lidas nas próprias fontes: o que dizem, o que mostram e o que ninguém prova.</p>
+    <p class="body rv" style="--i:1">Oito agências lidas nas próprias fontes: o que dizem, o que mostram e com que constância aparecem nas redes.</p>
   </div>
 </section>
 
@@ -230,9 +289,9 @@ img{max-width:none;display:block}
 
 <!-- INSTAGRAM -->
 <section class="scene old bg-navy" data-n="No Instagram">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px;color:var(--off)">No Instagram, <i class="acc">o evento pronto.</i></h2>
-  <div class="l" style="--d:4;left:128px;top:330px;width:1664px;display:grid;grid-template-columns:repeat(8,1fr);gap:16px"><figure class="rv" style="--i:1"><img src="a/ig-tm1-br.jpg" alt="Últimos 12 posts de TM1 no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">TM1</figcaption></figure><figure class="rv" style="--i:2"><img src="a/ig-netza-ag.jpg" alt="Últimos 12 posts de Netza no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Netza</figcaption></figure><figure class="rv" style="--i:3"><img src="a/ig-inside-the-hype.jpg" alt="Últimos 12 posts de Hype no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Hype</figcaption></figure><figure class="rv" style="--i:4"><img src="a/ig-innova-aatb.jpg" alt="Últimos 12 posts de Innova AATB no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Innova AATB</figcaption></figure><figure class="rv" style="--i:5"><img src="a/ig-grupospeed.jpg" alt="Últimos 12 posts de Grupo Speed no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Grupo Speed</figcaption></figure><figure class="rv" style="--i:6"><img src="a/ig-agenciabferraz.jpg" alt="Últimos 12 posts de BFerraz no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">BFerraz</figcaption></figure><figure class="rv" style="--i:7"><img src="a/ig-reddoor-ag.jpg" alt="Últimos 12 posts de Red Door no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Red Door</figcaption></figure><figure class="rv" style="--i:8"><img src="a/ig-rockcomunicacao.jpg" alt="Últimos 12 posts de Rock no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Rock</figcaption></figure></div>
-  <p class="foot">Últimos 12 posts de cada perfil · 27/out/2026</p>
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px;color:var(--off)">No Instagram, <i class="acc">o evento pronto. E quem posta muito, posta escala.</i></h2>
+  <div class="l" style="--d:4;left:128px;top:330px;width:1664px;display:grid;grid-template-columns:repeat(8,1fr);gap:16px"><figure class="rv" style="--i:1"><img src="a/ig-tm1-br.jpg" alt="Últimos 12 posts de TM1 no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">TM1<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">1.227 posts</span></figcaption></figure><figure class="rv" style="--i:2"><img src="a/ig-netza-ag.jpg" alt="Últimos 12 posts de Netza no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Netza<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">1.411 posts</span></figcaption></figure><figure class="rv" style="--i:3"><img src="a/ig-inside-the-hype.jpg" alt="Últimos 12 posts de Hype no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Hype<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">181 posts</span></figcaption></figure><figure class="rv" style="--i:4"><img src="a/ig-innova-aatb.jpg" alt="Últimos 12 posts de Innova AATB no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Innova AATB<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">291 posts</span></figcaption></figure><figure class="rv" style="--i:5"><img src="a/ig-grupospeed.jpg" alt="Últimos 12 posts de Grupo Speed no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Grupo Speed<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">45 posts</span></figcaption></figure><figure class="rv" style="--i:6"><img src="a/ig-agenciabferraz.jpg" alt="Últimos 12 posts de BFerraz no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">BFerraz<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">328 posts</span></figcaption></figure><figure class="rv" style="--i:7"><img src="a/ig-reddoor-ag.jpg" alt="Últimos 12 posts de Red Door no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Red Door<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">448 posts</span></figcaption></figure><figure class="rv" style="--i:8"><img src="a/ig-rockcomunicacao.jpg" alt="Últimos 12 posts de Rock no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Rock<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">401 posts</span></figcaption></figure></div>
+  <p class="foot">Últimos 12 posts e total de posts de cada perfil · 27/out/2026 · @stapfeelings: 47 posts</p>
 </section>
 
 <!-- DIAGNÓSTICO -->
@@ -265,14 +324,14 @@ img{max-width:none;display:block}
 
 <!-- MATRIZ (etapas) -->
 <section class="scene old bg-white" data-n="Onde cada uma se coloca" data-steps="3">
-  <div class="l" style="--d:1;left:128px;top:150px;width:560px;display:flex;flex-direction:column;gap:36px">
-    <h2 class="serif md rv">Ninguém ocupa <i class="acc">o canto da prova.</i></h2>
-    <div class="rv" style="--i:1;display:flex;flex-direction:column;gap:14px;font-size:23px;line-height:1.45;color:var(--muted)">
-      <p><b style="color:var(--navy)">→ Horizontal:</b> de quem mostra a emoção pronta a quem prova como ela foi construída (render, montagem, dado).</p>
-      <p><b style="color:var(--navy)">↑ Vertical:</b> de quem atende qualquer setor a quem assume um setor.</p>
+  <div class="l" style="--d:1;left:128px;top:150px;width:560px;display:flex;flex-direction:column;gap:32px">
+    <h2 class="serif md rv">Quem prova é generalista. <i class="acc">Quem é especialista só emociona.</i></h2>
+    <div class="rv" style="--i:1;display:flex;flex-direction:column;gap:12px;font-size:22px;line-height:1.45;color:var(--muted)">
+      <p><b style="color:var(--navy)">→ Horizontal:</b> do discurso de emoção à prova (cases com números, resultado).</p>
+      <p><b style="color:var(--navy)">↑ Vertical:</b> de quem atende qualquer setor a quem tem especialidade por setor.</p>
     </div>
-    <p class="serif xs" data-s="2">Hoje a Stap é setorial, <i class="acc">mas fala de emoção como todas.</i></p>
-    <p class="serif xs" data-s="3">Em Auto já há concorrente. <i class="acc">Agro e Auto, com prova, ninguém ocupa.</i></p>
+    <p class="serif xs" data-s="2">A Stap já é especialista: <i class="acc">hubs de Agro e de Auto, 34 anos de carteira.</i> Mas fala de emoção como todas.</p>
+    <p class="serif xs" data-s="3">Especialista em Agro e Auto <i class="acc">que prova a entrega: esse canto está vazio.</i></p>
   </div>
   <div class="l" style="--d:3;left:760px;top:150px;width:1032px;height:800px;border:2px solid #404040">
     <div style="position:absolute;left:516px;top:0;bottom:0;width:2px;background:#404040"></div>
@@ -281,24 +340,27 @@ img{max-width:none;display:block}
     <span style="position:absolute;left:24px;top:22px;font-size:22px;letter-spacing:1px;color:var(--label)">Especialista na emoção</span>
     <span style="position:absolute;left:542px;top:22px;font-size:22px;letter-spacing:1px;color:var(--navy)">Especialista que prova a entrega</span>
     <span style="position:absolute;left:24px;bottom:22px;font-size:22px;letter-spacing:1px;color:var(--label)">Generalista da emoção</span>
-    <span style="position:absolute;left:542px;bottom:22px;font-size:22px;letter-spacing:1px;color:var(--label)">Generalista que prova a entrega</span>
-    <div style="position:absolute;inset:0" id="mxp"><span class="ag" data-s="1" style="left:300px;top:170px">Grupo Speed</span><span class="ag" data-s="1" style="left:150px;top:260px">Hype</span><span class="ag" data-s="1" style="left:385px;top:330px">Netza</span><span class="ag" data-s="1" style="left:90px;top:520px">TM1</span><span class="ag" data-s="1" style="left:150px;top:610px">BFerraz</span><span class="ag" data-s="1" style="left:360px;top:590px">Rock</span><span class="ag" data-s="1" style="left:290px;top:460px">Innova AATB</span><span class="ag" data-s="1" style="left:120px;top:670px">Red Door</span>
-      <div data-s="2" style="position:absolute;left:120px;top:60px;padding:6px 18px;border:2px dashed #404040;border-radius:40px;font-size:27px;font-weight:600">Stap hoje</div>
-      <div data-s="3" style="position:absolute;left:640px;top:150px"><p style="font-size:64px;font-weight:500;line-height:1">● Stap</p><p class="lbl" style="color:var(--navy);margin-top:12px;font-size:18px">Para onde vamos</p></div>
+    <span style="position:absolute;left:542px;bottom:22px;font-size:22px;letter-spacing:1px;color:var(--label)">Generalista que prova</span>
+    <div style="position:absolute;inset:0" id="mxp"><span class="ag" data-s="1" style="left:180px;top:160px">Grupo Speed</span><span class="ag" data-s="1" style="left:80px;top:280px">Hype</span><span class="ag" data-s="1" style="left:90px;top:520px">TM1</span><span class="ag" data-s="1" style="left:120px;top:640px">BFerraz</span><span class="ag" data-s="1" style="left:300px;top:580px">Rock</span><span class="ag" data-s="1" style="left:600px;top:480px">Netza</span><span class="ag" data-s="1" style="left:700px;top:600px">Innova AATB</span><span class="ag" data-s="1" style="left:620px;top:700px">Red Door</span>
+      <div data-s="2" style="position:absolute;left:120px;top:72px;padding:6px 18px;border:2px dashed #404040;border-radius:40px;font-size:27px;font-weight:600">Stap hoje</div>
+      <div data-s="3" style="position:absolute;left:600px;top:140px"><p style="font-size:64px;font-weight:500;line-height:1">● Stap</p><p class="lbl" style="color:var(--navy);margin-top:12px;font-size:18px">Agro e Auto, com prova</p></div>
     </div>
   </div>
-  <p class="foot" style="left:760px">Netza e Innova: números de escala, não de entrega · out/2026</p>
+  <p class="foot" style="left:760px">Netza, Innova e Red Door provam escala e resultado · out/2026</p>
 </section>
 
 <!-- A VIRADA -->
-<section class="scene bg-navy" data-n="Como chegamos lá">
+<section class="scene bg-navy" data-n="Como chegamos lá" data-steps="3">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <p class="lbl rv" style="--i:6">Como chegamos lá</p>
-    <h2 class="serif lg rv" style="--i:7;color:var(--off);max-width:1500px">Para ocupar o canto da prova, a Stap muda <i class="acc">por dentro e por fora.</i></h2>
-    <div class="cols" style="grid-template-columns:repeat(3,1fr);color:var(--off)">
-      <div class="rv rule" style="--i:8;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">O que dizemos</p><p class="body">Posicionamento e statement. Da emoção prometida para a emoção construída e provada.</p></div>
-      <div class="rv rule" style="--i:9;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">Como dizemos</p><p class="body">Tom de voz. Fato e emoção na mesma frase; prova no lugar do adjetivo.</p></div>
-      <div class="rv rule" style="--i:10;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">Como aparecemos</p><p class="body">Identidade visual. Uma casca à altura do que a Stap entrega.</p></div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <p class="lbl rv" style="--i:6">Como chegamos lá</p>
+      <h2 class="serif md rv" style="--i:7;color:var(--off);max-width:1600px">Para chegar ao canto da prova, <i class="acc">três camadas mudam juntas.</i></h2>
+      <p class="body rv" style="--i:8">A Stap não muda o que faz. Muda o que afirma, como fala e como aparece. Avance para ver cada camada virar.</p>
+    </div>
+    <div class="flip">
+      <div class="fr rule"><span class="lbl">O que dizemos</span><div class="fa"><span class="ov">“Transformamos design em emoção.”</span></div><span class="ar">→</span><div class="fb" data-s="1"><span class="nv">Sentimentos <i>se constroem.</i></span></div></div>
+      <div class="fr rule"><span class="lbl">Como dizemos</span><div class="fa"><span class="ov">Pergunta: “O que faz um projeto único e inspirador?”</span></div><span class="ar">→</span><div class="fb" data-s="2"><span class="nv">Fato: <i>o render aprovado ao lado do real.</i></span></div></div>
+      <div class="fr rule"><span class="lbl">Como aparecemos</span><div class="fa"><img src="a/logo-2024-off.svg" alt="Logo antigo" style="height:64px;opacity:.6"><span class="ov" style="font-size:22px">cinza, Poppins, imagem genérica</span></div><span class="ar">→</span><div class="fb" data-s="3"><img src="a/logo-off.svg" alt="Nova assinatura" style="height:78px"><span class="nv" style="font-size:30px">serifa, navy e azul, só foto real</span></div></div>
     </div>
   </div>
   <div class="casca"><p>Como a Stap chega lá?</p><img src="a/logo-2024-navy.svg" alt=""></div>
@@ -317,8 +379,8 @@ img{max-width:none;display:block}
 </section>
 
 <!-- ATO 02 -->
-<section class="scene bg-navy act" data-n="02 · O statement">
-  <p class="l tk" style="--d:5;right:128px;top:150px">02</p>
+<section class="scene bg-navy act" data-n="03 · O statement">
+  <p class="l tk" style="--d:5;right:128px;top:150px">03</p>
   <div class="l" style="--d:2;left:128px;bottom:140px;width:1100px;display:flex;flex-direction:column;gap:24px">
     <h2 class="serif xl rv">O statement.</h2>
     <p class="body rv" style="--i:1">O insight que saiu do estudo, a frase e a plataforma que ela organiza.</p>
@@ -328,10 +390,10 @@ img{max-width:none;display:block}
 <!-- CRENÇA E PROVA -->
 <section class="scene bg-white" data-n="Crença e prova">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif lg rv">Tínhamos a crença. <i class="acc">Faltava a prova.</i></h2>
+    <h2 class="serif lg rv">A crença diz por quê. <i class="acc">A prova mostra como.</i></h2>
     <div class="cols" style="grid-template-columns:1fr 1fr;gap:80px">
       <div class="rv rule" style="--i:1;padding-top:28px;display:flex;flex-direction:column;gap:20px"><p class="lbl">A crença</p><p class="serif sm">“Você não é o que você faz. Você é o que você faz as pessoas sentirem.”</p><p class="body">A alma do <i>feelings</i>. Sozinha, vira poesia: qualquer agência poderia dizer.</p></div>
-      <div class="rv rule" style="--i:2;padding-top:28px;display:flex;flex-direction:column;gap:20px"><p class="lbl">A prova</p><p class="serif sm">Criação, arquitetura e produção no mesmo time. <i class="acc">O que o cliente aprova é o que o público encontra.</i></p><p class="body">É o que o mercado não mostra e o que quem contrata quer ver.</p></div>
+      <div class="rv rule" style="--i:2;padding-top:28px;display:flex;flex-direction:column;gap:20px"><p class="lbl">A prova</p><p class="serif sm">O render aprovado ao lado do projeto montado. <i class="acc">Em Agro e em Auto.</i></p><p class="body">Ter criação, arquitetura e produção juntas, outras agências também dizem. O que ninguém faz é mostrar que o aprovado virou o entregue. E a Stap pode mostrar isso onde é especialista.</p></div>
     </div>
   </div>
 </section>
@@ -349,6 +411,13 @@ img{max-width:none;display:block}
 </section>
 
 <!-- STATEMENT -->
+<section class="scene bg-navy" data-n="Manifesto" data-steps="1">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center;gap:48px">
+    <p class="lbl rv mfl">Manifesto</p>
+    <div class="serif rv mf" style="--i:1;font-size:76px;line-height:1.12;letter-spacing:-1.5px;color:var(--off)"><span>Todo mundo promete emoção.</span><span>Pouca gente mostra como ela é feita.</span><span>Na Stap, ela começa num traço,</span><span>vira render,</span><span>e chega ao público do jeito que foi aprovada.</span><span>Há 34 anos, quem desenha é quem entrega.</span><span class="last"><i style="color:var(--light)">Sentimentos se constroem.</i></span></div>
+  </div>
+</section>
+
 <section class="scene bg-grad" data-n="Sentimentos se constroem">
   <div class="l pad" style="--d:3;display:flex;flex-direction:column;justify-content:center;gap:56px">
     <h1 class="serif rv" style="font-size:260px;line-height:.92;letter-spacing:-6px;color:var(--off);white-space:nowrap">Sentimentos<br><i>se constroem.</i></h1>
@@ -357,12 +426,7 @@ img{max-width:none;display:block}
 </section>
 
 <!-- MANIFESTO -->
-<section class="scene bg-navy" data-n="Manifesto">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center;gap:48px">
-    <p class="lbl rv">Manifesto</p>
-    <p class="serif rv" style="--i:1;font-size:76px;line-height:1.12;letter-spacing:-1.5px;color:var(--off)">Todo mundo promete emoção.<br>Pouca gente mostra como ela é feita.<br>Na Stap, ela começa num traço,<br>vira render,<br>e chega ao público do jeito que foi aprovada.<br>Há 34 anos, quem desenha é quem entrega.<br><i style="color:var(--light)">Sentimentos se constroem.</i></p>
-  </div>
-</section>
+
 
 <!-- PLATAFORMA -->
 <section class="scene bg-white" data-n="Plataforma">
@@ -370,7 +434,6 @@ img{max-width:none;display:block}
     <h2 class="serif md rv">Cada frase <i class="acc">com uma função.</i></h2>
     <div>
       <div class="row rv" style="--i:1;grid-template-columns:240px 1fr 400px"><span class="lbl acc">Statement</span><span class="serif sm">Sentimentos <i class="acc">se constroem.</i></span><span class="body" style="font-size:23px">Assina a Stap.</span></div>
-      <div class="row rv" style="--i:2;grid-template-columns:240px 1fr 400px"><span class="lbl">Proposta</span><span class="serif xs">Criação, arquitetura e produção integradas, do projeto à montagem.</span><span class="body" style="font-size:23px">Explica o que a Stap faz.</span></div>
       <div class="row rv" style="--i:3;grid-template-columns:240px 1fr 400px"><span class="lbl">Prova</span><span class="serif xs">Do render <i>ao real.</i></span><span class="body" style="font-size:23px">O aprovado ao lado do entregue.</span></div>
       <div class="row rv" style="--i:4;grid-template-columns:240px 1fr 400px"><span class="lbl">Princípio</span><span class="serif xs">Quem desenha <i>é quem entrega.</i></span><span class="body" style="font-size:23px">Uma responsabilidade, do traço à montagem.</span></div>
       <div class="row rv" style="--i:5;grid-template-columns:240px 1fr 400px"><span class="lbl">Crença</span><span class="serif xs">Você é o que você faz as pessoas sentirem.</span><span class="body" style="font-size:23px">Por que a Stap existe.</span></div>
@@ -380,30 +443,21 @@ img{max-width:none;display:block}
 </section>
 
 <!-- DO RENDER AO REAL (etapas) -->
-<section class="scene bg-navy" data-n="Do render ao real">
+<section class="scene bg-navy" data-n="Do render ao real" data-steps="1">
   <h2 class="l rv" style="--d:1;left:128px;top:70px;color:var(--off);display:flex;align-items:baseline;gap:28px"><span class="tk" style="font-size:150px;line-height:1">Do render</span><span class="serif" style="font-size:150px;line-height:1.05;letter-spacing:-4px;color:var(--light)"><i>ao real.</i></span></h2>
   <div class="l cmpwrap" style="--d:3;left:128px;top:280px;width:1664px;height:700px">
     <div class="cmp c1" style="--x:100%"><img src="a/cmp24-real.jpg" alt="Estande Grunner montado na Agrishow 2024"><img class="top" src="a/cmp24-render.jpg" alt="Render do estande Grunner, Agrishow 2024"><div class="bar"></div><div class="knob" aria-hidden="true">‹ ›</div><span class="tag tl">Render</span><span class="tag tr">Real</span></div>
+    <div class="cmp c2" style="--x:50%"><img src="a/ford-real.jpg" alt="Estande Ford montado"><img class="top" src="a/ford-render.jpg" alt="Render do estande Ford"><div class="bar"></div><div class="knob" aria-hidden="true">‹ ›</div><span class="tag tl">Render</span><span class="tag tr">Real</span></div>
   </div>
-  <p class="foot" style="left:auto;right:128px;top:200px;bottom:auto">Grunner · Agrishow · arraste o traço</p>
+  <p class="foot" style="left:auto;right:128px;top:200px;bottom:auto"><span class="f1">Grunner · Agrishow</span> · avance para a Ford · arraste o traço</p>
 </section>
 
 <!-- TRÊS CONVERSAS -->
-<section class="scene bg-white" data-n="Três conversas">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif md rv">Um argumento <i class="acc">para cada decisor.</i></h2>
-    <div class="cols" style="grid-template-columns:repeat(3,1fr)">
-      <div class="rv rule" style="--i:1;padding-top:28px;display:flex;flex-direction:column;gap:24px"><p class="lbl acc">Marketing</p><p class="serif sm">“A ideia que você aprova chega inteira ao público.”</p><p class="body" style="font-size:24px">Prova: render × real e criatividade reconhecida.</p></div>
-      <div class="rv rule" style="--i:2;padding-top:28px;display:flex;flex-direction:column;gap:24px"><p class="lbl acc">Compras</p><p class="serif sm">“Um time só, do projeto à montagem. Menos risco.”</p><p class="body" style="font-size:24px">Prova: % no prazo, % sem aditivo [a levantar].</p></div>
-      <div class="rv rule" style="--i:3;padding-top:28px;display:flex;flex-direction:column;gap:24px"><p class="lbl acc">Eventos e trade</p><p class="serif sm">“Zero surpresa na montagem.”</p><p class="body" style="font-size:24px">O que foi aprovado no render é o que está na feira, na plenária ou no outdoor. Prova: render × real e equipe própria em campo.</p></div>
-    </div>
-    <p class="lbl rv" style="--i:4">Feiras · ativações outdoor · convenções · plenárias · campanhas de incentivo · design</p>
-  </div>
-</section>
+
 
 <!-- ATO 03 -->
-<section class="scene bg-navy act" data-n="03 · A marca">
-  <p class="l tk" style="--d:5;right:128px;top:150px">03</p>
+<section class="scene bg-navy act" data-n="04 · A marca">
+  <p class="l tk" style="--d:5;right:128px;top:150px">04</p>
   <div class="l" style="--d:2;left:128px;bottom:140px;width:1200px;display:flex;flex-direction:column;gap:24px">
     <h2 class="serif xl rv">A marca.</h2>
     <p class="body rv" style="--i:1">Um statement novo pede uma voz à altura.</p>
@@ -441,8 +495,8 @@ img{max-width:none;display:block}
 </section>
 
 <!-- ATO 04 -->
-<section class="scene bg-navy act" data-n="04 · O sistema">
-  <p class="l tk" style="--d:5;right:128px;top:150px">04</p>
+<section class="scene bg-navy act" data-n="05 · O sistema">
+  <p class="l tk" style="--d:5;right:128px;top:150px">05</p>
   <div class="l" style="--d:2;left:128px;bottom:140px;width:1100px;display:flex;flex-direction:column;gap:24px">
     <h2 class="serif xl rv">O sistema.</h2>
     <p class="body rv" style="--i:1">Tipografia, cor, degradês e um elemento próprio.</p>
@@ -493,28 +547,10 @@ img{max-width:none;display:block}
 
 
 <!-- LOGO DE UMA COR -->
-<section class="scene bg-white" data-n="Uma cor">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">Uma assinatura, <i class="acc">sempre de uma cor.</i></h2>
-  <div class="l rv" style="--d:3;--i:1;left:128px;top:290px;width:530px;height:540px;background:var(--off);display:grid;place-items:center"><img src="a/logo-navy.svg" alt="Logo navy sobre off-white" style="width:380px"></div>
-  <div class="l rv" style="--d:5;--i:2;left:695px;top:290px;width:530px;height:540px;background:var(--navy);display:grid;place-items:center"><img src="a/logo-off.svg" alt="Logo off-white sobre navy" style="width:380px"></div>
-  <div class="l rv" style="--d:7;--i:3;left:1262px;top:290px;width:530px;height:540px;background:var(--light);display:grid;place-items:center"><img src="a/logo-navy.svg" alt="Logo navy sobre azul-claro" style="width:380px"></div>
-  <p class="l body rv" style="--d:2;--i:4;left:128px;top:880px;max-width:1500px">Vertical como principal, horizontal para cabeçalhos, reduzidas para tamanhos pequenos. O degradê nunca entra no logo.</p>
-</section>
+
 
 <!-- EM UMA PÁGINA -->
-<section class="scene bg-off" data-n="Em uma página">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;gap:44px">
-    <h2 class="serif md rv">A nova Stap, <i class="acc">em uma página.</i></h2>
-    <div style="flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:16px">
-      <div class="rv" style="--i:1;background:var(--navy);padding:32px;display:flex;flex-direction:column;justify-content:space-between"><p class="lbl" style="color:var(--light)">Statement</p><p class="serif sm" style="color:var(--off)">Sentimentos <i>se constroem.</i></p></div>
-      <div class="rv" style="--i:2;background:var(--white);padding:32px;display:flex;flex-direction:column;justify-content:space-between"><p class="lbl">Proposta de valor</p><p class="serif xs">Criação, arquitetura e produção integradas, do projeto à montagem.</p></div>
-      <div class="rv" style="--i:3;background:var(--white);padding:32px;display:flex;flex-direction:column;justify-content:space-between"><p class="lbl">Prova</p><p class="serif sm">Do render <i class="acc">ao real.</i></p></div>
-      <div class="rv" style="--i:4;background:var(--white);padding:32px;display:flex;flex-direction:column;justify-content:space-between"><p class="lbl">Assinatura</p><img src="a/logo-navy.svg" alt="Logo Stap Feelings" style="width:250px"></div>
-      <div class="rv" style="--i:5;background:linear-gradient(160deg,#07111F 0%,#1F4FA8 65%,#9ED0F0 100%);padding:32px;display:flex;flex-direction:column;justify-content:space-between"><p class="lbl" style="color:var(--light)">Identidade</p><p class="body" style="font-size:25px;color:var(--off)">Serifa que lidera, base clara, azuis como luz, degradês e só foto real.</p></div>
-      <div class="rv" style="--i:6;background:var(--light);padding:32px;display:flex;flex-direction:column;justify-content:space-between"><p class="lbl" style="color:var(--navy2)">Elemento próprio</p><p class="body" style="font-size:25px;color:var(--navy)">O traço que divide o render do real, em toda peça.</p></div>
-    </div>
-  </div>
-</section>
+
 
 <!-- MENU: O STATEMENT VAI PARA A RUA -->
 <section class="scene bg-navy" data-n="As peças">
@@ -524,6 +560,7 @@ img{max-width:none;display:block}
     <a class="rv" style="--i:2" href="https://kcooyakawa.github.io/stap-feelings/index.html" target="_blank" rel="noopener"><span class="n">02</span><span class="t">Site</span><span class="d">abrir ↗</span></a>
     <a class="rv" style="--i:3" href="https://kcooyakawa.github.io/DeckStap/#manifesto-filme" target="_blank" rel="noopener"><span class="n">03</span><span class="t">Vídeo manifesto</span><span class="d">no deck ↗</span></a>
     <a class="rv soon" style="--i:4" href="#" aria-disabled="true" tabindex="-1"><span class="n">04</span><span class="t">Redes sociais</span><span class="d">em construção</span></a>
+    <a class="rv soon" style="--i:5" href="#" aria-disabled="true" tabindex="-1"><span class="n">05</span><span class="t">Templates</span><span class="d">em construção</span></a>
   </nav>
 </section>
 
