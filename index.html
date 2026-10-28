@@ -161,8 +161,29 @@ img{max-width:none;display:block}
 .flip [data-s]{translate:40px 0}
 .mf span{display:block;transition:opacity .8s var(--out),transform 1.2s var(--ease)}
 .mf .last{transform-origin:left center}
-.st1 .mf span:not(.last),.st1 .mfl{opacity:0;transition:opacity .8s var(--out)}
-.st1 .mf .last{transform:translateY(-280px) scale(2.6)}
+.st1 .mf span:not(.last),.st1 .mfl{opacity:0;transition:opacity .7s var(--out)}
+.st1 .mf .last{opacity:0;transform:translateY(-120px) scale(1.6);transition:opacity .6s .5s,transform 1.1s var(--ease)}
+.mfbg{position:absolute;inset:0;background:linear-gradient(160deg,#07111F 0%,#1F4FA8 65%,#9ED0F0 100%);opacity:0;transition:opacity 1.2s var(--ease) .3s;z-index:0}
+.st1 .mfbg{opacity:1}
+.mfh{opacity:0;transform:translateY(260px) scale(.32);transform-origin:left bottom;transition:opacity .8s .4s,transform 1.3s var(--ease) .2s}
+.st1 .mfh{opacity:1;transform:none}
+.vr .band{position:absolute;inset:0;clip-path:inset(0 100% 0 0);transition:clip-path 1.1s var(--ease)}
+.vr .b1{background:#9ED0F0}.vr .b2{background:#1F4FA8}.vr .b3{background:linear-gradient(160deg,#07111F 0%,#0B1C2D 70%,#1F4FA8 140%)}
+.vr.on .b1{clip-path:inset(0 0 0 0);transition-delay:1.6s}.vr.on .b2{clip-path:inset(0 0 0 0);transition-delay:1.78s}.vr.on .b3{clip-path:inset(0 0 0 0);transition-delay:1.96s}
+.vr .vlogo{position:absolute;right:128px;top:44px;width:110px;z-index:3;transition:opacity .5s 1.5s}
+.vr.on .vlogo{opacity:0}
+.vr .vlbl{position:absolute;left:128px;top:120px;z-index:3;font-size:22px;letter-spacing:5px;text-transform:uppercase;margin:0}
+.vr .vo{font-family:'Poppins',Arial,sans-serif;color:#7A7A7A;transition:opacity .4s 1.4s}.vr.on .vo{opacity:0}
+.vr .vn{font-family:var(--sans);color:#9ED0F0;opacity:0;transition:opacity .8s 3.2s}.vr.on .vn{opacity:1}
+.vr .vh{position:absolute;left:128px;top:380px;width:1700px;z-index:3;margin:0;font-weight:400;font-size:150px;line-height:1.15}
+.vr .vh span{display:inline-block;transition:clip-path .7s var(--ease)}
+.vr .vho{font-family:'Poppins',Arial,sans-serif;font-weight:300;color:#404040;letter-spacing:-2px}
+.vr .vho span{clip-path:inset(-10% 0 -20% 0)}
+.vr .vhn{font-family:var(--serif);color:#EEE9E1;letter-spacing:-3px;font-size:180px;line-height:1.05}
+.vr .vhn span{clip-path:inset(100% 0 -20% 0)}
+.vr .vhn .it{font-style:italic;color:#9ED0F0}
+.vr.on .vho span{clip-path:inset(-10% 0 120% 0);transition-delay:calc(1.75s + var(--k)*.05s)}
+.vr.on .vhn span{clip-path:inset(-10% 0 -20% 0);transition-delay:calc(2.7s + var(--k)*.1s)}
 .casca{position:absolute;inset:0;z-index:4;background:#E9E9EA;display:flex;align-items:center;padding:0 128px;clip-path:inset(0 0 0 0);transition:clip-path 1.2s var(--ease) 1.3s;pointer-events:none}
 .casca p{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:96px;color:#404040;margin:0}
 .casca img{position:absolute;right:128px;top:44px;width:110px}
@@ -350,17 +371,23 @@ img{max-width:none;display:block}
 </section>
 
 <!-- A VIRADA -->
-<section class="scene bg-navy" data-n="Como chegamos lá" data-steps="3">
+<section class="scene vr" data-n="A virada" style="background:#E9E9EA">
+  <div class="band b1"></div><div class="band b2"></div><div class="band b3"></div>
+  <img class="vlogo" src="a/logo-2024-navy.svg" alt="">
+  <p class="vlbl vo">Até aqui, a linguagem de hoje.</p>
+  <p class="vlbl vn">Daqui em diante, a linguagem nova.</p>
+  <h2 class="vh vho"><span class="o" style="--k:0">Agora,</span> <span class="o" style="--k:1">a</span> <span class="o" style="--k:2">Stap</span> <span class="o" style="--k:3">muda</span> <span class="o" style="--k:4">de</span> <span class="o" style="--k:5">casca.</span></h2>
+  <h2 class="vh vhn"><span class="n" style="--k:0">Agora,</span> <span class="n" style="--k:1">a</span> <span class="n" style="--k:2">Stap</span> <span class="n it" style="--k:3">muda</span> <span class="n it" style="--k:4">de</span> <span class="n it" style="--k:5">casca.</span></h2>
+</section>
+
+<section class="scene bg-navy" data-n="Como chegamos lá">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <div style="display:flex;flex-direction:column;gap:20px">
-      <p class="lbl rv" style="--i:6">Como chegamos lá</p>
-      <h2 class="serif md rv" style="--i:7;color:var(--off);max-width:1600px">Para chegar ao canto da prova, <i class="acc">três camadas mudam juntas.</i></h2>
-      <p class="body rv" style="--i:8">A Stap não muda o que faz. Muda o que afirma, como fala e como aparece. É isso que os próximos capítulos respondem.</p>
-    </div>
-    <div class="flip">
-      <div class="fr rule"><span class="lbl">O que dizemos</span><div class="fa"><span class="ov">“Transformamos design em emoção.”</span></div><span class="ar">→</span><div class="fb" data-s="1"><span class="nv">Dizer <i>como a emoção é feita.</i></span></div></div>
-      <div class="fr rule"><span class="lbl">Como dizemos</span><div class="fa"><span class="ov">Pergunta: “O que faz um projeto único e inspirador?”</span></div><span class="ar">→</span><div class="fb" data-s="2"><span class="nv">Falar com fato, <i>não com adjetivo.</i></span></div></div>
-      <div class="fr rule"><span class="lbl">Como aparecemos</span><div class="fa"><img src="a/logo-2024-off.svg" alt="Logo antigo" style="height:64px;opacity:.6"><span class="ov" style="font-size:22px">cinza, Poppins, imagem genérica</span></div><span class="ar">→</span><div class="fb" data-s="3"><span class="nv">Uma casca <i>à altura do que a Stap entrega.</i></span></div></div>
+    <p class="lbl rv" style="--i:6">Como chegamos lá</p>
+    <h2 class="serif lg rv" style="--i:7;color:var(--off);max-width:1500px">Para ocupar o canto da prova, a Stap muda <i class="acc">por dentro e por fora.</i></h2>
+    <div class="cols" style="grid-template-columns:repeat(3,1fr);color:var(--off)">
+      <div class="rv rule" style="--i:8;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">O que dizemos</p><p class="body">Posicionamento e statement. Da emoção prometida para a emoção construída e provada.</p></div>
+      <div class="rv rule" style="--i:9;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">Como dizemos</p><p class="body">Tom de voz. Fato e emoção na mesma frase; prova no lugar do adjetivo.</p></div>
+      <div class="rv rule" style="--i:10;padding-top:24px;display:flex;flex-direction:column;gap:16px"><p class="tk" style="font-size:72px;color:var(--light)">Como aparecemos</p><p class="body">Identidade visual. Uma casca à altura do que a Stap entrega.</p></div>
     </div>
   </div>
   <div class="casca"><p>Como a Stap chega lá?</p><img src="a/logo-2024-navy.svg" alt=""></div>
@@ -412,15 +439,20 @@ img{max-width:none;display:block}
 
 <!-- STATEMENT -->
 <section class="scene bg-navy" data-n="Manifesto" data-steps="1">
+  <div class="mfbg"></div>
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center;gap:48px">
     <p class="lbl rv mfl">Manifesto</p>
     <div class="serif rv mf" style="--i:1;font-size:76px;line-height:1.12;letter-spacing:-1.5px;color:var(--off)"><span>Todo mundo promete emoção.</span><span>Pouca gente mostra como ela é feita.</span><span>Na Stap, ela começa num traço,</span><span>vira render,</span><span>e chega ao público do jeito que foi aprovada.</span><span>Há 34 anos, quem desenha é quem entrega.</span><span class="last"><i style="color:var(--light)">Sentimentos se constroem.</i></span></div>
+  </div>
+  <div class="l pad" style="--d:3;display:flex;flex-direction:column;justify-content:center;gap:56px;pointer-events:none">
+    <h1 class="serif mfh" style="font-size:260px;line-height:.92;letter-spacing:-6px;color:var(--off);white-space:nowrap;margin:0">Sentimentos<br><i>se constroem.</i></h1>
+    <p class="body" style="visibility:hidden">Do render ao real: criação, arquitetura e produção integradas, do projeto à montagem.</p>
   </div>
 </section>
 
 <section class="scene bg-grad" data-n="Sentimentos se constroem">
   <div class="l pad" style="--d:3;display:flex;flex-direction:column;justify-content:center;gap:56px">
-    <h1 class="serif rv" style="font-size:260px;line-height:.92;letter-spacing:-6px;color:var(--off);white-space:nowrap">Sentimentos<br><i>se constroem.</i></h1>
+    <h1 class="serif" style="font-size:260px;line-height:.92;letter-spacing:-6px;color:var(--off);white-space:nowrap;margin:0">Sentimentos<br><i>se constroem.</i></h1>
     <p class="body rv" style="--i:4;color:var(--off)">Do render ao real: criação, arquitetura e produção integradas, do projeto à montagem.</p>
   </div>
 </section>
@@ -430,14 +462,13 @@ img{max-width:none;display:block}
 
 <!-- PLATAFORMA -->
 <section class="scene bg-white" data-n="Plataforma">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif md rv">Cada frase <i class="acc">com uma função.</i></h2>
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center">
     <div>
-      <div class="row rv" style="--i:1;grid-template-columns:240px 1fr 400px"><span class="lbl acc">Statement</span><span class="serif sm">Sentimentos <i class="acc">se constroem.</i></span><span class="body" style="font-size:23px">Assina a Stap.</span></div>
-      <div class="row rv" style="--i:3;grid-template-columns:240px 1fr 400px"><span class="lbl">Prova</span><span class="serif xs">Do render <i>ao real.</i></span><span class="body" style="font-size:23px">O aprovado ao lado do entregue.</span></div>
-      <div class="row rv" style="--i:4;grid-template-columns:240px 1fr 400px"><span class="lbl">Princípio</span><span class="serif xs">Quem desenha <i>é quem entrega.</i></span><span class="body" style="font-size:23px">Uma responsabilidade, do traço à montagem.</span></div>
-      <div class="row rv" style="--i:5;grid-template-columns:240px 1fr 400px"><span class="lbl">Crença</span><span class="serif xs">Você é o que você faz as pessoas sentirem.</span><span class="body" style="font-size:23px">Por que a Stap existe.</span></div>
-      <div class="row rv" style="--i:6;grid-template-columns:240px 1fr 400px"><span class="lbl">Cultura</span><span class="serif xs">Sinta-se em casa.</span><span class="body" style="font-size:23px">A Casa e a relação.</span></div>
+      <div class="row rv" style="border:0;padding:26px 0;--i:1;grid-template-columns:260px 1fr 420px"><span class="lbl acc">Statement</span><span class="serif md">Sentimentos <i class="acc">se constroem.</i></span><span class="body" style="font-size:26px">Assina a Stap.</span></div>
+      <div class="row rv" style="border:0;padding:26px 0;--i:3;grid-template-columns:260px 1fr 420px"><span class="lbl">Prova</span><span class="serif sm">Do render <i>ao real.</i></span><span class="body" style="font-size:26px">O aprovado ao lado do entregue.</span></div>
+      <div class="row rv" style="border:0;padding:26px 0;--i:4;grid-template-columns:260px 1fr 420px"><span class="lbl">Princípio</span><span class="serif sm">Quem desenha <i>é quem entrega.</i></span><span class="body" style="font-size:26px">Uma responsabilidade, do traço à montagem.</span></div>
+      <div class="row rv" style="border:0;padding:26px 0;--i:5;grid-template-columns:260px 1fr 420px"><span class="lbl">Crença</span><span class="serif sm">Você é o que você faz as pessoas sentirem.</span><span class="body" style="font-size:26px">Por que a Stap existe.</span></div>
+      <div class="row rv" style="border:0;padding:26px 0;--i:6;grid-template-columns:260px 1fr 420px"><span class="lbl">Cultura</span><span class="serif sm">Sinta-se em casa.</span><span class="body" style="font-size:26px">A Casa e a relação.</span></div>
     </div>
   </div>
 </section>
@@ -446,10 +477,10 @@ img{max-width:none;display:block}
 <section class="scene bg-navy" data-n="Do render ao real" data-steps="1">
   <h2 class="l rv" style="--d:1;left:128px;top:70px;color:var(--off);display:flex;align-items:baseline;gap:28px"><span class="tk" style="font-size:150px;line-height:1">Do render</span><span class="serif" style="font-size:150px;line-height:1.05;letter-spacing:-4px;color:var(--light)"><i>ao real.</i></span></h2>
   <div class="l cmpwrap" style="--d:3;left:128px;top:280px;width:1664px;height:700px">
-    <div class="cmp c1" style="--x:100%"><img src="a/cmp24-real.jpg" alt="Estande Grunner montado na Agrishow 2024"><img class="top" src="a/cmp24-render.jpg" alt="Render do estande Grunner, Agrishow 2024"><div class="bar"></div><div class="knob" aria-hidden="true">‹ ›</div><span class="tag tl">Render</span><span class="tag tr">Real</span></div>
+    <div class="cmp c1" style="--x:100%"><img src="a/grunner-real.jpg" alt="Estande Grunner montado"><img class="top" src="a/grunner-render.jpg" alt="Render do estande Grunner"><div class="bar"></div><div class="knob" aria-hidden="true">‹ ›</div><span class="tag tl">Render</span><span class="tag tr">Real</span></div>
     <div class="cmp c2" style="--x:50%"><img src="a/ford-real.jpg" alt="Estande Ford montado"><img class="top" src="a/ford-render.jpg" alt="Render do estande Ford"><div class="bar"></div><div class="knob" aria-hidden="true">‹ ›</div><span class="tag tl">Render</span><span class="tag tr">Real</span></div>
   </div>
-  <p class="foot" style="left:auto;right:128px;top:200px;bottom:auto"><span class="f1">Grunner · Agrishow</span> · avance para a Ford · arraste o traço</p>
+  <p class="foot" style="left:auto;right:128px;top:200px;bottom:auto">Grunner · avance para a Ford · arraste o traço</p>
 </section>
 
 <!-- TRÊS CONVERSAS -->
