@@ -841,6 +841,25 @@ h1.serif,h2.serif{text-wrap:balance}
 .fleg p{margin:0;font-size:19px;color:#AEB9C8;display:flex;flex-direction:column;gap:2px}
 .fleg b{font-family:var(--impact);font-weight:500;font-size:30px;text-transform:uppercase;color:var(--off)}
 .tv .tvp.p1 .tvA i,.tv .tvp.p1 .tvS i{color:#9ED0F0}.tv .tvp.p3 .tvS{white-space:normal}
+
+/* órbita */
+.orb{overflow:hidden}
+.ob-bg{position:absolute;inset:0;background:radial-gradient(55% 60% at 50% 50%,#1F4FA8 0%,#0B1C2D 60%,#07111F 100%)}
+.ob-ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid rgba(158,208,240,.28);transform:translate(-50%,-50%) scale(.6);opacity:0;transition:transform 1.6s cubic-bezier(.16,1,.3,1) .3s,opacity 1s .3s}
+.ob-ring.r1{width:880px;height:880px}.ob-ring.r2{width:560px;height:560px;border-style:dashed;border-color:rgba(158,208,240,.18)}
+.orb.on .ob-ring{transform:translate(-50%,-50%);opacity:1}
+.ob-sys{position:absolute;left:50%;top:50%;width:0;height:0;animation:obr 90s linear infinite}
+@keyframes obr{to{transform:rotate(360deg)}}
+.ob-n{position:absolute;left:0;top:0;transform:rotate(var(--a)) translateX(440px)}
+.ob-c{position:absolute;left:0;top:0;transform:translate(-50%,-50%) rotate(calc(-1*var(--a)));display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;opacity:0;transition:opacity .8s calc(.9s + var(--k)*.15s)}
+.ob-c::before{content:"";width:18px;height:18px;border-radius:50%;background:#9ED0F0;box-shadow:0 0 0 8px rgba(158,208,240,.15);margin-bottom:8px}
+.orb.on .ob-c{opacity:1}
+.ob-c b{font-family:var(--impact);font-weight:500;font-size:48px;line-height:1;text-transform:uppercase;color:#EEE9E1;white-space:nowrap}
+.ob-c span{font-size:19px;color:#AFC6DD;white-space:nowrap}
+.ob-sys .ob-c{animation:obc 90s linear infinite}
+@keyframes obc{from{transform:translate(-50%,-50%) rotate(calc(-1*var(--a)))}to{transform:translate(-50%,-50%) rotate(calc(-1*var(--a) - 360deg))}}
+.ob-mid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px}
+.ob-mid h2{font-size:110px;line-height:.95;letter-spacing:-3px;color:#EEE9E1;margin:0;font-weight:400;white-space:nowrap}.ob-mid h2 i{color:#9ED0F0}
 </style>
 
 </head>
@@ -979,7 +998,7 @@ h1.serif,h2.serif{text-wrap:balance}
     <div style="display:flex;justify-content:space-between;align-items:flex-end"><h2 class="rv" style="font-size:96px;font-weight:300;letter-spacing:-3px;line-height:1;margin:0;color:#F2F2F2">A Stap hoje,<br><span style="color:#8A8A8A">em um quadro.</span></h2>
     <div class="rv qleg" style="--i:1"><span><b class="qd v0"></b>funciona</span><span><b class="qd v1"></b>em parte</span><span><b class="qd v2"></b>não funciona</span></div></div>
     <div class="qgrid"><div class="qc" data-q="0"><p class="qh">Site</p><div class="qr v2" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">bloqueado no Google</p></div></div><div class="qr v2" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">banco de imagem</p></div></div><div class="qr v2" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">parado</p></div></div><div class="qr v1" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">lento, 7,2 s</p></div></div></div><div class="qc" data-q="1"><p class="qh">Apresentação</p><div class="qr v2" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">só por anexo</p></div></div><div class="qr v1" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">sim, mas em 99 slides</p></div></div><div class="qr v1" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">versões soltas</p></div></div><div class="qr v2" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">não abre</p></div></div></div><div class="qc" data-q="2"><p class="qh">Instagram</p><div class="qr v1" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">sim, 4,8 mil</p></div></div><div class="qr v1" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">KVs do cliente</p></div></div><div class="qr v2" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">blocos e silêncio</p></div></div><div class="qr v0" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">sim</p></div></div></div><div class="qc" data-q="3"><p class="qh">LinkedIn</p><div class="qr v2" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">página parada</p></div></div><div class="qr v2" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">3 vídeos antigos</p></div></div><div class="qr v2" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">parado há 5 anos</p></div></div><div class="qr v0" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">sim</p></div></div></div></div>
-    <p class="qv" style="font-size:44px;font-weight:300;letter-spacing:-1px;line-height:1.15;color:#F2F2F2;margin:0">A Stap tem material e audiência.<br><span style="color:#8A8A8A">Falta um sistema que faça os canais trabalharem juntos.</span></p>
+    <p class="qv" style="font-size:44px;font-weight:300;letter-spacing:-1px;line-height:1.15;color:#F2F2F2;margin:0">A Stap tem material e audiência. Falta um sistema:<br><span style="color:#8A8A8A">uma só história, e um papel e um ritmo para cada canal.</span></p>
   </div>
 </section>
 
@@ -1091,7 +1110,7 @@ h1.serif,h2.serif{text-wrap:balance}
     <div class="culL">
       <p class="lbl rv">A base</p>
       <h2 class="serif rv" style="--i:1;font-size:120px;line-height:.98;letter-spacing:-3px;margin:0">Parceiros<br>de negócio,<br><i class="acc">não só<br>funcionários.</i></h2>
-      <div class="rv" style="--i:6"><p class="serif" style="font-size:36px;line-height:1.2">Sentimentos se constroem<br>por dentro também.</p><p class="serif acc" style="font-size:36px;line-height:1.2"><i>A marca só se sustenta se a cultura<br>for a mesma.</i></p></div>
+      <div class="rv" style="--i:6"><p class="serif acc" style="font-size:36px;line-height:1.2"><i>A marca só se sustenta se a cultura<br>for a mesma.</i></p></div>
     </div>
     <div class="culR">
       <div class="cr rv" style="--i:2"><span class="cn">01</span><div><p class="lbl">Dono</p><p class="body">Tratar a Stap como o próprio negócio e melhorar o que encontrar pelo caminho, em qualquer nível.</p></div></div>
@@ -1146,7 +1165,7 @@ h1.serif,h2.serif{text-wrap:balance}
 <section class="scene bg-white" data-n="Crença e prova">
   <div class="l pad" style="--d:2;display:grid;grid-template-columns:1fr 1fr;gap:140px;align-items:center">
     <div class="rv" style="--i:1;display:flex;flex-direction:column;gap:36px;align-self:center"><p class="lbl">A crença</p><p class="serif cq"><span>“Você não é o que você faz.</span><span>Você é o que faz<br>as pessoas <i class="acc">sentirem.”</i></span></p><p class="body">A alma do <i>feelings</i>. Sozinha, vira poesia: qualquer agência poderia dizer. Ao lado da prova, vira argumento.</p></div>
-    <div class="rv" style="--i:3;display:flex;flex-direction:column;gap:36px"><p class="lbl acc">A prova</p><p class="serif" style="font-size:72px;line-height:1.08;letter-spacing:-1.5px">A segurança de receber<br><i class="acc">o que foi aprovado.</i></p><div class="pv"><p><b>O render é documento.</b> O que o cliente aprova é o que ele recebe.</p><p><b>O prazo é processo.</b> Logística, fornecedores e montagem com o estande pronto antes da abertura.</p><p><b>A estrutura é segura.</b> Projeto de engenharia e responsável técnico em cada montagem.</p><p><b>34 anos de bagagem.</b> Quem desenha é quem entrega.</p></div></div>
+    <div class="rv" style="--i:3;display:flex;flex-direction:column;gap:36px"><p class="lbl acc">A prova</p><p class="serif" style="font-size:72px;line-height:1.08;letter-spacing:-1.5px">A segurança de receber<br><i class="acc">o que foi aprovado.</i></p><div class="pv"><p><b>Do render ao real.</b> O que o cliente aprova é o que ele recebe.</p><p><b>Números de entrega.</b> Cada case com a sua ficha: prazo, montagem, área.</p><p><b>Arquitetura in-house.</b> Projeto e responsável técnico em cada montagem.</p><p><b>Processo.</b> Logística e fornecedores afinados, estande pronto antes da abertura.</p><p><b>34 anos de bagagem.</b> Quem desenha é quem entrega.</p></div></div>
   </div>
 </section>
 
@@ -1186,9 +1205,18 @@ h1.serif,h2.serif{text-wrap:balance}
 
 
 <!-- DO RENDER AO REAL (etapas) -->
+<section class="scene bg-navy orb" data-n="Sentimentos com todos">
+  <div class="ob-bg"></div>
+  <div class="ob-ring r1"></div><div class="ob-ring r2"></div>
+  <div class="ob-sys"><div class="ob-n" style="--a:-90deg;--k:0"><div class="ob-c"><b>Clientes</b><span>relações que duram anos</span></div></div><div class="ob-n" style="--a:-30deg;--k:1"><div class="ob-c"><b>Time</b><span>cultura de dono</span></div></div><div class="ob-n" style="--a:30deg;--k:2"><div class="ob-c"><b>Fornecedores</b><span>processo e confiança</span></div></div><div class="ob-n" style="--a:90deg;--k:3"><div class="ob-c"><b>Parceiros</b><span>entregam junto</span></div></div><div class="ob-n" style="--a:150deg;--k:4"><div class="ob-c"><b>Gestão</b><span>decisão e cuidado</span></div></div><div class="ob-n" style="--a:210deg;--k:5"><div class="ob-c"><b>Público</b><span>a experiência no dia</span></div></div></div>
+  <div class="ob-mid rv" style="--i:1"><p class="lbl" style="color:var(--light)">Vale para todos</p><h2 class="serif">Sentimentos<br><i>se constroem.</i></h2></div>
+  <p class="l body rv" style="--d:2;--i:8;left:96px;top:80px;color:var(--off);font-size:22px;max-width:400px">Com o cliente, o time, os fornecedores e os parceiros. Com o tempo, a confiança dá peso ao negócio e vira a assinatura da Stap.</p>
+</section>
+
 <section class="scene bg-navy act" data-n="Do render ao real · abertura">
   <div class="l" style="--d:2;left:128px;right:128px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:40px">
     <h2 class="rv" style="margin:0;display:flex;flex-direction:column;line-height:.86"><span class="tk" style="font-size:330px;color:var(--off)">DO RENDER</span><span class="serif" style="font-size:300px;letter-spacing:-8px;color:var(--light);line-height:.95"><i>ao real.</i></span></h2>
+    <p class="lbl rv" style="color:var(--light);order:-1">Como a Stap materializa isso</p>
     <p class="body rv" style="--i:2;color:var(--off);max-width:none;font-size:30px">O que o cliente aprova no 3D é o que ele encontra no dia. Do traço ao estande montado, com o mesmo time.</p>
   </div>
 </section>
