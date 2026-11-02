@@ -731,7 +731,7 @@ h1.serif,h2.serif{text-wrap:balance}
 .on .qr{opacity:1;transform:none}
 /* crença */
 .cq{white-space:nowrap;font-size:72px;line-height:1.08;letter-spacing:-1.5px;margin:0}
-.cq span{display:block;text-indent:-.4em}.cq span+span{margin-top:.35em;text-indent:0}
+.cq span{display:block;text-indent:-.4em}.cq span+span{margin-top:0;text-indent:0}
 /* manifesto com som */
 #mfs .mf .ln>span{transform:translateY(105%);opacity:0}
 #mfs .mf .ln.sh>span{transform:none;opacity:1;transition:transform 1.1s cubic-bezier(.16,1,.3,1),opacity .8s}
@@ -779,6 +779,45 @@ h1.serif,h2.serif{text-wrap:balance}
 .gn{font-size:16px;letter-spacing:3px;margin:0;opacity:.8}
 .gt{font-size:52px;line-height:1;margin:0;letter-spacing:-1px}
 .gk{font-size:14px;letter-spacing:4px;text-transform:uppercase;margin:10px 0 0;opacity:.75}
+
+/* quadro em etapas */
+.qd2 .qc{opacity:0;transform:translateY(30px);transition:opacity .6s var(--out),transform .8s var(--out)}
+.qd2 .qc .qr{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .6s var(--out);transition-delay:calc(.25s + var(--i)*.08s)}
+.qd2.on [data-q="0"],.qd2.st1 [data-q="1"],.qd2.st2 [data-q="1"],.qd2.st2 [data-q="2"],.qd2.st3 [data-q="1"],.qd2.st3 [data-q="2"],.qd2.st3 [data-q="3"],.qd2.st4 [data-q]{opacity:1;transform:none}
+.qd2.on [data-q="0"] .qr,.qd2.st1 [data-q="1"] .qr,.qd2.st2 [data-q="1"] .qr,.qd2.st2 [data-q="2"] .qr,.qd2.st3 [data-q="1"] .qr,.qd2.st3 [data-q="2"] .qr,.qd2.st3 [data-q="3"] .qr,.qd2.st4 [data-q] .qr{opacity:1;transform:none}
+.qd2 .qv{opacity:0;transform:translateY(20px);transition:opacity .7s var(--out),transform .9s var(--out)}
+.qd2.st4 .qv{opacity:1;transform:none}
+/* todos prometem */
+.tpl{border-top:1px solid rgba(238,233,225,.25)}
+.tpr{display:grid;grid-template-columns:220px 1fr auto;align-items:center;gap:40px;padding:22px 0;border-bottom:1px solid rgba(238,233,225,.25)}
+.tpn{font-size:120px;line-height:.9;color:var(--light);margin:0}.tpn span{font-size:48px;color:#5C6B80;margin-left:6px}
+.tpp{white-space:nowrap!important;font-size:66px!important;line-height:1;color:var(--off);margin:0;letter-spacing:-2px;white-space:nowrap}.tpp i{color:var(--light)}
+.tpa{font-size:17px;letter-spacing:3px;text-transform:uppercase;color:#8E9BAE;margin:0;text-align:right}
+/* ficha */
+.fpost{left:128px;top:110px;width:688px;height:860px}
+.fpost{overflow:hidden;border-radius:10px;box-shadow:0 40px 80px rgba(0,0,0,.45)}
+.ftrack{display:flex;width:300%;height:100%;transition:transform 1s cubic-bezier(.7,0,.2,1)}
+.st1 .ftrack{transform:translateX(-33.3333%)}.st2 .ftrack{transform:translateX(-66.6667%)}
+.fs{position:relative;flex:0 0 33.3333%;min-width:0;margin:0;overflow:hidden}
+.fs img{width:100%;height:100%;object-fit:cover;display:block}
+.fs figcaption{position:absolute;left:36px;bottom:36px;display:flex;align-items:baseline;gap:14px;color:#EEE9E1;text-shadow:0 2px 20px rgba(0,0,0,.4)}
+.fs figcaption .tk{font-size:84px;line-height:1}.fs figcaption em{font-family:var(--serif);font-size:44px}
+.fcard{box-sizing:border-box;background:linear-gradient(165deg,#07111F 0%,#13305E 60%,#1F4FA8 100%);padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;color:#EEE9E1}
+.fct{font-size:18px;letter-spacing:4px;text-transform:uppercase;color:#9ED0F0;margin:0}
+.fgrid{display:flex;flex-direction:column}
+.fgrid div{display:flex;justify-content:space-between;align-items:baseline;padding:16px 0;border-bottom:1px solid rgba(238,233,225,.22)}
+.fgrid div:first-child{border-top:1px solid rgba(238,233,225,.22)}
+.fgrid span{font-size:20px;letter-spacing:1px}
+.fgrid b{text-transform:none;font-weight:500;font-size:72px;line-height:1;color:#EEE9E1}
+.fsig{font-size:52px;margin:0;letter-spacing:-1px}.fsig i{color:#9ED0F0}
+.fdots{position:absolute;left:0;right:0;bottom:22px;display:flex;justify-content:center;gap:10px}
+.fdots i{width:9px;height:9px;border-radius:50%;background:rgba(238,233,225,.45);transition:background .4s}
+.fc .fdots i:nth-child(1),.fc.st1 .fdots i:nth-child(2),.fc.st2 .fdots i:nth-child(3){background:#EEE9E1}
+.fc.st1 .fdots i:nth-child(1),.fc.st2 .fdots i:nth-child(1){background:rgba(238,233,225,.45)}
+.fsteps{display:flex;gap:36px;font-size:18px;letter-spacing:3px;text-transform:uppercase;color:#5C6B80}
+.fsteps span{transition:color .4s}
+.fc .fsteps .a0,.fc.st1 .fsteps .a1,.fc.st2 .fsteps .a2{color:#EEE9E1}
+.fc.st1 .fsteps .a0,.fc.st2 .fsteps .a0{color:#5C6B80}
 </style>
 
 </head>
@@ -906,17 +945,17 @@ h1.serif,h2.serif{text-wrap:balance}
       <div class="rv rule" style="--i:3;padding-top:16px"><p class="dg-k">Desatualizada</p><p class="body" style="font-size:25px;margin-top:8px">Duas descrições diferentes da empresa, logo e capa antigos.</p></div>
       <div class="rv rule" style="--i:4;padding-top:16px"><p class="dg-k">Impacto</p><p class="body" style="font-size:25px;margin-top:8px">Quem pesquisa a Stap antes de uma concorrência encontra uma página vazia.</p></div>
     </div>
-    <p class="serif sm rv verdict" style="--i:6">É onde estão os compradores de Agro e Auto. <i class="acc">E é onde a Stap está em silêncio.</i></p>
+    <p class="serif sm rv verdict" style="--i:6">É onde estão os compradores de Agro e Auto.<br><i class="acc">E é onde a Stap está em silêncio.</i></p>
   </div>
   <p class="foot">linkedin.com/company/agenciastap · 02/nov/2026</p>
 </section>
 
-<section class="scene old qd2" data-n="A Stap hoje em um quadro">
+<section class="scene old qd2" data-n="A Stap hoje em um quadro" data-steps="4">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
     <div style="display:flex;justify-content:space-between;align-items:flex-end"><h2 class="rv" style="font-size:96px;font-weight:300;letter-spacing:-3px;line-height:1;margin:0;color:#F2F2F2">A Stap hoje,<br><span style="color:#8A8A8A">em um quadro.</span></h2>
     <div class="rv qleg" style="--i:1"><span><b class="qd v0"></b>funciona</span><span><b class="qd v1"></b>em parte</span><span><b class="qd v2"></b>não funciona</span></div></div>
-    <div class="qgrid"><div class="qc rv" style="--i:1"><p class="qh">Site</p><div class="qr v2" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">bloqueado no Google</p></div></div><div class="qr v2" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">banco de imagem</p></div></div><div class="qr v2" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">parado</p></div></div><div class="qr v1" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">lento, 7,2 s</p></div></div></div><div class="qc rv" style="--i:2"><p class="qh">Apresentação</p><div class="qr v2" style="--i:4"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">só por anexo</p></div></div><div class="qr v1" style="--i:5"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">sim, mas em 99 slides</p></div></div><div class="qr v1" style="--i:6"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">versões soltas</p></div></div><div class="qr v2" style="--i:7"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">não abre</p></div></div></div><div class="qc rv" style="--i:3"><p class="qh">Instagram</p><div class="qr v1" style="--i:8"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">sim, 4,8 mil</p></div></div><div class="qr v1" style="--i:9"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">KVs do cliente</p></div></div><div class="qr v2" style="--i:10"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">blocos e silêncio</p></div></div><div class="qr v0" style="--i:11"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">sim</p></div></div></div><div class="qc rv" style="--i:4"><p class="qh">LinkedIn</p><div class="qr v2" style="--i:12"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">página vazia</p></div></div><div class="qr v2" style="--i:13"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">nada</p></div></div><div class="qr v2" style="--i:14"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">nunca postou</p></div></div><div class="qr v0" style="--i:15"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">sim</p></div></div></div></div>
-    <p class="rv" style="--i:6;font-size:44px;font-weight:300;letter-spacing:-1px;line-height:1.15;color:#F2F2F2;margin:0">A Stap tem material e audiência.<br><span style="color:#8A8A8A">Falta um sistema que faça os canais trabalharem juntos.</span></p>
+    <div class="qgrid"><div class="qc" data-q="0"><p class="qh">Site</p><div class="qr v2" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">bloqueado no Google</p></div></div><div class="qr v2" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">banco de imagem</p></div></div><div class="qr v2" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">parado</p></div></div><div class="qr v1" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">lento, 7,2 s</p></div></div></div><div class="qc" data-q="1"><p class="qh">Apresentação</p><div class="qr v2" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">só por anexo</p></div></div><div class="qr v1" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">sim, mas em 99 slides</p></div></div><div class="qr v1" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">versões soltas</p></div></div><div class="qr v2" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">não abre</p></div></div></div><div class="qc" data-q="2"><p class="qh">Instagram</p><div class="qr v1" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">sim, 4,8 mil</p></div></div><div class="qr v1" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">KVs do cliente</p></div></div><div class="qr v2" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">blocos e silêncio</p></div></div><div class="qr v0" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">sim</p></div></div></div><div class="qc" data-q="3"><p class="qh">LinkedIn</p><div class="qr v2" style="--i:0"><span class="qd"></span><div><p class="qq">É encontrada?</p><p class="qa">página vazia</p></div></div><div class="qr v2" style="--i:1"><span class="qd"></span><div><p class="qq">Mostra prova?</p><p class="qa">nada</p></div></div><div class="qr v2" style="--i:2"><span class="qd"></span><div><p class="qq">É constante?</p><p class="qa">nunca postou</p></div></div><div class="qr v0" style="--i:3"><span class="qd"></span><div><p class="qq">Funciona no celular?</p><p class="qa">sim</p></div></div></div></div>
+    <p class="qv" style="font-size:44px;font-weight:300;letter-spacing:-1px;line-height:1.15;color:#F2F2F2;margin:0">A Stap tem material e audiência.<br><span style="color:#8A8A8A">Falta um sistema que faça os canais trabalharem juntos.</span></p>
   </div>
 </section>
 
@@ -947,16 +986,11 @@ h1.serif,h2.serif{text-wrap:balance}
 </section>
 
 <!-- TODOS PROMETEM -->
-<section class="scene old bg-white" data-n="Todos prometem emoção">
+<section class="scene old bg-navy tp" data-n="Todos prometem emoção">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif md rv" style="white-space:nowrap">Todos prometem <i class="acc">a mesma emoção.</i></h2>
-    <div>
-      <div class="row rv" style="--i:1;grid-template-columns:1fr auto"><span class="serif sm">Experiências memoráveis</span><span class="lbl">TM1 · Hype · Rock · BFerraz</span></div>
-      <div class="row rv" style="--i:2;grid-template-columns:1fr auto"><span class="serif sm">Conectar marcas e pessoas</span><span class="lbl">TM1 · Hype · Netza · Red Door</span></div>
-      <div class="row rv" style="--i:3;grid-template-columns:1fr auto"><span class="serif sm">360° · todas as frentes</span><span class="lbl">TM1 · Innova · Rock</span></div>
-      <div class="row rv" style="--i:4;grid-template-columns:1fr auto"><span class="serif sm">Movimento · lado a lado</span><span class="lbl">Netza · Speed · Hype</span></div>
-    </div>
-    <p class="body rv" style="--i:5;max-width:none;white-space:nowrap">O que todo mundo diz não diferencia ninguém. E a Stap também falava assim.</p>
+    <h2 class="serif md rv" style="white-space:nowrap;color:var(--off)">Todos prometem <i class="acc">a mesma emoção.</i></h2>
+    <div class="tpl"><div class="tpr rv" style="--i:1"><p class="tpn tk">4<span>/8</span></p><p class="tpp serif">“Experiências <i>memoráveis</i>”</p><p class="tpa">TM1 · Hype · Rock · BFerraz</p></div><div class="tpr rv" style="--i:2"><p class="tpn tk">4<span>/8</span></p><p class="tpp serif">“Conectar <i>marcas e pessoas</i>”</p><p class="tpa">TM1 · Hype · Netza · Red Door</p></div><div class="tpr rv" style="--i:3"><p class="tpn tk">3<span>/8</span></p><p class="tpp serif">“360° · <i>todas as frentes</i>”</p><p class="tpa">TM1 · Innova · Rock</p></div><div class="tpr rv" style="--i:4"><p class="tpn tk">3<span>/8</span></p><p class="tpp serif">“Movimento · <i>lado a lado</i>”</p><p class="tpa">Netza · Speed · Hype</p></div></div>
+    <p class="body rv" style="--i:6;max-width:none;white-space:nowrap;color:#C8C8C8">O que todo mundo diz não diferencia ninguém. E a Stap também falava assim.</p>
   </div>
 </section>
 
@@ -1047,7 +1081,7 @@ h1.serif,h2.serif{text-wrap:balance}
 <section class="scene vz3" data-n="A virada">
   <div class="cam"><div class="wall"><div class="cd" style="--c:0;--r:0;--d:3"><div class="f" style="background-image:url(a/stap-site-atual.jpg)"></div><div class="b"><div class="nw g1"></div></div></div><div class="cd" style="--c:1;--r:0;--d:2"><div class="f" style="background-image:url(a/deck-6-06.jpg)"></div><div class="b"><div class="nw nv"><span class="sf">Sentimentos</span></div></div></div><div class="cd" style="--c:2;--r:0;--d:1"><div class="f" style="background-image:url(a/deck-8-08.jpg)"></div><div class="b"><div class="nw lb"><span class="tk2">01</span></div></div></div><div class="cd" style="--c:3;--r:0;--d:2"><div class="f" style="background-image:url(a/deck-23-23.jpg)"></div><div class="b"><div class="nw of"><span class="sf" style="color:#07111F">se <i>constroem.</i></span></div></div></div><div class="cd" style="--c:4;--r:0;--d:3"><div class="f" style="background-image:url(a/ig-stapfeelings.jpg)"></div><div class="b"><div class="nw g2"></div></div></div><div class="cd" style="--c:0;--r:1;--d:2"><div class="f" style="background-image:url(a/deck-27-27.jpg)"></div><div class="b"><div class="nw nv"><span class="tk2" style="color:#9ED0F0">DO RENDER</span></div></div></div><div class="cd" style="--c:1;--r:1;--d:1"><div class="f" style="background-image:url(a/deck-7-07.jpg)"></div><div class="b"><div class="nw g3"></div></div></div><div class="cd" style="--c:2;--r:1;--d:0"><div class="f" style="background-image:url(a/casca-velha.jpg)"></div><div class="b"><div class="nw nv ctr"></div></div></div><div class="cd" style="--c:3;--r:1;--d:1"><div class="f" style="background-image:url(a/deck-44-44.jpg)"></div><div class="b"><div class="nw of"><span class="sf" style="color:#1F4FA8"><i>ao real.</i></span></div></div></div><div class="cd" style="--c:4;--r:1;--d:2"><div class="f" style="background-image:url(a/stap-site-full.jpg)"></div><div class="b"><div class="nw g1"></div></div></div><div class="cd" style="--c:0;--r:2;--d:3"><div class="f" style="background-image:url(a/deck-6-06.jpg)"></div><div class="b"><div class="nw lb"><span class="sf" style="color:#07111F">Aa</span></div></div></div><div class="cd" style="--c:1;--r:2;--d:2"><div class="f" style="background-image:url(a/deck-23-23.jpg)"></div><div class="b"><div class="nw g2"></div></div></div><div class="cd" style="--c:2;--r:2;--d:1"><div class="f" style="background-image:url(a/stap-site-atual.jpg)"></div><div class="b"><div class="nw nv"><span class="tk2">AGRO · AUTO</span></div></div></div><div class="cd" style="--c:3;--r:2;--d:2"><div class="f" style="background-image:url(a/deck-8-08.jpg)"></div><div class="b"><div class="nw g3"></div></div></div><div class="cd" style="--c:4;--r:2;--d:3"><div class="f" style="background-image:url(a/deck-27-27.jpg)"></div><div class="b"><div class="nw of"><span class="sf" style="color:#07111F"><i>prova.</i></span></div></div></div></div></div>
   <div class="full" style="background-image:url(a/casca-velha.jpg)"></div>
-  <h2 class="ttl3"><span style="--k:0">Agora,</span> <span style="--k:1">a</span> <span style="--k:2">Stap</span> <span style="--k:3">muda</span> <span style="--k:4"><i>de</i></span> <span style="--k:5"><i>casca.</i></span></h2>
+  <h2 class="ttl3"><span style="--k:0">Agora,</span> <span style="--k:1">a</span> <span style="--k:2">Stap</span> <span style="--k:3">muda</span><br><span style="--k:4"><i>de</i></span> <span style="--k:5"><i>casca.</i></span></h2>
   <p class="cap3">Daqui em diante, a linguagem nova</p>
 </section>
 
@@ -1157,6 +1191,21 @@ h1.serif,h2.serif{text-wrap:balance}
   <div class="l nm2f" style="--d:3;left:128px;top:820px;width:1664px">
     <p class="lbl">Daqui em diante, cada case com a sua ficha</p>
     <div><span>Aprovado em</span><span>Montado em</span><span>Fidelidade ao render</span><span>Área</span><span>Público</span></div>
+  </div>
+</section>
+
+<section class="scene bg-navy fc" data-n="A ficha" data-steps="2">
+  <div class="l fpost" style="--d:3"><div class="ftrack">
+    <figure class="fs"><img src="a/cmp24-render.jpg" alt="Render do estande Grunner"><figcaption><span class="tk">Render</span><em>aprovado</em></figcaption></figure>
+    <figure class="fs"><img src="a/cmp24-real.jpg" alt="Estande Grunner montado"><figcaption><span class="tk">Real</span><em>montado</em></figcaption></figure>
+    <div class="fs fcard"><p class="fct">Grunner · Agrishow</p><div class="fgrid"><div><span>Aprovado em</span><b class="tk">14.03</b></div><div><span>Montado em</span><b class="tk">26.04</b></div><div><span>Fidelidade ao render</span><b class="tk">98%</b></div><div><span>Área</span><b class="tk">1.200 m²</b></div><div><span>Público</span><b class="tk">45 mil</b></div></div><p class="fsig serif">Do render <i>ao real.</i></p></div>
+  </div><div class="fdots"><i></i><i></i><i></i></div></div>
+  <div class="l" style="--d:2;left:900px;top:150px;width:892px;display:flex;flex-direction:column;gap:40px">
+    <p class="lbl rv" style="color:var(--light)">Daqui em diante</p>
+    <h2 class="serif rv" style="--i:1;font-size:96px;line-height:1;letter-spacing:-2.5px;color:var(--off);margin:0">Todo case fecha<br><i style="color:var(--light)">com a sua ficha.</i></h2>
+    <p class="body rv" style="--i:2;color:var(--off);font-size:28px">O post mostra o render, depois o real. A última imagem é a ficha:<br>a assinatura de cada projeto, sempre no mesmo lugar e no mesmo formato.</p>
+    <div class="rv fsteps" style="--i:3"><span class="a0">01 · Render</span><span class="a1">02 · Real</span><span class="a2">03 · Ficha</span></div>
+    <p class="lbl rv" style="--i:4;color:#7C8BA0">Valores ilustrativos</p>
   </div>
 </section>
 
@@ -1275,7 +1324,7 @@ h1.serif,h2.serif{text-wrap:balance}
   let i=0,step=0;
   function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`translate(-50%,-50%) scale(${s})`}
   addEventListener('resize',fit);fit();
-  function setStep(sc,n){for(let k=1;k<=3;k++)sc.classList.toggle('st'+k,k===n)}
+  function setStep(sc,n){for(let k=1;k<=4;k++)sc.classList.toggle('st'+k,k===n)}
   function show(n,st){
     n=Math.max(0,Math.min(scenes.length-1,n));
     scenes.forEach((s,k)=>{s.classList.toggle('on',k===n);s.classList.toggle('past',k<n);s.classList.remove('done');if(k!==n)setStep(s,0)});clearTimeout(window.__dt);const cur=scenes[n];window.__dt=setTimeout(()=>cur.classList.add('done'),2200);
@@ -1313,6 +1362,7 @@ h1.serif,h2.serif{text-wrap:balance}
     const stop=()=>{cancelAnimationFrame(raf);try{au.pause()}catch(e){}};
     new MutationObserver(()=>{if(sc.classList.contains('on')){if(!sc.dataset.r){sc.dataset.r=1;if(sc.classList.contains('st1')){ls.forEach(l=>l.classList.add('sh'))}else start()}if(sc.classList.contains('st1'))ls.forEach(l=>l.classList.add('sh'))}else{delete sc.dataset.r;stop()}}).observe(sc,{attributes:true,attributeFilter:['class']});
     sc.querySelector('.mfsnd').addEventListener('click',e=>{e.stopPropagation();au.muted=false;if(au.paused)start()});
+    const unlock=()=>{if(au.dataset.u)return;au.dataset.u=1;au.muted=true;au.play().then(()=>{if(!sc.classList.contains('on')){au.pause();au.currentTime=0}au.muted=false}).catch(()=>{au.muted=false;delete au.dataset.u})};['pointerdown','keydown','touchstart'].forEach(ev=>addEventListener(ev,unlock,{capture:true}));
     window.__mfSeek=x=>{cancelAnimationFrame(raf);try{au.pause()}catch(e){}ls.forEach((l,k)=>l.classList.toggle('sh',x>=T[k]))};
   })();
   // filme: replay
