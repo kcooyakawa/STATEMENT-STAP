@@ -365,6 +365,9 @@ img{max-width:none;display:block}
 .ig>div{background-size:cover;background-position:center;position:relative}
 .ig .t{background:#07111F;display:grid;place-items:center;color:#EEE9E1;font-family:var(--serif);font-size:26px;text-align:center;line-height:1.05;padding:8px}
 .ig .t i{color:#9ED0F0}
+p,.body,.serif,figcaption{text-wrap:pretty}
+h1.serif,h2.serif{text-wrap:balance}
+.zo img{transform:scale(1.12);transition:transform 9s cubic-bezier(.2,.6,.3,1) .2s}.on .zo img{transform:scale(1)}
 .casca{position:absolute;inset:0;z-index:4;background:#E9E9EA;display:flex;align-items:center;padding:0 128px;clip-path:inset(0 0 0 0);transition:clip-path 1.2s var(--ease) 1.3s;pointer-events:none}
 .casca p{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:96px;color:#404040;margin:0}
 .casca img{position:absolute;right:128px;top:44px;width:110px}
@@ -397,13 +400,13 @@ img{max-width:none;display:block}
 </section>
 
 <!-- PONTO DE PARTIDA -->
-<section class="scene old bg-white" data-n="Ponto de partida">
-  <figure class="l rv" style="--d:4;left:1060px;top:0;width:860px;height:1080px;margin:0;overflow:hidden"><img src="a/zoomout.jpg" alt="Pessoa olhando a cidade do alto" style="width:100%;height:100%;object-fit:cover;object-position:55% 50%;filter:grayscale(.55) contrast(.95)"></figure>
-  <div class="l" style="--d:2;left:128px;top:0;bottom:0;width:860px;display:flex;flex-direction:column;justify-content:center;gap:56px">
-    <h2 class="serif lg rv">Zoom out: <i class="acc">a Stap e o mercado.</i></h2>
-    <p class="body rv" style="--i:2">Antes de mexer em qualquer peça, voltamos um passo: olhamos para a gente e para o mercado. O posicionamento é uma consequência disso.</p>
+<section class="scene old bg-white" data-n="Ponto de partida" style="overflow:hidden">
+  <div class="l zo" style="--d:5;inset:0"><img src="a/time-render.jpg" alt="Arquiteta da Stap analisando um projeto em 3D" style="position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;object-position:30% 40%;filter:grayscale(1) contrast(1.05) brightness(.82)"></div>
+  <div class="l" style="--d:0;inset:0;background:linear-gradient(90deg,rgba(43,43,43,.86) 0%,rgba(43,43,43,.6) 45%,rgba(43,43,43,.05) 100%)"></div>
+  <div class="l" style="--d:2;left:128px;top:0;bottom:0;width:980px;display:flex;flex-direction:column;justify-content:center;gap:48px">
+    <h2 class="serif lg rv" style="color:#F2F2F2">Zoom out: <i>a Stap e o mercado.</i></h2>
+    <p class="body rv" style="--i:2;color:#E0E0E0">Antes de mexer em qualquer peça, voltamos um passo: olhamos para a gente e para o mercado. O posicionamento é uma consequência disso.</p>
   </div>
-  <p class="foot" style="left:1090px;color:#F2F2F2">Foto: Unsplash</p>
 </section>
 
 <!-- ATO 01 STAP HOJE -->
@@ -419,13 +422,14 @@ img{max-width:none;display:block}
 <section class="scene old bg-white" data-n="O site hoje">
   <h2 class="l serif md rv" style="--d:1;left:128px;top:96px;white-space:nowrap">O site é bonito. <i class="acc">Mas não trabalha para a venda.</i></h2>
   <figure class="l rv sitefull" style="--d:3;--i:1;left:128px;top:236px;width:560px;height:700px;margin:0;overflow:hidden;border:1px solid #CFCFCF"><img src="a/stap-site-full.jpg" alt="Home do site atual da Stap" style="width:100%;display:block"></figure>
-  <div class="l" style="--d:2;left:760px;top:236px;width:1032px;display:flex;flex-direction:column;gap:30px">
+  <div class="l" style="--d:2;left:760px;top:236px;width:1032px;display:flex;flex-direction:column;gap:22px">
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
-      <div class="rv" style="--i:1"><div class="gauge" style="--v:61;--i:0"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>61</b></div><p class="dg-k" style="margin-top:12px">SEO</p></div>
-      <div class="rv" style="--i:2"><div class="gauge" style="--v:63;--i:1"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>63</b></div><p class="dg-k" style="margin-top:12px">Desempenho</p></div>
-      <div class="rv" style="--i:3"><div class="gauge" style="--v:58;--i:2"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>58</b></div><p class="dg-k" style="margin-top:12px">Boas práticas</p></div>
-      <div class="rv" style="--i:4"><div class="gauge" style="--v:93;--i:3"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>93</b></div><p class="dg-k" style="margin-top:12px">Acessibilidade</p></div>
+      <div class="rv" style="--i:1"><div class="gauge" style="--v:61;--i:0"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>61</b></div><p class="dg-k" style="margin-top:12px">SEO</p><p class="body" style="font-size:18px;line-height:1.35;margin-top:6px">Se o Google entende e mostra o site.</p></div>
+      <div class="rv" style="--i:2"><div class="gauge" style="--v:63;--i:1"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>63</b></div><p class="dg-k" style="margin-top:12px">Desempenho</p><p class="body" style="font-size:18px;line-height:1.35;margin-top:6px">Quanto o site demora a abrir no celular.</p></div>
+      <div class="rv" style="--i:3"><div class="gauge" style="--v:58;--i:2"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>58</b></div><p class="dg-k" style="margin-top:12px">Boas práticas</p><p class="body" style="font-size:18px;line-height:1.35;margin-top:6px">Segurança e código atualizado.</p></div>
+      <div class="rv" style="--i:4"><div class="gauge" style="--v:93;--i:3"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>93</b></div><p class="dg-k" style="margin-top:12px">Acessibilidade</p><p class="body" style="font-size:18px;line-height:1.35;margin-top:6px">Se qualquer pessoa consegue ler e navegar.</p></div>
     </div>
+    <p class="rv" style="--i:5;font-size:18px;color:var(--muted);margin-top:-8px">Notas do Google de 0 a 100. Abaixo de 50 é ruim, de 50 a 89 precisa melhorar, 90 ou mais é bom. O Google usa essas notas para decidir quem aparece primeiro na busca.</p>
     <div class="rv rule" style="--i:5;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:28px">
       <div><p class="dg-k">Não é encontrado</p><p class="body" style="font-size:23px;margin-top:8px"><b style="color:#2B2B2B">A página está bloqueada para indexação</b> e não tem metadescrição. O título na busca é “Home | Stap Feeling 1”.</p></div>
       <div><p class="dg-k">Demora no celular</p><p class="body" style="font-size:23px;margin-top:8px">A maior imagem leva <b style="color:#2B2B2B">7,2 s</b> para aparecer em 4G. São 3,7 MB por visita e 475 KB de JavaScript sem uso.</p></div>
@@ -475,7 +479,7 @@ img{max-width:none;display:block}
 
 <section class="scene old bg-off" data-n="Arquivo ou link">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif md rv">O problema não é o peso. <i class="acc">É ser um arquivo.</i></h2>
+    <h2 class="serif md rv">A melhor apresentação da Stap <i class="acc">é a que o cliente não consegue abrir.</i></h2>
     <div class="flow">
       <div class="st" style="--i:0"><p class="nm">Vendedor envia</p><p class="why">Cada um tem uma versão salva. Ninguém sabe qual é a última.</p></div>
       <div class="st x" style="--i:1"><p class="nm">E-mail</p><p class="why">Gmail e Outlook barram anexos acima de 20 a 25 MB.</p></div>
@@ -483,6 +487,7 @@ img{max-width:none;display:block}
       <div class="st x" style="--i:3"><p class="nm">Repassa</p><p class="why">Para compras ou diretoria? Não cabe no e-mail de novo.</p></div>
       <div class="st x" style="--i:4"><p class="nm">Retorno</p><p class="why">Abriu? Viu o quê? A Stap não sabe.</p></div>
     </div>
+    <p class="serif sm rv verdict" style="--i:5">O problema não é o peso. <i class="acc">É ser um arquivo.</i> Cada envio é uma chance de o cliente desistir antes de ver o trabalho.</p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px">
       <p class="body rv" style="--i:6;font-size:24px"><b style="color:#2B2B2B">Hoje:</b> um arquivo que pesa, se desatualiza e some na caixa do cliente.</p>
       <p class="body rv" style="--i:7;font-size:24px"><b style="color:#2B2B2B">Caminho:</b> o deck vira um link. Abre em qualquer tela, está sempre na última versão e é atualizado num lugar só.</p>
@@ -492,16 +497,18 @@ img{max-width:none;display:block}
 
 <!-- INSTAGRAM ATUAL -->
 <section class="scene old bg-white" data-n="O Instagram hoje">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:96px">O Instagram não é ruim. <i class="acc">Ele não tem dono.</i></h2>
-  <div class="l" style="--d:2;left:128px;top:250px;width:1664px">
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:96px">O Instagram é um bom portfólio. <i class="acc">Mas é só portfólio.</i></h2>
+  <div class="l" style="--d:2;left:500px;top:250px;width:1292px">
     <p class="dg-k" style="margin-bottom:24px">@stapfeelings · cada ponto é um post (os 12 mais recentes)</p>
-    <div class="tl"><span class="dot" style="--i:0;left:-15px;bottom:0px"></span><span class="dot" style="--i:1;left:-15px;bottom:28px"></span><span class="dot" style="--i:2;left:-13px;bottom:0px"></span><span class="dot" style="--i:3;left:580px;bottom:0px"></span><span class="dot" style="--i:4;left:580px;bottom:28px"></span><span class="dot" style="--i:5;left:580px;bottom:56px"></span><span class="dot" style="--i:6;left:623px;bottom:0px"></span><span class="dot" style="--i:7;left:623px;bottom:28px"></span><span class="dot" style="--i:8;left:623px;bottom:56px"></span><span class="dot" style="--i:9;left:993px;bottom:0px"></span><span class="dot" style="--i:10;left:996px;bottom:0px"></span><span class="dot" style="--i:11;left:996px;bottom:28px"></span><span class="gap" style="left:-8px;width:583px"></span><span class="gl" style="left:283px">8 meses</span><span class="gap" style="left:628px;width:360px"></span><span class="gl" style="left:808px">5 meses</span><span class="gap" style="left:1001px;width:628px"></span><span class="gl" style="left:1315px">8 meses e contando</span><span class="m" style="left:0px">jan</span><span class="m" style="left:151px">mar</span><span class="m" style="left:303px">mai</span><span class="m" style="left:454px">jul</span><span class="m" style="left:605px">set</span><span class="m" style="left:756px">nov</span><span class="m" style="left:908px">jan</span><span class="m" style="left:1059px">mar</span><span class="m" style="left:1210px">mai</span><span class="m" style="left:1361px">jul</span><span class="m" style="left:1513px">set</span><span class="m" style="left:1664px">nov</span><span class="m" style="left:0;bottom:-62px;transform:none;color:#2B2B2B">2025</span><span class="m" style="left:908px;bottom:-62px;transform:none;color:#2B2B2B">2026</span></div>
+    <div class="tl"><span class="dot" style="--i:0;left:-15px;bottom:0px"></span><span class="dot" style="--i:1;left:-15px;bottom:28px"></span><span class="dot" style="--i:2;left:-13px;bottom:0px"></span><span class="dot" style="--i:3;left:450px;bottom:0px"></span><span class="dot" style="--i:4;left:450px;bottom:28px"></span><span class="dot" style="--i:5;left:450px;bottom:56px"></span><span class="dot" style="--i:6;left:484px;bottom:0px"></span><span class="dot" style="--i:7;left:484px;bottom:28px"></span><span class="dot" style="--i:8;left:484px;bottom:56px"></span><span class="dot" style="--i:9;left:771px;bottom:0px"></span><span class="dot" style="--i:10;left:773px;bottom:0px"></span><span class="dot" style="--i:11;left:773px;bottom:28px"></span><span class="gap" style="left:-8px;width:583px"></span><span class="gl" style="left:220px">8 meses</span><span class="gap" style="left:488px;width:280px"></span><span class="gl" style="left:627px">5 meses</span><span class="gap" style="left:777px;width:488px"></span><span class="gl" style="left:1021px">8 meses e contando</span><span class="m" style="left:0px">jan</span><span class="m" style="left:91px">mar</span><span class="m" style="left:182px">mai</span><span class="m" style="left:274px">jul</span><span class="m" style="left:365px">set</span><span class="m" style="left:456px">nov</span><span class="m" style="left:547px">jan</span><span class="m" style="left:638px">mar</span><span class="m" style="left:729px">mai</span><span class="m" style="left:821px">jul</span><span class="m" style="left:912px">set</span><span class="m" style="left:1003px">nov</span><span class="m" style="left:0;bottom:-62px;transform:none;color:#2B2B2B">2025</span><span class="m" style="left:547px;bottom:-62px;transform:none;color:#2B2B2B">2026</span></div>
   </div>
-  <div class="l" style="--d:2;left:128px;top:640px;width:1664px;display:grid;grid-template-columns:repeat(3,1fr);gap:56px">
-    <div class="rv rule" style="--i:4;padding-top:18px"><p class="dg-k">Sintoma</p><p class="body" style="font-size:23px;margin-top:8px">Posts em blocos de três no mesmo dia, para fechar o mosaico do feed. Depois, meses sem nada.</p></div>
-    <div class="rv rule" style="--i:5;padding-top:18px"><p class="dg-k">Causa</p><p class="body" style="font-size:23px;margin-top:8px">De jan a set de 2025 a Stap postava cerca de 5 vezes por mês, mais que quase todas as concorrentes. Capacidade existe. Falta processo: pauta, calendário e alguém responsável. O conteúdo dependia do tempo livre e parou quando a operação apertou.</p></div>
-    <div class="rv rule" style="--i:6;padding-top:18px"><p class="dg-k">Impacto</p><p class="body" style="font-size:23px;margin-top:8px">O algoritmo entrega menos a quem some, e quem segue esquece. Os 4,8 mil seguidores viram audiência parada.</p></div>
+  <figure class="l rv" style="--d:3;--i:1;left:128px;top:250px;width:320px;margin:0"><img src="a/ig-stapfeelings.jpg" alt="Feed do @stapfeelings" style="width:100%;display:block"></figure>
+  <div class="l" style="--d:2;left:500px;top:560px;width:1292px;display:grid;grid-template-columns:repeat(3,1fr);gap:44px">
+    <div class="rv rule" style="--i:4;padding-top:18px"><p class="dg-k">Sintoma</p><p class="body" style="font-size:23px;margin-top:8px">Só cases e KVs de eventos, em blocos de três para fechar o mosaico. Depois, meses sem nada.</p></div>
+    <div class="rv rule" style="--i:5;padding-top:18px"><p class="dg-k">Causa</p><p class="body" style="font-size:22px;margin-top:8px">O perfil só trabalha portfólio. Faltam pílulas que não dependem de um job terminar: bastidor, gente, processo, opinião. Isso pede calendário e alguém dedicado a criar, editar e publicar.</p></div>
+    <div class="rv rule" style="--i:6;padding-top:18px"><p class="dg-k">Impacto</p><p class="body" style="font-size:22px;margin-top:8px">Quando não tem case novo, não tem post. O algoritmo entrega menos a quem some, e os 4,8 mil seguidores esquecem.</p></div>
   </div>
+  <p class="l serif sm rv verdict" style="--d:2;--i:7;left:500px;top:900px;width:1292px">Portfólio mostra o que a Stap fez. <i class="acc">Conteúdo mostra quem a Stap é.</i></p>
   <p class="foot">@stapfeelings · datas pelos posts · 02/nov/2026</p>
 </section>
 
@@ -515,6 +522,7 @@ img{max-width:none;display:block}
     <div class="rv rule" style="--i:4;padding-top:16px"><p class="dg-k">O que já existe</p><p class="body" style="font-size:23px;margin-top:8px">Gente da Stap com perfil ativo e rede própria. É o canal onde estão os compradores de Agro e Auto, e ninguém da casa fala por ele em nome da empresa.</p></div>
     <div class="rv rule" style="--i:5;padding-top:16px"><p class="dg-k">Impacto</p><p class="body" style="font-size:23px;margin-top:8px">Quem pesquisa a Stap antes de uma concorrência encontra uma página vazia. Para compras, isso é sinal de risco.</p></div>
   </div>
+  <p class="l serif sm rv verdict" style="--d:2;--i:7;left:128px;top:930px;width:1664px">É onde estão os compradores de Agro e Auto. <i class="acc">E é onde a Stap está em silêncio.</i></p>
   <p class="foot">linkedin.com/company/agenciastap · 02/nov/2026</p>
 </section>
 
@@ -568,7 +576,7 @@ img{max-width:none;display:block}
       <div class="row rv" style="--i:3;grid-template-columns:1fr auto"><span class="serif sm">360° · todas as frentes</span><span class="lbl">TM1 · Innova · Rock</span></div>
       <div class="row rv" style="--i:4;grid-template-columns:1fr auto"><span class="serif sm">Movimento · lado a lado</span><span class="lbl">Netza · Speed · Hype</span></div>
     </div>
-    <p class="body rv" style="--i:5">O que todo mundo diz não diferencia ninguém. E a Stap também falava assim.</p>
+    <p class="body rv" style="--i:5;max-width:none;white-space:nowrap">O que todo mundo diz não diferencia ninguém. E a Stap também falava assim.</p>
   </div>
 </section>
 
@@ -585,7 +593,7 @@ img{max-width:none;display:block}
     <div class="chain">
       <div class="n" style="--i:0"><b>01</b><p>O job termina com um aftermovie que já foi feito para o cliente.</p></div><span class="ar" style="--i:0">→</span>
       <div class="n" style="--i:1"><b>02</b><p>É o conteúdo mais fácil: pronto, aprovado e bonito.</p></div><span class="ar" style="--i:1">→</span>
-      <div class="n" style="--i:2"><b>03</b><p>O cliente reposta e a agência pega carona na marca dele.</p></div><span class="ar" style="--i:2">→</span>
+      <div class="n" style="--i:2"><b>03</b><p>Não pede produção nova: a agência só publica.</p></div><span class="ar" style="--i:2">→</span>
       <div class="n" style="--i:3"><b>04</b><p>Resultado: oito feeds iguais. O protagonista é o cliente, não a agência.</p></div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
@@ -732,8 +740,8 @@ img{max-width:none;display:block}
 <!-- CRENÇA E PROVA -->
 <section class="scene bg-white" data-n="Crença e prova">
   <div class="l pad" style="--d:2;display:grid;grid-template-columns:1fr 1fr;gap:140px;align-items:center">
-    <div class="rv" style="--i:1;display:flex;flex-direction:column;gap:36px"><p class="lbl">A crença</p><p class="serif" style="font-size:76px;line-height:1.08;letter-spacing:-1.5px">“Você não é o que você faz. Você é o que você faz as pessoas sentirem.”</p><p class="body">A alma do <i>feelings</i>. Sozinha, vira poesia: qualquer agência poderia dizer.</p></div>
-    <div class="rv" style="--i:3;display:flex;flex-direction:column;gap:36px"><p class="lbl acc">A prova</p><p class="serif" style="font-size:76px;line-height:1.08;letter-spacing:-1.5px">O render aprovado ao lado do projeto montado. <i class="acc">Em Agro e em Auto.</i></p><p class="body">Ter criação, arquitetura e produção juntas, outras agências também dizem. O que ninguém faz é mostrar que o aprovado virou o entregue. E a Stap pode mostrar isso onde é especialista.</p></div>
+    <div class="rv" style="--i:1;display:flex;flex-direction:column;gap:36px"><p class="lbl">A crença</p><p class="serif" style="font-size:76px;line-height:1.08;letter-spacing:-1.5px">“Você não é o que você faz. Você é o que você faz as pessoas sentirem.”</p><p class="body">A alma do <i>feelings</i>. Sozinha, vira poesia: qualquer agência poderia dizer. Ao lado da prova, vira argumento.</p></div>
+    <div class="rv" style="--i:3;display:flex;flex-direction:column;gap:36px"><p class="lbl acc">A prova</p><p class="serif" style="font-size:76px;line-height:1.08;letter-spacing:-1.5px">O render aprovado ao lado do projeto montado. <i class="acc">Em Agro e em Auto.</i></p><p class="body">As agências contam como o evento foi. Não contam como ele foi construído. Na Stap, criação e arquitetura in house trabalham com a produção, do render aprovado ao estande montado. Quem compra não compra só emoção: compra segurança.</p></div>
   </div>
 </section>
 
@@ -798,7 +806,6 @@ img{max-width:none;display:block}
       <div style="--i:1;--h:200"><p class="lbl" style="color:var(--light)">02 · Prova</p><p class="serif sm" style="margin-top:14px">O montado, no mesmo ângulo.</p><p class="body" style="font-size:22px;margin-top:12px">Ninguém no mercado mostra os dois lado a lado.</p><div class="bar2"></div></div>
       <div style="--i:2;--h:300;border-right:1px solid rgba(238,233,225,.3)"><p class="lbl" style="color:var(--light)">03 · Comprovação</p><p class="serif sm" style="margin-top:14px">Os números da entrega.</p><p class="body" style="font-size:22px;margin-top:12px">Prazo, montagem, área e público, case a case.</p><div class="bar2"></div></div>
     </div>
-    <p class="serif sm rv" style="--i:6;color:var(--off)">O risco de a experiência sair diferente do projeto <i class="acc">é da Stap, não do cliente.</i></p>
   </div>
 </section>
 
@@ -824,7 +831,7 @@ img{max-width:none;display:block}
     <div class="rv" style="--i:5">
       <p class="lbl" style="margin-bottom:14px">A ficha que cada case passa a ter</p>
       <div class="fid"><div><p class="k">Aprovado em</p><p class="v">data do render</p></div><div><p class="k">Montado em</p><p class="v">dias de obra</p></div><div><p class="k">Fidelidade</p><p class="v">% do render entregue</p></div><div><p class="k">Área</p><p class="v">m²</p></div><div><p class="k">Público</p><p class="v">pessoas</p></div></div>
-      <p class="body" style="font-size:20px;margin-top:12px">Números institucionais do deck comercial. A ficha por case precisa ser levantada com produção e atendimento.</p>
+      <p class="body" style="font-size:20px;margin-top:12px;max-width:none;white-space:nowrap">Números institucionais do deck comercial. A ficha por case precisa ser levantada com produção e atendimento.</p>
     </div>
   </div>
 </section>
