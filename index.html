@@ -647,6 +647,71 @@ h1.serif,h2.serif{text-wrap:balance}
 .fm4 .grain2{position:absolute;inset:0;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .fm4 .replay,.fm4 .snd{position:absolute;bottom:40px;z-index:5;background:none;border:1px solid rgba(238,233,225,.4);color:#EEE9E1;font:16px var(--sans);letter-spacing:2px;padding:10px 18px;cursor:pointer}
 .fm4 .replay{right:128px}.fm4 .snd{right:330px}
+
+/* filme 5 · lettering cinético */
+.fm5{background:#07111F;overflow:hidden}
+.fm5 .k{position:absolute;inset:0;visibility:hidden;transition:visibility 0s .8s}
+.fm5 .k.act{visibility:visible;transition:none}
+.fm5 .pn{position:absolute;inset:0}
+.fm5 .act .pn{animation:wU .7s cubic-bezier(.77,0,.18,1) both}
+.fm5 .s1 .pn{background:#07111F;animation:none}
+.fm5 .s2 .pn{background:#9ED0F0}
+.fm5 .s3 .pn{background:#EEE9E1}.fm5 .s3.act .pn{animation-name:wL}
+.fm5 .s4 .pn{background:#1F4FA8}
+.fm5 .s5 .pn{background:#07111F}.fm5 .s5.act .pn{animation-name:wR}
+.fm5 .s6 .pn{background:#9ED0F0}
+.fm5 .s7 .pn{background:#07111F}.fm5 .s7.act .pn{animation-name:wL}
+.fm5 .gr{position:absolute;inset:0;background:linear-gradient(160deg,#07111F 0%,#1F4FA8 65%,#9ED0F0 100%);clip-path:circle(0% at 12% 80%)}
+.fm5 .s7.act .gr{animation:circ 1.8s cubic-bezier(.65,0,.2,1) 2.1s both}
+@keyframes wU{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
+@keyframes wL{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+@keyframes wR{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
+@keyframes circ{from{clip-path:circle(0% at 12% 80%)}to{clip-path:circle(160% at 12% 80%)}}
+.fm5 .ph{position:absolute;inset:0;padding:0 128px;display:flex;flex-direction:column;justify-content:center;transform-origin:30% 50%}
+.fm5 .act .ph{animation:push 4s linear both}
+@keyframes push{from{transform:scale(1)}to{transform:scale(1.045)}}
+.fm5 p,.fm5 h1{margin:0;font-weight:400;white-space:nowrap}
+.fm5 .tk{font-family:var(--impact);font-weight:500;text-transform:uppercase;line-height:.84;letter-spacing:-2px}
+.fm5 .sr{font-family:var(--serif);line-height:1;letter-spacing:-4px}
+.fm5 .m{display:inline-block;overflow:hidden;vertical-align:top;padding:.18em .04em .1em;margin:-.18em -.04em -.1em}
+.fm5 .w{display:inline-block;transform:translateY(110%)}
+.fm5 .act .w{animation:up .75s cubic-bezier(.16,1,.3,1) var(--t,0s) both}
+.fm5 .act .w.sl{animation:slam .7s cubic-bezier(.16,1,.3,1) var(--t,0s) both}
+.fm5 .s1 .m:has(.sl),.fm5 .s2 .m:has(.sl),.fm5 .s3 .m:has(.sl),.fm5 .s4 .m,.fm5 .s5 .m:has(.sl),.fm5 .s6 .n34 .m{overflow:visible}
+@keyframes up{from{transform:translateY(110%) skewY(6deg)}to{transform:none}}
+@keyframes slam{0%{transform:scale(1.9);opacity:0;filter:blur(12px)}55%{opacity:1;filter:blur(0)}100%{transform:none;opacity:1;filter:none}}
+.fm5 i{font-style:italic}
+/* cenas */
+.fm5 .s1 .l1{font-size:240px;color:#EEE9E1}.fm5 .s1 .lb{color:#9ED0F0}
+.fm5 .s1 .l2{font-size:330px;color:#EEE9E1;margin-top:10px}
+.fm5 .s2 .l1{font-size:230px;color:#07111F}
+.fm5 .s2 .l2{font-size:210px;color:#07111F;margin-top:20px}.fm5 .s2 i{color:#1F4FA8}
+.fm5 .s3 .l1{font-size:180px;color:#07111F}
+.fm5 .s3 .l2{font-size:150px;color:#07111F;margin-top:24px}
+.fm5 .s3 .l3{font-size:360px;color:#1F4FA8;line-height:.95}
+.fm5 .trc{position:relative;display:inline-block}
+.fm5 .trc svg{position:absolute;left:0;bottom:-10px;width:100%;height:80px;overflow:visible}
+.fm5 .trc path{fill:none;stroke:#1F4FA8;stroke-width:9;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:1000}
+.fm5 .s3.act .trc path{animation:draw .8s cubic-bezier(.6,0,.2,1) 1.25s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fm5 .s4 .l1{font-size:200px;color:#9ED0F0}
+.fm5 .s4 .l3{margin-top:40px;font-size:540px;color:#EEE9E1;letter-spacing:-10px;line-height:.8}
+.fm5 .s5 .l1{font-size:170px;color:#EEE9E1}
+.fm5 .s5 .l2{font-size:170px;color:#9ED0F0;margin:16px 0 8px}
+.fm5 .s5 .l3{font-size:330px;color:#EEE9E1}
+.fm5 .s6 .r34{display:flex;align-items:flex-end;gap:40px}
+.fm5 .s6 .n34{font-size:620px;color:#1F4FA8;line-height:.78;letter-spacing:-24px}
+.fm5 .s6 .side{display:flex;flex-direction:column;gap:12px;padding-bottom:20px}
+.fm5 .s6 .side .l1{font-size:190px;color:#07111F}
+.fm5 .s6 .l2{font-size:140px;color:#07111F;margin-top:56px;letter-spacing:-3px}.fm5 .s6 i{color:#1F4FA8}
+.fm5 .s7 .ph{justify-content:center}
+.fm5 .s7 h1{font-size:260px;line-height:.92;letter-spacing:-6px;color:#EEE9E1}
+.fm5 .s7 h1 i{color:#9ED0F0;transition:color 1.2s 2.6s}.fm5 .s7.act h1 i{color:#EEE9E1}
+.fm5 .s7 .sub{font-size:72px;color:#EEE9E1;margin-top:64px;letter-spacing:-1.5px}
+.fm5 .s7 .sub2{font-size:32px;color:#EEE9E1;margin-top:20px;max-width:none}
+.fm5 .s7.act .ph{animation:none}
+.fm5 .replay,.fm5 .snd{position:absolute;bottom:40px;z-index:5;background:rgba(7,17,31,.35);border:1px solid rgba(238,233,225,.4);color:#EEE9E1;font:16px var(--sans);letter-spacing:2px;padding:10px 18px;cursor:pointer}
+.fm5 .replay{right:128px}.fm5 .snd{right:330px}
 </style>
 
 </head>
@@ -978,29 +1043,24 @@ h1.serif,h2.serif{text-wrap:balance}
 </section>
 
 <!-- STATEMENT -->
-<section class="scene fm4" data-n="Filme · manifesto">
+<section class="scene fm5" data-n="Filme · manifesto">
   <audio class="fa" src="a/manifesto-audio.mp3" preload="auto"></audio>
-  <div class="k bg b0" data-in="0" data-out="5.3"></div>
-  <div class="k bg b1" data-in="5.3" data-out="11.9"></div>
-  <div class="k bg b2" data-in="11.9" data-out="15.7"></div>
-  <div class="k bg b3" data-in="15.7" data-out="99"></div>
-  <div class="k bg b4" data-in="17.8" data-out="99"></div>
-  <div class="k orbs" data-in="0" data-out="5.3"><i class="ob" style="--x:18%;--y:30%;--s:620px"></i><i class="ob" style="--x:78%;--y:72%;--s:780px;--dl:-6s"></i><i class="ring" style="--x:70%;--y:28%;--s:520px"></i></div>
-  <div class="k grid" data-in="5.3" data-out="11.9"><div class="gl"></div><div class="gl g2"></div></div>
-  <svg class="k lines" data-in="5.3" data-out="11.9" viewBox="0 0 1920 1080"><path d="M-40 860 C 500 820, 900 980, 1960 760"/><path d="M-40 200 L 1960 330" style="--dl:.6s"/><path d="M1500 -40 L 1340 1120" style="--dl:1.2s"/></svg>
-  <div class="k ring2" data-in="11.9" data-out="15.7"><i></i><i style="--dl:.25s"></i></div>
-
-  <div class="k t t1" data-in="1.0" data-out="2.75"><p class="sans"><span class="sp ">Todo mundo promete</span></p><p class="serif big"><span class="sp d1"><i>emoção.</i></span></p></div>
-  <div class="k t t2 tw" data-in="2.75" data-out="5.3"><p class="serif"><span class="sp ">Pouca gente mostra</span><br><span class="sp d2">como ela <i>é feita.</i></span><b class="caret"></b></p></div>
-  <div class="k t t3a" data-in="5.3" data-out="11.9"><p class="serif"><span class="sp ">Na Stap, ela começa num</span> <span class="trc"><span class="sp d3"><i>traço,</i></span><svg viewBox="0 0 400 40"><path d="M4 26 C 90 6, 200 40, 396 14"/></svg></span></p></div>
-  <div class="k t t3b" data-in="7.4" data-out="11.9"><p class="serif"><span class="sp ">vira</span> <span class="rnd">render,</span></p></div>
-  <div class="k t t3c" data-in="9.3" data-out="11.9"><p class="serif"><span class="sp ">e chega ao público <i>do jeito que foi aprovada.</i></span></p></div>
-  <div class="k t t4a" data-in="11.9" data-out="15.7"><p><span class="sans"><span class="sp ">Há</span></span> <span class="n34">34</span> <span class="sans"><span class="sp ">anos,</span></span></p></div>
-  <div class="k t t4b" data-in="13.4" data-out="15.7"><p class="serif"><span class="sp ">quem desenha</span> <span class="sp d2"><i>é quem entrega.</i></span></p></div>
-  <div class="k t t5" data-in="15.7" data-out="99"><h1 class="serif"><span class="sp ">Sentimentos</span><br><span class="sp d2"><i>se constroem.</i></span></h1></div>
-  <div class="k t t6" data-in="17.8" data-out="99"><p class="serif"><span class="sp ">Do render <i>ao real.</i></span></p></div>
-  <div class="k t t7" data-in="19.5" data-out="99"><p class="body"><span class="sp ">Criação, arquitetura e produção integradas, do projeto à montagem.</span></p></div>
-  <div class="grain2"></div>
+  <div class="k s1" data-in="0" data-out="2.75"><div class="pn"></div><div class="ph">
+    <p class="tk l1"><span class="m "><span class="w " style="--t:0s">TODO</span></span> <span class="m "><span class="w " style="--t:0.22s">MUNDO</span></span></p><p class="tk l1 lb"><span class="m "><span class="w " style="--t:0.45s">PROMETE</span></span></p><p class="sr l2"><span class="m "><span class="w sl" style="--t:0.9s"><i>emoção.</i></span></span></p></div></div>
+  <div class="k s2" data-in="2.75" data-out="5.3"><div class="pn"></div><div class="ph">
+    <p class="tk l1"><span class="m "><span class="w " style="--t:0s">POUCA</span></span> <span class="m "><span class="w " style="--t:0.2s">GENTE</span></span></p><p class="tk l1"><span class="m "><span class="w " style="--t:0.55s">MOSTRA</span></span></p><p class="sr l2"><span class="m "><span class="w " style="--t:1.05s">como ela</span></span> <span class="m "><span class="w sl" style="--t:1.45s"><i>é feita.</i></span></span></p></div></div>
+  <div class="k s3" data-in="5.3" data-out="7.4"><div class="pn"></div><div class="ph">
+    <p class="tk l1"><span class="m "><span class="w " style="--t:0s">NA STAP,</span></span></p><p class="sr l2"><span class="m "><span class="w " style="--t:0.4s">ela começa num</span></span></p><p class="sr l3"><span class="trc"><span class="m "><span class="w sl" style="--t:0.85s"><i>traço,</i></span></span><svg viewBox="0 0 800 80" preserveAspectRatio="none"><path d="M8 52 C 180 10, 420 78, 792 22"/></svg></span></p></div></div>
+  <div class="k s4" data-in="7.4" data-out="9.3"><div class="pn"></div><div class="ph">
+    <p class="tk l1"><span class="m "><span class="w " style="--t:0s">VIRA</span></span></p><p class="tk l3"><span class="m"><span class="w sl" style="--t:0.18s">R</span></span><span class="m"><span class="w sl" style="--t:0.25s">E</span></span><span class="m"><span class="w sl" style="--t:0.32s">N</span></span><span class="m"><span class="w sl" style="--t:0.39s">D</span></span><span class="m"><span class="w sl" style="--t:0.46s">E</span></span><span class="m"><span class="w sl" style="--t:0.53s">R</span></span><span class="m"><span class="w sl" style="--t:0.60s">,</span></span></p></div></div>
+  <div class="k s5" data-in="9.3" data-out="11.9"><div class="pn"></div><div class="ph">
+    <p class="tk l1"><span class="m "><span class="w " style="--t:0s">E CHEGA AO PÚBLICO</span></span></p><p class="sr l2"><span class="m "><span class="w " style="--t:0.95s"><i>do jeito que foi</i></span></span></p><p class="tk l3"><span class="m "><span class="w sl" style="--t:1.55s">APROVADA.</span></span></p></div></div>
+  <div class="k s6" data-in="11.9" data-out="15.7"><div class="pn"></div><div class="ph">
+    <div class="r34"><p class="tk n34"><span class="m "><span class="w sl" style="--t:0.15s">34</span></span></p><div class="side"><p class="tk l1"><span class="m "><span class="w " style="--t:0s">HÁ</span></span></p><p class="tk l1"><span class="m "><span class="w " style="--t:0.5s">ANOS,</span></span></p></div></div>
+    <p class="sr l2"><span class="m "><span class="w " style="--t:1.5s">quem desenha</span></span> <span class="m "><span class="w " style="--t:2.05s"><i>é quem entrega.</i></span></span></p></div></div>
+  <div class="k s7" data-in="15.7" data-out="99"><div class="pn"></div><div class="gr"></div><div class="ph">
+    <h1 class="sr"><span class="m "><span class="w " style="--t:0s">Sentimentos</span></span><br><span class="m "><span class="w " style="--t:0.3s"><i>se constroem.</i></span></span></h1>
+    <p class="sr sub"><span class="m "><span class="w " style="--t:2.1s">Do render <i>ao real.</i></span></span></p><p class="body sub2"><span class="m "><span class="w " style="--t:3.8s">Criação, arquitetura e produção integradas, do projeto à montagem.</span></span></p></div></div>
   <button class="replay" type="button">Ver de novo ↺</button>
   <button class="snd" type="button">Som ▶</button>
 </section>
@@ -1223,7 +1283,7 @@ h1.serif,h2.serif{text-wrap:balance}
   // filme: replay
   document.querySelectorAll('.fm .replay').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();const sc=b.closest('.scene');sc.classList.remove('on');void sc.offsetWidth;sc.classList.add('on')}));
   // filme 2: relógio pelo áudio
-  (()=>{const sc=document.querySelector('.fm4')||document.querySelector('.fm3');if(!sc)return;sc.querySelectorAll('.sp').forEach(el=>{let c=0;const walk=n=>{[...n.childNodes].forEach(x=>{if(x.nodeType===3){const f=document.createDocumentFragment();x.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(' '));return}const ws=document.createElement('span');ws.className='w';[...w].forEach(ch=>{const cs=document.createElement('span');cs.className='ch';cs.style.setProperty('--c',c++);cs.textContent=ch;ws.appendChild(cs)});f.appendChild(ws)});x.replaceWith(f)}else if(x.nodeType===1)walk(x)})};walk(el)});const au=sc.querySelector('.fa');const ks=[...sc.querySelectorAll('.k')];let t0=0,raf=0;
+  (()=>{const sc=document.querySelector('.fm5')||document.querySelector('.fm4')||document.querySelector('.fm3');if(!sc)return;sc.querySelectorAll('.sp').forEach(el=>{let c=0;const walk=n=>{[...n.childNodes].forEach(x=>{if(x.nodeType===3){const f=document.createDocumentFragment();x.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(' '));return}const ws=document.createElement('span');ws.className='w';[...w].forEach(ch=>{const cs=document.createElement('span');cs.className='ch';cs.style.setProperty('--c',c++);cs.textContent=ch;ws.appendChild(cs)});f.appendChild(ws)});x.replaceWith(f)}else if(x.nodeType===1)walk(x)})};walk(el)});const au=sc.querySelector('.fa');const ks=[...sc.querySelectorAll('.k')];let t0=0,raf=0;
     const clock=()=>(!au.paused&&au.currentTime>0)?au.currentTime:(performance.now()-t0)/1000;
     const tick=()=>{const t=clock();ks.forEach(k=>{k.classList.toggle('act',t>=+k.dataset.in&&t<+k.dataset.out);k.classList.toggle('gone',t>=+k.dataset.out)});raf=requestAnimationFrame(tick)};
     const start=()=>{cancelAnimationFrame(raf);ks.forEach(k=>k.classList.remove('act','gone'));t0=performance.now();try{au.currentTime=0;au.play().catch(()=>{})}catch(e){}raf=requestAnimationFrame(tick)};
