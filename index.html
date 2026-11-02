@@ -195,7 +195,176 @@ img{max-width:none;display:block}
 .vr .vhn .it{font-style:italic;color:#9ED0F0}
 .vr.on .vho span{clip-path:inset(-10% 0 120% 0);transition-delay:calc(1.75s + var(--k)*.05s)}
 .vr.on .vhn span{clip-path:inset(-10% 0 -20% 0);transition-delay:calc(2.7s + var(--k)*.1s)}
-.sitefull img{transition:transform 9s linear 1.2s}.on .sitefull img{transform:translateY(calc(-100% + 740px))}
+.sitefull img{transition:transform 9s linear 1.2s}.on .sitefull img{transform:translateY(calc(-100% + 700px))}
+/* ===== diagnóstico ===== */
+.dg-k{font-size:17px;letter-spacing:4px;text-transform:uppercase;color:var(--label)}
+.gauge{position:relative;width:170px;height:170px}
+.gauge svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gauge circle{fill:none;stroke-width:10}
+.gauge .bg{stroke:#D6D6D6}.gauge .fg{stroke:#2B2B2B;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;transition:stroke-dashoffset 1.6s var(--ease) calc(.8s + var(--i,0)*.15s)}
+.on .gauge .fg{stroke-dashoffset:calc(440 - 440 * var(--v) / 100)}
+.gauge b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--impact);font-size:64px;font-weight:400;color:#2B2B2B}
+.flow{display:flex;align-items:stretch;gap:0}
+.flow .st{flex:1;position:relative;padding:22px 22px 22px 0;border-top:3px solid #2B2B2B;opacity:.25;transition:opacity .6s calc(.9s + var(--i)*.25s)}
+.on .flow .st{opacity:1}
+.flow .st.x{border-top-color:#BDBDBD}
+.flow .st.x .nm{color:#9A9A9A;text-decoration:line-through}
+.flow .nm{font-size:30px;color:#2B2B2B}
+.flow .why{font-size:21px;line-height:1.45;color:var(--muted);margin-top:10px}
+.flow .st::after{content:"";position:absolute;right:-1px;top:-11px;width:19px;height:19px;border-radius:50%;background:#2B2B2B}
+.flow .st.x::after{background:#E9E9EA;border:3px solid #BDBDBD;width:13px;height:13px}
+.verdict{border-left:6px solid #2B2B2B;padding:8px 0 8px 28px}
+.tree{display:grid;grid-template-columns:34fr 31fr 20fr 8fr 7fr;height:330px;gap:4px}
+.tree>div{position:relative;background:#2B2B2B;color:#F2F2F2;padding:18px;display:flex;flex-direction:column;justify-content:space-between;transform-origin:left;transform:scaleX(0);transition:transform .9s var(--ease) calc(.6s + var(--i)*.15s)}
+.on .tree>div{transform:none}
+.tree>div:nth-child(2){background:#595959}.tree>div:nth-child(3){background:#7A7A7A}.tree>div:nth-child(4){background:#9A9A9A}.tree>div:nth-child(5){background:#BDBDBD;color:#2B2B2B}
+.tree b{font-family:var(--impact);font-weight:400;font-size:58px;line-height:1}
+.tree span{font-size:17px;line-height:1.35}
+.tl{position:relative;height:200px;border-bottom:2px solid #2B2B2B}
+.tl .m{position:absolute;bottom:-34px;font-size:16px;letter-spacing:2px;color:var(--label);transform:translateX(-50%)}
+.tl .dot{position:absolute;bottom:0;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:#2B2B2B;transform:translateY(50%) scale(0);transition:transform .5s var(--out) calc(1s + var(--i)*.06s)}
+.on .tl .dot{transform:translateY(50%) scale(1)}
+.tl .gap{position:absolute;bottom:22px;height:2px;background:repeating-linear-gradient(90deg,#9A9A9A 0 8px,transparent 8px 14px)}
+.tl .gl{position:absolute;bottom:34px;font-size:18px;color:var(--muted);transform:translateX(-50%);white-space:nowrap}
+.hm{display:grid;grid-template-columns:330px repeat(4,1fr);gap:6px}
+.hm>span{height:86px;display:flex;align-items:center;justify-content:center;font-size:21px;text-align:center;padding:0 10px}
+.hm .h{height:40px;font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--label)}
+.hm .r{justify-content:flex-start;font-size:26px;color:#2B2B2B}
+.hm .c{opacity:0;transform:scale(.85);transition:opacity .5s,transform .5s var(--out);transition-delay:calc(.7s + var(--i)*.07s)}
+.on .hm .c{opacity:1;transform:none}
+.hm .c0{background:#2B2B2B;color:#F2F2F2}.hm .c1{background:#9A9A9A;color:#fff}.hm .c2{background:#DADBDC;color:#595959}
+/* scatter */
+.sc{position:absolute;inset:0}
+.sc .ax{position:absolute;background:#404040}
+.sc .pt{position:absolute;transform:translate(-50%,50%) scale(0);transition:transform .7s var(--out) calc(.8s + var(--i)*.12s);display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:24px;font-weight:600}
+.on .sc .pt{transform:translate(-11px,50%) scale(1)}
+.sc .pt i{display:block;width:22px;height:22px;border-radius:50%;background:#404040;flex:none}
+.sc .pt.me i{background:none;border:3px solid #2B2B2B}
+.sc .zone{position:absolute;border:1.5px dashed #9A9A9A;opacity:0;transition:opacity .8s 2.4s}
+.on .sc .zone{opacity:1}
+.sc .zl{position:absolute;transform:translateY(100%);font-size:17px;letter-spacing:3px;text-transform:uppercase;color:#595959;opacity:0;transition:opacity .8s 2.6s}
+.on .sc .zl{opacity:1}
+/* anatomia */
+.an{display:grid;grid-template-columns:330px repeat(5,1fr);gap:8px 6px;align-items:center}
+.an .h{font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--label);text-align:center;padding-bottom:6px}
+.an .r{font-size:25px}
+.an .d{height:40px;display:grid;place-items:center}
+.an .d i{display:block;width:30px;height:30px;border-radius:50%;border:2px solid #BDBDBD;transform:scale(0);transition:transform .45s var(--out);transition-delay:calc(.8s + var(--i)*.03s)}
+.on .an .d i{transform:none}
+.an .d.f i{background:#2B2B2B;border-color:#2B2B2B}
+.an .d.h1 i{background:linear-gradient(90deg,#2B2B2B 50%,transparent 50%);border-color:#2B2B2B}
+.an .me .r{font-weight:600}
+.an .colhi{background:rgba(43,43,43,.06)}
+/* cadeia aftermovie */
+.chain{display:flex;align-items:center;gap:0}
+.chain .n{flex:1;border:2px solid #F2F2F2;padding:26px 24px;min-height:190px;opacity:0;transform:translateY(30px);transition:all .7s var(--out) calc(.7s + var(--i)*.35s)}
+.on .chain .n{opacity:1;transform:none}
+.chain .n b{display:block;font-family:var(--impact);font-weight:400;font-size:48px;line-height:1;color:#F2F2F2;margin-bottom:12px}
+.chain .n p{font-size:22px;line-height:1.4;color:#C8C8C8}
+.chain .ar{width:70px;text-align:center;font-size:40px;color:#A8A8A8;opacity:0;transition:opacity .4s calc(.9s + var(--i)*.35s)}
+.on .chain .ar{opacity:1}
+/* objetivos */
+.obj{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.obj>div{position:relative;padding:40px 36px;border-left:1px solid #BDBDBD;opacity:0;transform:translateY(40px);transition:all .8s var(--out) calc(.6s + var(--i)*.25s)}
+.on .obj>div{opacity:1;transform:none}
+.obj .big{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:64px;line-height:1.05;color:#2B2B2B}
+.obj .ev{font-size:21px;line-height:1.45;color:var(--muted);margin-top:22px;border-top:1px solid #BDBDBD;padding-top:16px}
+.obj .ch{font-size:16px;letter-spacing:3px;text-transform:uppercase;color:#2B2B2B;margin-top:16px}
+/* ===== virada parallax ===== */
+.vz{background:#E9E9EA;overflow:hidden}
+.vz .world{position:absolute;inset:0;perspective:1400px;perspective-origin:50% 45%}
+.vz .pl{position:absolute;transform-style:preserve-3d;transition:transform 2.6s cubic-bezier(.7,0,.2,1),opacity 1.4s,filter 1.6s;will-change:transform}
+.vz .card{box-shadow:0 30px 60px rgba(0,0,0,.18);border:1px solid #CFCFCF;background:#fff}
+.vz .old-t{font-family:'Poppins',Arial,sans-serif;font-weight:300;color:#404040}
+.vz.on .pl{transition-delay:calc(1.4s + var(--k)*.05s);opacity:0;filter:blur(14px)}
+.vz.on .p1{transform:translate3d(-60px,-40px,1300px) rotate(-6deg)}
+.vz.on .p2{transform:translate3d(120px,-80px,1500px) rotate(5deg)}
+.vz.on .p3{transform:translate3d(-140px,90px,1250px) rotate(4deg)}
+.vz.on .p4{transform:translate3d(90px,120px,1450px) rotate(-5deg)}
+.vz.on .p5{transform:translate3d(0,0,1600px)}
+.vz.on .p6{transform:translate3d(-40px,0,1350px)}
+.vz .nb{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 120%,#1F4FA8 0%,#0B1C2D 55%,#07111F 100%);clip-path:circle(0% at 50% 50%);transition:clip-path 1.6s cubic-bezier(.65,0,.2,1) 1.7s}
+.vz.on .nb{clip-path:circle(150% at 50% 50%)}
+.vz .nb .grain{position:absolute;inset:-20%;background:radial-gradient(60% 40% at 30% 30%,rgba(158,208,240,.25),transparent 70%),radial-gradient(50% 40% at 75% 70%,rgba(31,79,168,.45),transparent 70%);animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(4%,-3%) scale(1.08)}}
+.vz .ttl{position:absolute;left:128px;right:128px;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:200px;line-height:1;letter-spacing:-5px;color:#EEE9E1;margin:0}
+.vz .ttl span{display:inline-block;clip-path:inset(0 0 110% 0);transform:translateY(40px);transition:clip-path 1.1s var(--ease),transform 1.1s var(--ease);transition-delay:calc(2.5s + var(--k)*.1s)}
+.vz .ttl i{color:#9ED0F0}
+.vz.on .ttl span{clip-path:inset(-15% 0 -25% 0);transform:none}
+.vz .nl{position:absolute;right:128px;bottom:100px;width:200px;opacity:0;transform:translateY(20px);transition:all 1s var(--out) 3.4s}
+.vz.on .nl{opacity:1;transform:none}
+.vz .cap{position:absolute;left:128px;bottom:110px;font-size:20px;letter-spacing:5px;text-transform:uppercase;color:#9ED0F0;opacity:0;transition:opacity 1s 3.6s}
+.vz.on .cap{opacity:1}
+/* ===== filme ===== */
+.fm{background:#07111F;overflow:hidden}
+.fm .fr{position:absolute;inset:0;opacity:0}
+.fm.on .fr{animation:var(--a) both}
+.fm .shot{position:absolute;left:50%;top:50%;width:1920px;height:841px;transform:translate(-50%,-50%)}
+.fm .lines{background:url(a/g24-lines.png) center/100% 100% no-repeat;clip-path:inset(0 100% 0 0)}
+.fm.on .lines{animation:draw 3.4s cubic-bezier(.4,0,.2,1) .3s both,linesout 1s 4.6s both}
+@keyframes draw{to{clip-path:inset(0 0 0 0)}}
+@keyframes linesout{to{opacity:.0}}
+.fm .rend{background:url(a/g24-render.jpg) center/100% 100% no-repeat;opacity:0;filter:saturate(.2) brightness(1.4);}
+.fm.on .rend{animation:rendin 2s ease 3.2s both,camA 9s linear 3.2s both}
+@keyframes rendin{0%{opacity:0;filter:saturate(0) brightness(1.6) blur(6px)}100%{opacity:1;filter:none}}
+@keyframes camA{to{transform:translate(-50%,-50%) scale(1.08)}}
+.fm .real{background:url(a/g24-real.jpg) center/100% 100% no-repeat;clip-path:inset(0 0 0 100%)}
+.fm.on .real{animation:wipe 1.6s cubic-bezier(.7,0,.2,1) 6.6s both,camA 9s linear 3.2s both}
+@keyframes wipe{to{clip-path:inset(0 0 0 0)}}
+.fm .bar{position:absolute;top:0;bottom:0;width:4px;background:#EEE9E1;left:100%;opacity:0}
+.fm.on .bar{animation:barm 1.6s cubic-bezier(.7,0,.2,1) 6.6s both}
+@keyframes barm{0%{left:100%;opacity:1}99%{opacity:1}100%{left:0;opacity:0}}
+.fm .ppl{position:absolute;inset:0;opacity:0;background-size:cover;background-position:center}
+.fm.on .ppl{animation:pp 2.1s ease both}
+@keyframes pp{0%{opacity:0;transform:scale(1.18)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:scale(1.02)}}
+.fm .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,17,31,0) 45%,rgba(7,17,31,.85) 100%);opacity:0}.fm.on .veil{animation:endin 1s 3.2s both}
+.fm .w{position:absolute;left:128px;bottom:120px;font-family:var(--serif);font-size:92px;line-height:1.02;letter-spacing:-2px;color:#EEE9E1;opacity:0;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.fm .w i{color:#9ED0F0}
+.fm.on .w{animation:wt var(--t) ease both}
+@keyframes wt{0%{opacity:0;transform:translateY(30px);filter:blur(8px)}12%{opacity:1;transform:none;filter:none}88%{opacity:1}100%{opacity:0;transform:translateY(-14px)}}
+.fm .lab{position:absolute;left:128px;top:96px;font-size:18px;letter-spacing:6px;text-transform:uppercase;color:#9ED0F0;opacity:0}
+.fm.on .lab{animation:wt var(--t) ease both}
+.fm .end{position:absolute;inset:0;background:linear-gradient(160deg,#07111F 0%,#1F4FA8 65%,#9ED0F0 100%);opacity:0;display:flex;flex-direction:column;justify-content:center;padding:0 128px}
+.fm.on .end{animation:endin 1.4s ease 15.4s both}
+@keyframes endin{from{opacity:0}to{opacity:1}}
+.fm .end h1{font-family:var(--serif);font-size:250px;line-height:.92;letter-spacing:-6px;color:#EEE9E1;margin:0;font-weight:400}
+.fm .end h1 span{display:block;clip-path:inset(0 0 110% 0);transform:translateY(60px)}
+.fm.on .end h1 span{animation:rise 1.2s var(--ease) both}
+.fm.on .end h1 span:nth-child(1){animation-delay:15.9s}.fm.on .end h1 span:nth-child(2){animation-delay:16.1s}
+@keyframes rise{to{clip-path:inset(-15% 0 -25% 0);transform:none}}
+.fm .tc{position:absolute;right:128px;top:96px;font-family:var(--impact);font-size:30px;letter-spacing:2px;color:#EEE9E1;opacity:.7}
+.fm .replay{position:absolute;right:128px;bottom:100px;z-index:5;background:none;border:1px solid rgba(238,233,225,.5);color:#EEE9E1;font:16px var(--sans);letter-spacing:3px;text-transform:uppercase;padding:12px 20px;cursor:pointer;opacity:0;transition:opacity .6s 17.6s}
+.fm.on .replay{opacity:1}
+/* ===== render ao real: posicionamento e números ===== */
+.lad{display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-items:end}
+.lad>div{padding:34px 34px 0;border-left:1px solid rgba(238,233,225,.3);opacity:0;transform:translateY(40px);transition:all .9s var(--out) calc(.7s + var(--i)*.3s)}
+.on .lad>div{opacity:1;transform:none}
+.lad .bar2{height:calc(var(--h)*1px);background:linear-gradient(180deg,#9ED0F0,#1F4FA8);margin-top:26px;transform-origin:bottom;transform:scaleY(0);transition:transform 1.1s var(--ease) calc(1.1s + var(--i)*.3s)}
+.on .lad .bar2{transform:none}
+.bn{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.bn>div{border-top:1px solid var(--navy);padding-top:22px;padding-right:24px}
+.bn b{display:block;font-family:var(--impact);font-weight:400;font-size:150px;line-height:.9;color:var(--navy)}
+.fid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.fid>div{background:#fff;border:1px dashed #8FA3BC;padding:20px 18px;min-height:130px;display:flex;flex-direction:column;justify-content:space-between}
+.fid .k{font-size:15px;letter-spacing:3px;text-transform:uppercase;color:#4A5868}
+.fid .v{font-family:var(--serif);font-size:34px;color:#8FA3BC;font-style:italic}
+/* marca aplicada */
+.ap{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:18px;height:640px}
+.ap>div{position:relative;overflow:hidden;opacity:0;transform:translateY(40px) scale(.98);transition:all .9s var(--out) calc(.5s + var(--i)*.15s)}
+.on .ap>div{opacity:1;transform:none}
+.ap img{width:100%;height:100%;object-fit:cover;display:block}
+.ap .tg{position:absolute;left:16px;bottom:14px;font-size:15px;letter-spacing:3px;text-transform:uppercase;background:rgba(7,17,31,.75);color:#EEE9E1;padding:7px 12px}
+.biz{background:#E7DCCB;display:grid;place-items:center;perspective:900px}
+.biz .c1,.biz .c2{position:absolute;width:300px;height:172px;box-shadow:0 18px 40px rgba(7,17,31,.25)}
+.biz .c1{background:#07111F;transform:rotate(-8deg) translate(-40px,-16px);display:grid;place-items:center}
+.biz .c2{background:#EEE9E1;transform:rotate(5deg) translate(60px,40px);padding:20px;display:flex;flex-direction:column;justify-content:space-between;font-family:var(--sans);font-size:11px;color:#07111F}
+.biz .c2 b{font-family:var(--serif);font-weight:400;font-size:22px}
+.mail{background:#fff;padding:26px;display:flex;flex-direction:column;gap:12px;font-family:var(--sans);font-size:15px;color:#3A4656}
+.mail hr{border:0;border-top:1px solid #DDD;width:100%}
+.ig{background:#EEE9E1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:4px}
+.ig>div{background-size:cover;background-position:center;position:relative}
+.ig .t{background:#07111F;display:grid;place-items:center;color:#EEE9E1;font-family:var(--serif);font-size:26px;text-align:center;line-height:1.05;padding:8px}
+.ig .t i{color:#9ED0F0}
 .casca{position:absolute;inset:0;z-index:4;background:#E9E9EA;display:flex;align-items:center;padding:0 128px;clip-path:inset(0 0 0 0);transition:clip-path 1.2s var(--ease) 1.3s;pointer-events:none}
 .casca p{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:96px;color:#404040;margin:0}
 .casca img{position:absolute;right:128px;top:44px;width:110px}
@@ -248,57 +417,119 @@ img{max-width:none;display:block}
 
 <!-- SITE ATUAL -->
 <section class="scene old bg-white" data-n="O site hoje">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O site <i class="acc">chegou ao limite da plataforma.</i></h2>
-  <figure class="l rv sitefull" style="--d:3;--i:1;left:128px;top:250px;width:1060px;height:740px;margin:0;overflow:hidden;border:1px solid #CFCFCF"><img src="a/stap-site-full.jpg" alt="Home do site atual da Stap" style="width:100%;display:block"></figure>
-  <div class="l" style="--d:2;left:1260px;top:260px;width:532px;display:flex;flex-direction:column;gap:30px">
-    <div class="rv rule" style="--i:2;padding-top:18px"><p class="lbl" style="font-size:17px">A plataforma</p><p class="body" style="font-size:25px;margin-top:8px">Feito no Wix, com banners e imagens dentro do que a ferramenta permite. Pouco espaço para mostrar projeto.</p></div>
-    <div class="rv rule" style="--i:3;padding-top:18px"><p class="lbl" style="font-size:17px">O discurso</p><p class="body" style="font-size:25px;margin-top:8px">“Transformamos design em emoção”: a mesma promessa do mercado.</p></div>
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:96px;white-space:nowrap">O site é bonito. <i class="acc">Mas não trabalha para a venda.</i></h2>
+  <figure class="l rv sitefull" style="--d:3;--i:1;left:128px;top:236px;width:560px;height:700px;margin:0;overflow:hidden;border:1px solid #CFCFCF"><img src="a/stap-site-full.jpg" alt="Home do site atual da Stap" style="width:100%;display:block"></figure>
+  <div class="l" style="--d:2;left:760px;top:236px;width:1032px;display:flex;flex-direction:column;gap:30px">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <div class="rv" style="--i:1"><div class="gauge" style="--v:61;--i:0"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>61</b></div><p class="dg-k" style="margin-top:12px">SEO</p></div>
+      <div class="rv" style="--i:2"><div class="gauge" style="--v:63;--i:1"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>63</b></div><p class="dg-k" style="margin-top:12px">Desempenho</p></div>
+      <div class="rv" style="--i:3"><div class="gauge" style="--v:58;--i:2"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>58</b></div><p class="dg-k" style="margin-top:12px">Boas práticas</p></div>
+      <div class="rv" style="--i:4"><div class="gauge" style="--v:93;--i:3"><svg viewBox="0 0 160 160"><circle class="bg" cx="80" cy="80" r="70"/><circle class="fg" cx="80" cy="80" r="70"/></svg><b>93</b></div><p class="dg-k" style="margin-top:12px">Acessibilidade</p></div>
+    </div>
+    <div class="rv rule" style="--i:5;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:28px">
+      <div><p class="dg-k">Não é encontrado</p><p class="body" style="font-size:23px;margin-top:8px"><b style="color:#2B2B2B">A página está bloqueada para indexação</b> e não tem metadescrição. O título na busca é “Home | Stap Feeling 1”.</p></div>
+      <div><p class="dg-k">Demora no celular</p><p class="body" style="font-size:23px;margin-top:8px">A maior imagem leva <b style="color:#2B2B2B">7,2 s</b> para aparecer em 4G. São 3,7 MB por visita e 475 KB de JavaScript sem uso.</p></div>
+    </div>
+    <div class="rv rule" style="--i:6;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:28px">
+      <div><p class="dg-k">Não mostra projeto</p><p class="body" style="font-size:23px;margin-top:8px">A home abre com imagem de banco e colagens. Os cases ficam atrás de um clique, sem render × real e sem dado.</p></div>
+      <div><p class="dg-k">Limite da ferramenta</p><p class="body" style="font-size:23px;margin-top:8px">No Wix, cada case novo é montado à mão em banners. Atualizar dá trabalho, então o site fica parado.</p></div>
+    </div>
   </div>
-  <p class="foot">stap.com.br · home · 02/nov/2026</p>
+  <p class="foot">PageSpeed Insights · celular · 02/nov/2026</p>
+</section>
+
+<section class="scene old bg-off" data-n="O site no funil">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">Onde o site perde <i class="acc">o cliente.</i></h2>
+    <div class="flow">
+      <div class="st x" style="--i:0"><p class="nm">Buscar</p><p class="why">“Estande Agrishow”, “agência agro”. O Google não lista a página: está bloqueada.</p></div>
+      <div class="st" style="--i:1"><p class="nm">Chegar</p><p class="why">Só chega quem já conhece: pelo link da bio ou de um e-mail.</p></div>
+      <div class="st x" style="--i:2"><p class="nm">Esperar</p><p class="why">7,2 s até a imagem principal no celular. Boa parte desiste antes.</p></div>
+      <div class="st x" style="--i:3"><p class="nm">Ver prova</p><p class="why">A home fala de emoção e mostra banco de imagem, não projeto entregue.</p></div>
+      <div class="st" style="--i:4"><p class="nm">Contatar</p><p class="why">Formulário existe, mas pouca gente chega até aqui.</p></div>
+    </div>
+    <p class="serif sm rv verdict" style="--i:6">Hoje o site é um cartão de visita. <i class="acc">Precisa virar a vitrine de prova da Stap.</i></p>
+  </div>
 </section>
 
 <!-- APRESENTAÇÃO ATUAL -->
-<section class="scene old bg-off" data-n="A apresentação hoje">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">A apresentação comercial <i class="acc">não sai do computador.</i></h2>
-  <div class="l" style="--d:2;left:128px;top:250px;width:470px;display:flex;flex-direction:column;gap:30px">
-    <div class="rv rule" style="--i:1;padding-top:16px"><p class="tk" style="font-size:120px;line-height:1">4 GB</p><p class="body" style="font-size:23px;margin-top:6px">a versão completa, com vídeos.</p></div>
-    <div class="rv rule" style="--i:2;padding-top:16px"><p class="tk" style="font-size:120px;line-height:1">207 MB</p><p class="body" style="font-size:23px;margin-top:6px">mesmo compactada e sem vídeos. Não vai por e-mail nem por WhatsApp.</p></div>
-    <div class="rv rule" style="--i:3;padding-top:16px"><p class="tk" style="font-size:120px;line-height:1">99</p><p class="body" style="font-size:23px;margin-top:6px">slides, lenta para abrir e para navegar na frente do cliente.</p></div>
+<section class="scene old bg-white" data-n="A apresentação hoje">
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:96px">A apresentação comercial <i class="acc">é o calcanhar de Aquiles.</i></h2>
+  <div class="l" style="--d:2;left:128px;top:250px;width:1664px">
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:16px"><p class="dg-k">Onde estão os 209 MB da versão “pocket”</p><p class="dg-k">99 slides · 288 imagens · 37 fontes embutidas</p></div>
+    <div class="tree">
+      <div style="--i:0"><b>70 MB</b><span>Uma única foto: a Grunner do slide 26, em PNG de 4536 × 8064 px.</span></div>
+      <div style="--i:1"><b>66 MB</b><span>Outros 100 PNGs, quase todos fotos que deveriam ser JPG.</span></div>
+      <div style="--i:2"><b>42 MB</b><span>29 JPGs sem redução de tamanho.</span></div>
+      <div style="--i:3"><b>16</b><span>MB em imagens HDR do Office.</span></div>
+      <div style="--i:4"><b>15</b><span>MB do resto.</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:56px;margin-top:56px">
+      <div class="rv rule" style="--i:6;padding-top:18px"><p class="tk" style="font-size:110px;line-height:1">4 GB</p><p class="body" style="font-size:23px;margin-top:8px">a versão completa, com vídeos. Não vai por e-mail, trava no WhatsApp, demora a abrir.</p></div>
+      <div class="rv rule" style="--i:7;padding-top:18px"><p class="tk" style="font-size:110px;line-height:1">209 → 28</p><p class="body" style="font-size:23px;margin-top:8px">MB, só redimensionando as fotos para o tamanho da tela. Testamos: sem perda visível.</p></div>
+      <div class="rv rule" style="--i:8;padding-top:18px"><p class="tk" style="font-size:110px;line-height:1">42</p><p class="body" style="font-size:23px;margin-top:8px">palavras por slide, em média. É documento, não apresentação.</p></div>
+    </div>
   </div>
-  <div class="l" style="--d:3;left:660px;top:250px;width:1132px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
-    <img class="rv" style="--i:2;width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid #CFCFCF" src="a/deck-6-06.jpg" alt="Slide da apresentação comercial atual">
-    <img class="rv" style="--i:3;width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid #CFCFCF" src="a/deck-7-07.jpg" alt="Slide da apresentação comercial atual">
-    <img class="rv" style="--i:4;width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid #CFCFCF" src="a/deck-8-08.jpg" alt="Slide da apresentação comercial atual">
-    <img class="rv" style="--i:5;width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid #CFCFCF" src="a/deck-23-23.jpg" alt="Slide da apresentação comercial atual">
-    <img class="rv" style="--i:6;width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid #CFCFCF" src="a/deck-27-27.jpg" alt="Slide da apresentação comercial atual">
-    <img class="rv" style="--i:7;width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid #CFCFCF" src="a/deck-44-44.jpg" alt="Slide da apresentação comercial atual">
+  <p class="foot">Análise do arquivo stap_apresentacao_final_v1_pocket · 02/nov/2026</p>
+</section>
+
+<section class="scene old bg-off" data-n="Arquivo ou link">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">O problema não é o peso. <i class="acc">É ser um arquivo.</i></h2>
+    <div class="flow">
+      <div class="st" style="--i:0"><p class="nm">Vendedor envia</p><p class="why">Cada um tem uma versão salva. Ninguém sabe qual é a última.</p></div>
+      <div class="st x" style="--i:1"><p class="nm">E-mail</p><p class="why">Gmail e Outlook barram anexos acima de 20 a 25 MB.</p></div>
+      <div class="st x" style="--i:2"><p class="nm">Cliente abre</p><p class="why">No celular, o PPT de 4 GB não abre. No notebook, demora.</p></div>
+      <div class="st x" style="--i:3"><p class="nm">Repassa</p><p class="why">Para compras ou diretoria? Não cabe no e-mail de novo.</p></div>
+      <div class="st x" style="--i:4"><p class="nm">Retorno</p><p class="why">Abriu? Viu o quê? A Stap não sabe.</p></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px">
+      <p class="body rv" style="--i:6;font-size:24px"><b style="color:#2B2B2B">Hoje:</b> um arquivo que pesa, se desatualiza e some na caixa do cliente.</p>
+      <p class="body rv" style="--i:7;font-size:24px"><b style="color:#2B2B2B">Caminho:</b> o deck vira um link. Abre em qualquer tela, está sempre na última versão e é atualizado num lugar só.</p>
+    </div>
   </div>
-  <p class="foot">Apresentação comercial atual · versão pocket, sem vídeos</p>
 </section>
 
 <!-- INSTAGRAM ATUAL -->
 <section class="scene old bg-white" data-n="O Instagram hoje">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O Instagram não é ruim. <i class="acc">Falta constância.</i></h2>
-  <figure class="l rv" style="--d:3;--i:1;left:128px;top:240px;width:380px"><img src="a/ig-stapfeelings.jpg" alt="Últimos 12 posts do @stapfeelings" style="width:100%;display:block"></figure>
-  <div class="l" style="--d:2;left:640px;top:250px;width:1152px;display:flex;flex-direction:column;gap:26px">
-    <div class="rv rule" style="--i:2;padding-top:18px"><p class="lbl" style="font-size:17px">O que funciona</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Os KVs dos eventos dos clientes fazem do feed um portfólio bonito.</p></div>
-    <div class="rv rule" style="--i:3;padding-top:18px"><p class="lbl" style="font-size:17px">Ritmo</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">47 posts no total. O último é de 20/fev/2026.</p></div>
-    <div class="rv rule" style="--i:4;padding-top:18px"><p class="lbl" style="font-size:17px">Formato</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Os posts saem em trincas, três no mesmo dia, para montar o mosaico do feed. Entre um bloco e outro, meses sem nada.</p></div>
-    <div class="rv rule" style="--i:5;padding-top:18px"><p class="lbl" style="font-size:17px">Por quê</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Não há uma equipe dedicada a conteúdo: quem pauta, cria as pílulas, edita os vídeos dos eventos e cuida do calendário. Quem posta com constância, como a TM1, tem essa estrutura.</p></div>
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:96px">O Instagram não é ruim. <i class="acc">Ele não tem dono.</i></h2>
+  <div class="l" style="--d:2;left:128px;top:250px;width:1664px">
+    <p class="dg-k" style="margin-bottom:24px">@stapfeelings · cada ponto é um post (os 12 mais recentes)</p>
+    <div class="tl"><span class="dot" style="--i:0;left:-15px;bottom:0px"></span><span class="dot" style="--i:1;left:-15px;bottom:28px"></span><span class="dot" style="--i:2;left:-13px;bottom:0px"></span><span class="dot" style="--i:3;left:580px;bottom:0px"></span><span class="dot" style="--i:4;left:580px;bottom:28px"></span><span class="dot" style="--i:5;left:580px;bottom:56px"></span><span class="dot" style="--i:6;left:623px;bottom:0px"></span><span class="dot" style="--i:7;left:623px;bottom:28px"></span><span class="dot" style="--i:8;left:623px;bottom:56px"></span><span class="dot" style="--i:9;left:993px;bottom:0px"></span><span class="dot" style="--i:10;left:996px;bottom:0px"></span><span class="dot" style="--i:11;left:996px;bottom:28px"></span><span class="gap" style="left:-8px;width:583px"></span><span class="gl" style="left:283px">8 meses</span><span class="gap" style="left:628px;width:360px"></span><span class="gl" style="left:808px">5 meses</span><span class="gap" style="left:1001px;width:628px"></span><span class="gl" style="left:1315px">8 meses e contando</span><span class="m" style="left:0px">jan</span><span class="m" style="left:151px">mar</span><span class="m" style="left:303px">mai</span><span class="m" style="left:454px">jul</span><span class="m" style="left:605px">set</span><span class="m" style="left:756px">nov</span><span class="m" style="left:908px">jan</span><span class="m" style="left:1059px">mar</span><span class="m" style="left:1210px">mai</span><span class="m" style="left:1361px">jul</span><span class="m" style="left:1513px">set</span><span class="m" style="left:1664px">nov</span><span class="m" style="left:0;bottom:-62px;transform:none;color:#2B2B2B">2025</span><span class="m" style="left:908px;bottom:-62px;transform:none;color:#2B2B2B">2026</span></div>
   </div>
-  <p class="foot">@stapfeelings · últimos 12 posts · 28/out/2026</p>
+  <div class="l" style="--d:2;left:128px;top:640px;width:1664px;display:grid;grid-template-columns:repeat(3,1fr);gap:56px">
+    <div class="rv rule" style="--i:4;padding-top:18px"><p class="dg-k">Sintoma</p><p class="body" style="font-size:23px;margin-top:8px">Posts em blocos de três no mesmo dia, para fechar o mosaico do feed. Depois, meses sem nada.</p></div>
+    <div class="rv rule" style="--i:5;padding-top:18px"><p class="dg-k">Causa</p><p class="body" style="font-size:23px;margin-top:8px">De jan a set de 2025 a Stap postava cerca de 5 vezes por mês, mais que quase todas as concorrentes. Capacidade existe. Falta processo: pauta, calendário e alguém responsável. O conteúdo dependia do tempo livre e parou quando a operação apertou.</p></div>
+    <div class="rv rule" style="--i:6;padding-top:18px"><p class="dg-k">Impacto</p><p class="body" style="font-size:23px;margin-top:8px">O algoritmo entrega menos a quem some, e quem segue esquece. Os 4,8 mil seguidores viram audiência parada.</p></div>
+  </div>
+  <p class="foot">@stapfeelings · datas pelos posts · 02/nov/2026</p>
 </section>
 
 <!-- LINKEDIN ATUAL -->
 <section class="scene old bg-white" data-n="O LinkedIn hoje">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O LinkedIn <i class="acc">existe, mas está vazio.</i></h2>
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O LinkedIn é <i class="acc">uma porta fechada.</i></h2>
   <figure class="l rv" style="--d:3;--i:1;left:128px;top:240px;width:680px;margin:0"><img src="a/stap-linkedin.jpg" alt="Página Agência Stap no LinkedIn" style="width:100%;display:block;border:1px solid #CFCFCF"></figure>
-  <div class="l" style="--d:2;left:900px;top:250px;width:892px;display:flex;flex-direction:column;gap:30px">
-    <div class="rv rule" style="--i:2;padding-top:16px"><p class="tk" style="font-size:110px;line-height:1">1.474</p><p class="body" style="font-size:24px;margin-top:6px">seguidores na página “Agência Stap”.</p></div>
-    <div class="rv rule" style="--i:3;padding-top:16px"><p class="tk" style="font-size:110px;line-height:1">0</p><p class="body" style="font-size:24px;margin-top:6px">posts publicados. A página mostra “No posts yet”.</p></div>
-    <div class="rv rule" style="--i:4;padding-top:16px"><p class="tk" style="font-size:110px;line-height:1">2</p><p class="body" style="font-size:24px;margin-top:6px">descrições: “agência de live marketing” na busca, “design, arquitetura, montagem” na página.</p></div>
+  <div class="l" style="--d:2;left:900px;top:250px;width:892px;display:flex;flex-direction:column;gap:26px">
+    <div class="rv rule" style="--i:2;padding-top:16px;display:flex;align-items:baseline;gap:26px"><p class="tk" style="font-size:96px;line-height:1">1.474</p><p class="body" style="font-size:23px">seguidores que a Stap já tem e não usa: a página tem <b style="color:#2B2B2B">zero posts</b>.</p></div>
+    <div class="rv rule" style="--i:3;padding-top:16px"><p class="dg-k">Desalinhada</p><p class="body" style="font-size:23px;margin-top:8px">Na busca, “agência de live marketing”. Na página, “design, arquitetura, montagem”. Logo e capa antigos.</p></div>
+    <div class="rv rule" style="--i:4;padding-top:16px"><p class="dg-k">O que já existe</p><p class="body" style="font-size:23px;margin-top:8px">Gente da Stap com perfil ativo e rede própria. É o canal onde estão os compradores de Agro e Auto, e ninguém da casa fala por ele em nome da empresa.</p></div>
+    <div class="rv rule" style="--i:5;padding-top:16px"><p class="dg-k">Impacto</p><p class="body" style="font-size:23px;margin-top:8px">Quem pesquisa a Stap antes de uma concorrência encontra uma página vazia. Para compras, isso é sinal de risco.</p></div>
   </div>
   <p class="foot">linkedin.com/company/agenciastap · 02/nov/2026</p>
+</section>
+
+<section class="scene old bg-off" data-n="A Stap hoje em um quadro">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">A Stap hoje, <i class="acc">em um quadro.</i></h2>
+    <div class="hm">
+      <span class="h"></span><span class="h">Site</span><span class="h">Apresentação</span><span class="h">Instagram</span><span class="h">LinkedIn</span>
+      <span class="r">É encontrada?</span><span class="c c2" style="--i:0">bloqueado no Google</span><span class="c c2" style="--i:1">só por anexo</span><span class="c c1" style="--i:2">sim, 4,8 mil</span><span class="c c2" style="--i:3">página vazia</span>
+      <span class="r">Mostra prova?</span><span class="c c2" style="--i:4">banco de imagem</span><span class="c c1" style="--i:5">sim, mas em 99 slides</span><span class="c c1" style="--i:6">KVs do cliente</span><span class="c c2" style="--i:7">nada</span>
+      <span class="r">É constante?</span><span class="c c2" style="--i:8">parado</span><span class="c c1" style="--i:9">versões soltas</span><span class="c c2" style="--i:10">blocos e silêncio</span><span class="c c2" style="--i:11">nunca postou</span>
+      <span class="r">Funciona no celular?</span><span class="c c1" style="--i:12">lento, 7,2 s</span><span class="c c2" style="--i:13">não abre</span><span class="c c0" style="--i:14">sim</span><span class="c c0" style="--i:15">sim</span>
+    </div>
+    <p class="serif sm rv verdict" style="--i:6">A Stap tem material e audiência. <i class="acc">Falta um sistema que faça os canais trabalharem juntos.</i></p>
+  </div>
 </section>
 
 
@@ -348,75 +579,64 @@ img{max-width:none;display:block}
   <p class="foot">Últimos 12 posts e total de posts de cada perfil · 27/out/2026 · @stapfeelings: 47 posts</p>
 </section>
 
+<section class="scene old bg-navy" data-n="Por que o evento pronto">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between;color:#F2F2F2">
+    <h2 class="serif md rv" style="color:#F2F2F2">Por que todas mostram <i class="acc">o evento pronto?</i></h2>
+    <div class="chain">
+      <div class="n" style="--i:0"><b>01</b><p>O job termina com um aftermovie que já foi feito para o cliente.</p></div><span class="ar" style="--i:0">→</span>
+      <div class="n" style="--i:1"><b>02</b><p>É o conteúdo mais fácil: pronto, aprovado e bonito.</p></div><span class="ar" style="--i:1">→</span>
+      <div class="n" style="--i:2"><b>03</b><p>O cliente reposta e a agência pega carona na marca dele.</p></div><span class="ar" style="--i:2">→</span>
+      <div class="n" style="--i:3"><b>04</b><p>Resultado: oito feeds iguais. O protagonista é o cliente, não a agência.</p></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+      <p class="body rv" style="--i:6;color:#C8C8C8;font-size:24px">O evento pronto mostra <b style="color:#F2F2F2">o quê</b>. Não mostra <b style="color:#F2F2F2">como</b>, nem <b style="color:#F2F2F2">quem</b> fez. Para quem vai contratar, é a parte que menos ajuda a escolher.</p>
+      <p class="body rv" style="--i:7;color:#C8C8C8;font-size:24px">A leitura é nossa, a partir dos feeds. Mostrar a construção dá mais trabalho, e é por isso que ninguém faz.</p>
+    </div>
+  </div>
+</section>
+
 <!-- LINKEDIN MERCADO -->
 <section class="scene old bg-white" data-n="No LinkedIn">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;gap:34px">
-    <h2 class="serif md rv">No LinkedIn, quem tem audiência quase não posta. <i class="acc">Quem posta não tem audiência.</i></h2>
-    <div><div style="display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding-bottom:10px"><span class="lbl" style="font-size:15px">Agência</span><span class="lbl" style="font-size:15px">Seguidores</span><span class="lbl" style="font-size:15px">Posts · 90 dias</span><span class="lbl" style="font-size:15px">Último post</span><span class="lbl" style="font-size:15px">O que publica</span></div><div class="rv rule" style="--i:1;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">BFerraz</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:459px;background:#9A9A9A"></span><span style="font-size:20px">26.000</span></span><span style="font-size:30px;font-weight:500">0</span><span class="body" style="font-size:21px">5 meses</span><span class="body" style="font-size:21px">teses e cultura, irregular</span></div><div class="rv rule" style="--i:2;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">TM1</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:371px;background:#9A9A9A"></span><span style="font-size:20px">21.000</span></span><span style="font-size:30px;font-weight:500">19</span><span class="body" style="font-size:21px">1 semana</span><span class="body" style="font-size:21px">cases grandes e o CEO em painéis</span></div><div class="rv rule" style="--i:3;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Rock</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:212px;background:#9A9A9A"></span><span style="font-size:20px">12.000</span></span><span style="font-size:30px;font-weight:500">3</span><span class="body" style="font-size:21px">1 mês</span><span class="body" style="font-size:21px">cases de varejo</span></div><div class="rv rule" style="--i:4;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Netza</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:159px;background:#9A9A9A"></span><span style="font-size:20px">9.000</span></span><span style="font-size:30px;font-weight:500">0</span><span class="body" style="font-size:21px">11 meses</span><span class="body" style="font-size:21px">parada</span></div><div class="rv rule" style="--i:5;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Innova AATB</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:124px;background:#9A9A9A"></span><span style="font-size:20px">7.000</span></span><span style="font-size:30px;font-weight:500">15</span><span class="body" style="font-size:21px">1 semana</span><span class="body" style="font-size:21px">18 de 29 posts são vagas</span></div><div class="rv rule" style="--i:6;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Red Door</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:106px;background:#9A9A9A"></span><span style="font-size:20px">6.000</span></span><span style="font-size:30px;font-weight:500">5</span><span class="body" style="font-size:21px">2 semanas</span><span class="body" style="font-size:21px">cases de tecnologia e vagas</span></div><div class="rv rule" style="--i:7;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Hype</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:53px;background:#9A9A9A"></span><span style="font-size:20px">3.000</span></span><span style="font-size:30px;font-weight:500">0</span><span class="body" style="font-size:21px">4 meses</span><span class="body" style="font-size:21px">cases longos, Salão do Automóvel</span></div><div class="rv rule" style="--i:8;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Grupo Speed</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:10px;background:#9A9A9A"></span><span style="font-size:20px">548</span></span><span style="font-size:30px;font-weight:500">12</span><span class="body" style="font-size:21px">5 dias</span><span class="body" style="font-size:21px">Auto e Agro, quase sem alcance</span></div><div class="rv rule" style="--i:9;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0;font-weight:600"><span style="font-size:24px">Stap</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:26px;background:#2B2B2B"></span><span style="font-size:20px">1.474</span></span><span style="font-size:30px;font-weight:500">0</span><span class="body" style="font-size:21px">nunca</span><span class="body" style="font-size:21px">página sem posts</span></div></div>
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:96px;width:560px">No LinkedIn, <i class="acc">audiência e ritmo quase nunca andam juntos.</i></h2>
+  <div class="l" style="--d:2;left:128px;top:470px;width:520px;display:flex;flex-direction:column;gap:22px">
+    <p class="body rv" style="--i:2;font-size:22px"><b style="color:#2B2B2B">Audiência parada:</b> BFerraz e Netza têm 26 mil e 9 mil seguidores e não postam há meses.</p>
+    <p class="body rv" style="--i:3;font-size:22px"><b style="color:#2B2B2B">Ritmo sem alcance:</b> a Speed posta toda semana sobre Auto e Agro para 548 pessoas.</p>
+    <p class="body rv" style="--i:4;font-size:22px"><b style="color:#2B2B2B">Página de RH:</b> na Innova, 18 de 29 posts são vagas.</p>
+    <p class="body rv" style="--i:5;font-size:22px"><b style="color:#2B2B2B">As duas coisas:</b> só a TM1, puxada pelo CEO em painéis e na imprensa.</p>
   </div>
-  <p class="foot">Páginas de empresa no LinkedIn · posts visíveis na página · 02/nov/2026</p>
+  <div class="l" style="--d:3;left:692px;top:200px;width:1100px;height:620px">
+    <div class="sc">
+      <span class="ax" style="left:0;bottom:0;width:100%;height:2px"></span><span class="ax" style="left:0;bottom:0;width:2px;height:100%"></span>
+      <span class="zone" style="left:628px;bottom:-10px;width:492px;height:108px"></span><span class="zl" style="left:642px;bottom:86px">Audiência parada</span>
+      <span class="zone" style="left:-10px;bottom:248px;width:470px;height:217px"></span><span class="zl" style="left:4px;bottom:453px">Ritmo sem alcance</span>
+      <span class="zone" style="left:878px;bottom:465px;width:242px;height:186px"></span><span class="zl" style="left:892px;bottom:639px">Audiência e ritmo</span>
+      <span class="pt" style="--i:0;left:1003px;bottom:0px"><i></i>BFerraz</span><span class="pt" style="--i:1;left:954px;bottom:589px"><i></i>TM1</span><span class="pt" style="--i:2;left:827px;bottom:93px"><i></i>Rock</span><span class="pt" style="--i:3;left:762px;bottom:0px"><i></i>Netza</span><span class="pt" style="--i:4;left:705px;bottom:465px"><i></i>Innova AATB</span><span class="pt" style="--i:5;left:670px;bottom:155px"><i></i>Red Door</span><span class="pt" style="--i:6;left:512px;bottom:0px"><i></i>Hype</span><span class="pt" style="--i:7;left:125px;bottom:372px"><i></i>Grupo Speed</span><span class="pt me" style="--i:8;left:350px;bottom:0px"><i></i>Stap</span>
+      <span class="dg-k" style="position:absolute;right:0;bottom:-46px">Seguidores (escala log) →</span>
+      <span class="dg-k" style="position:absolute;left:-10px;top:-40px">↑ Posts nos últimos 90 dias</span>
+    </div>
+  </div>
+  <p class="foot">Páginas de empresa no LinkedIn · 02/nov/2026 · com 8 agências, é observação, não correlação</p>
 </section>
 
 <!-- LINKEDIN LEITURA -->
-<section class="scene old bg-off" data-n="O que o LinkedIn mostra">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif md rv">O que o LinkedIn <i class="acc">das agências mostra.</i></h2>
-    <div class="cols" style="grid-template-columns:repeat(4,1fr);gap:40px">
-      <div class="rv rule" style="--i:1;padding-top:24px"><p class="lbl" style="font-size:17px">Audiência parada</p><p class="body" style="font-size:24px;margin-top:10px">BFerraz e Netza têm 26 mil e 9 mil seguidores e não postam há meses. Audiência sem constância some.</p></div>
-      <div class="rv rule" style="--i:2;padding-top:24px"><p class="lbl" style="font-size:17px">Ritmo sem alcance</p><p class="body" style="font-size:24px;margin-top:10px">A Speed posta toda semana sobre Auto e Agro, mas tem 548 seguidores e poucas reações. Constância sem marca também não basta.</p></div>
-      <div class="rv rule" style="--i:3;padding-top:24px"><p class="lbl" style="font-size:17px">Página de RH</p><p class="body" style="font-size:24px;margin-top:10px">Na Innova, 18 de 29 posts são vagas. A página fala com candidato, não com cliente.</p></div>
-      <div class="rv rule" style="--i:4;padding-top:24px"><p class="lbl" style="font-size:17px">Quem junta os dois</p><p class="body" style="font-size:24px;margin-top:10px">Só a TM1: posta toda semana, com cases grandes e o CEO falando em painéis e na imprensa. Pessoas dão alcance à página.</p></div>
-    </div>
-    <p class="serif sm rv" style="--i:5">Ninguém usa o LinkedIn para falar com quem compra estande em Agro e Auto. <i class="acc">O espaço está livre.</i></p>
-  </div>
-</section>
 
-<section class="scene old bg-white" data-n="O que a Stap quer">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif md rv">O que a Stap quer <i class="acc">das redes, em ordem.</i></h2>
-    <div>
-      <div class="row rv" style="--i:1;grid-template-columns:90px 380px 1fr"><span class="tk" style="font-size:52px">1</span><span class="serif sm">Ser lembrada</span><span class="body" style="font-size:24px">Aparecer para marketing, trade e compras de Agro e Auto antes de eles abrirem a concorrência.</span></div>
-      <div class="row rv" style="--i:2;grid-template-columns:90px 380px 1fr"><span class="tk" style="font-size:52px">2</span><span class="serif sm">Posicionamento</span><span class="body" style="font-size:24px">Ser a agência que mostra como constrói: o aprovado ao lado do entregue.</span></div>
-      <div class="row rv" style="--i:3;grid-template-columns:90px 380px 1fr"><span class="tk" style="font-size:52px">3</span><span class="serif sm">Relacionamento</span><span class="body" style="font-size:24px">Pessoas da Stap conversando com decisores, não só a página.</span></div>
-      <div class="row rv" style="--i:4;grid-template-columns:90px 380px 1fr"><span class="tk" style="font-size:52px">4</span><span class="serif sm">Vagas</span><span class="body" style="font-size:24px">Quando houver, como apoio. Nunca como o conteúdo principal da página.</span></div>
-    </div>
-  </div>
-</section>
+
+
 
 <!-- DIAGNÓSTICO -->
 <section class="scene old bg-white" data-n="Diagnóstico">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;gap:36px">
-    <h2 class="serif md rv">O que os oito <i class="acc">mostram de fato.</i></h2>
-    <div><div style="display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding-bottom:12px"><span></span><span class="lbl" style="font-size:16px">Agência</span><span class="lbl" style="font-size:16px">Carteira no feed</span><span class="lbl" style="font-size:16px">Visual</span><span class="lbl" style="font-size:16px">Evento pronto</span><span class="lbl" style="font-size:16px">Como foi construído</span></div><div class="rv rule" style="--i:1;display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding:6px 0"><img src="a/igs-tm1-br.jpg" alt="" style="width:150px;height:67px;object-fit:cover"><span style="font-size:26px">TM1</span><span class="body" style="font-size:22px">Vários setores</span><span class="body" style="font-size:22px">Colorido</span><span style="font-size:26px">✓</span><span class="body" style="font-size:22px">—</span></div><div class="rv rule" style="--i:2;display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding:6px 0"><img src="a/igs-netza-ag.jpg" alt="" style="width:150px;height:67px;object-fit:cover"><span style="font-size:26px">Netza</span><span class="body" style="font-size:22px">Vários, com Auto forte</span><span class="body" style="font-size:22px">Misto</span><span style="font-size:26px">✓</span><span class="body" style="font-size:22px">Bastidores de equipe</span></div><div class="rv rule" style="--i:3;display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding:6px 0"><img src="a/igs-inside-the-hype.jpg" alt="" style="width:150px;height:67px;object-fit:cover"><span style="font-size:26px">Hype</span><span class="body" style="font-size:22px">Vários, com Auto</span><span class="body" style="font-size:22px">Escuro</span><span style="font-size:26px">✓</span><span class="body" style="font-size:22px">—</span></div><div class="rv rule" style="--i:4;display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding:6px 0"><img src="a/igs-innova-aatb.jpg" alt="" style="width:150px;height:67px;object-fit:cover"><span style="font-size:26px">Innova AATB</span><span class="body" style="font-size:22px">Vários setores</span><span class="body" style="font-size:22px">Escuro</span><span style="font-size:26px">✓</span><span class="body" style="font-size:22px">—</span></div><div class="rv rule" style="--i:5;display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding:6px 0"><img src="a/igs-grupospeed.jpg" alt="" style="width:150px;height:67px;object-fit:cover"><span style="font-size:26px">Grupo Speed</span><span class="body" style="font-size:22px">Foco em Auto</span><span class="body" style="font-size:22px">Misto</span><span style="font-size:26px">✓</span><span class="body" style="font-size:22px">—</span></div><div class="rv rule" style="--i:6;display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding:6px 0"><img src="a/igs-agenciabferraz.jpg" alt="" style="width:150px;height:67px;object-fit:cover"><span style="font-size:26px">BFerraz</span><span class="body" style="font-size:22px">Vários setores</span><span class="body" style="font-size:22px">Cor da marca</span><span style="font-size:26px">✓</span><span class="body" style="font-size:22px">—</span></div><div class="rv rule" style="--i:7;display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding:6px 0"><img src="a/igs-reddoor-ag.jpg" alt="" style="width:150px;height:67px;object-fit:cover"><span style="font-size:26px">Red Door</span><span class="body" style="font-size:22px">Vários setores</span><span class="body" style="font-size:22px">Escuro</span><span style="font-size:26px">✓</span><span class="body" style="font-size:22px">—</span></div><div class="rv rule" style="--i:8;display:grid;grid-template-columns:150px 260px 1fr 260px 220px 300px;gap:28px;align-items:center;padding:6px 0"><img src="a/igs-rockcomunicacao.jpg" alt="" style="width:150px;height:67px;object-fit:cover"><span style="font-size:26px">Rock</span><span class="body" style="font-size:22px">Vários setores</span><span class="body" style="font-size:22px">Colorido</span><span style="font-size:26px">✓</span><span class="body" style="font-size:22px">—</span></div></div>
-  </div>
-  <p class="foot">Evento pronto 8 de 8 · Como foi construído 0 de 8 · Foco setorial 1 de 8 · sites e últimos 12 posts, out/2026</p>
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:96px">Como cada agência <i class="acc">conta um projeto.</i></h2>
+  <p class="l body rv" style="--d:1;--i:1;left:128px;top:200px;font-size:22px;max-width:1500px">Lemos os cases nos sites e os últimos 12 posts de cada perfil, e marcamos que etapa da história cada uma mostra.</p>
+  <div class="l an" style="--d:3;left:128px;top:300px;width:1664px"><span></span><span class="h">Ideia</span><span class="h">Render</span><span class="h">Montagem</span><span class="h">Evento</span><span class="h">Resultado</span><span class="r">TM1</span><span class="d f"><i style="--i:0"></i></span><span class="d "><i style="--i:1"></i></span><span class="d h1"><i style="--i:2"></i></span><span class="d f"><i style="--i:3"></i></span><span class="d "><i style="--i:4"></i></span><span class="r">Netza</span><span class="d "><i style="--i:5"></i></span><span class="d "><i style="--i:6"></i></span><span class="d h1"><i style="--i:7"></i></span><span class="d f"><i style="--i:8"></i></span><span class="d f"><i style="--i:9"></i></span><span class="r">Hype</span><span class="d "><i style="--i:10"></i></span><span class="d "><i style="--i:11"></i></span><span class="d h1"><i style="--i:12"></i></span><span class="d f"><i style="--i:13"></i></span><span class="d "><i style="--i:14"></i></span><span class="r">Innova AATB</span><span class="d f"><i style="--i:15"></i></span><span class="d "><i style="--i:16"></i></span><span class="d "><i style="--i:17"></i></span><span class="d f"><i style="--i:18"></i></span><span class="d f"><i style="--i:19"></i></span><span class="r">Grupo Speed</span><span class="d "><i style="--i:20"></i></span><span class="d "><i style="--i:21"></i></span><span class="d h1"><i style="--i:22"></i></span><span class="d f"><i style="--i:23"></i></span><span class="d "><i style="--i:24"></i></span><span class="r">BFerraz</span><span class="d f"><i style="--i:25"></i></span><span class="d "><i style="--i:26"></i></span><span class="d h1"><i style="--i:27"></i></span><span class="d f"><i style="--i:28"></i></span><span class="d "><i style="--i:29"></i></span><span class="r">Red Door</span><span class="d f"><i style="--i:30"></i></span><span class="d "><i style="--i:31"></i></span><span class="d "><i style="--i:32"></i></span><span class="d f"><i style="--i:33"></i></span><span class="d "><i style="--i:34"></i></span><span class="r">Rock</span><span class="d "><i style="--i:35"></i></span><span class="d "><i style="--i:36"></i></span><span class="d "><i style="--i:37"></i></span><span class="d f"><i style="--i:38"></i></span><span class="d "><i style="--i:39"></i></span><span class="r" style="font-weight:600">Stap, a partir de agora</span><span class="d f"><i style="--i:40"></i></span><span class="d f"><i style="--i:41"></i></span><span class="d f"><i style="--i:42"></i></span><span class="d f"><i style="--i:43"></i></span><span class="d f"><i style="--i:44"></i></span></div>
+  <div class="l" style="--d:2;left:128px;top:930px;display:flex;gap:44px;font-size:19px;color:var(--muted)"><span><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:#2B2B2B;vertical-align:-3px"></span> mostra</span><span><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background:linear-gradient(90deg,#2B2B2B 50%,transparent 50%);border:2px solid #2B2B2B;vertical-align:-3px"></span> em post solto</span><span><span style="display:inline-block;width:18px;height:18px;border-radius:50%;border:2px solid #BDBDBD;vertical-align:-3px"></span> não mostra</span><span>Resultado: Netza e Innova trazem área, público e metragem</span></div>
 </section>
 
 
 
 <!-- EXEMPLO SPEED -->
-<section class="scene old bg-white" data-n="Exemplo · Grupo Speed">
-  <figure class="l rv" style="--d:3;left:128px;top:96px;width:820px;height:820px;overflow:hidden;border:1px solid rgba(7,17,31,.2);background:#F6F5F1"><img class="pan" src="a/case-speed.jpg" alt="Página completa do case GWM na Agrishow no site do Grupo Speed" style="width:820px;height:auto"></figure>
-  <div class="l" style="--d:1;left:1030px;top:96px;width:762px;height:820px;display:flex;flex-direction:column;justify-content:space-between">
-    <div><p class="lbl rv">Grupo Speed · GWM na Agrishow</p><h2 class="serif rv" style="--i:1;margin-top:16px;font-size:76px;line-height:1.04;letter-spacing:-2px">O concorrente mais direto <i class="acc">não mostra o que construiu.</i></h2></div>
-    <div style="display:flex;gap:48px;align-items:flex-end">
-      <div class="rv" style="--i:3;padding-top:20px"><p class="tk acc" style="font-size:150px;line-height:1">1</p><p class="body" style="font-size:24px">foto</p></div>
-      <div class="rv" style="--i:4;padding-top:20px"><p class="tk acc" style="font-size:150px;line-height:1">0</p><p class="body" style="font-size:24px">números</p></div>
-      <div class="rv" style="--i:5;padding-top:20px"><p class="tk acc" style="font-size:150px;line-height:1">0</p><p class="body" style="font-size:24px">render ou processo</p></div>
-    </div>
-    <p class="serif rv rule" style="--i:6;font-size:36px;line-height:1.2;padding-top:24px;color:var(--muted)"><i>“A imagem do projeto apresenta um veículo em uma estrutura de pista elevada.”</i> O texto do case descreve a própria foto.</p>
-  </div>
-  <p class="foot" style="left:1030px">speedsports.com.br/projetos/gwm-agrishow · capturado em 26/out/2026</p>
-</section>
 
-<section class="scene old bg-white" data-n="Exemplo · Netza e Innova">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">As que mostram números <i class="acc">medem tamanho, não entrega.</i></h2>
-  <div class="l" style="--d:3;left:128px;top:260px;width:1664px;display:grid;grid-template-columns:1fr 1fr;gap:56px">
-    <figure class="rv" style="--i:1;margin:0"><img src="a/case-netza.jpg" alt="Case Fórmula E no site da Netza" style="width:100%;aspect-ratio:16/10;object-fit:contain;background:#fff;display:block;border:1px solid #CFCFCF"><figcaption class="body" style="font-size:24px;margin-top:16px">Netza · Fórmula E. Área, camarotes, ativações e público.</figcaption></figure>
-    <figure class="rv" style="--i:2;margin:0"><img src="a/case-innova.jpg" alt="Case Cummins no site da Innova" style="width:100%;aspect-ratio:16/10;object-fit:contain;background:#fff;display:block;border:1px solid #CFCFCF"><figcaption class="body" style="font-size:24px;margin-top:16px">Innova AATB · Cummins na Fenatran 2024. Desafio, solução e metragem.</figcaption></figure>
-  </div>
-  <p class="foot">Área e público, sim. O aprovado ao lado do entregue, ninguém · sites das agências · out/2026</p>
-</section>
+
+
 
 
 
@@ -447,14 +667,32 @@ img{max-width:none;display:block}
   <p class="foot" style="left:760px">Netza e Innova provam escala: área, público, metragem · out/2026</p>
 </section>
 
+<section class="scene old bg-off" data-n="O que a Stap quer">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">Três objetivos, <i class="acc">tirados do diagnóstico.</i></h2>
+    <div class="obj">
+      <div style="--i:0"><p class="big">Ser encontrada</p><p class="ch">Site · busca · LinkedIn</p><p class="ev">Hoje: site bloqueado no Google e LinkedIn vazio. Quem procura a Stap antes de uma concorrência não acha nada.</p></div>
+      <div style="--i:1"><p class="big">Ser lembrada</p><p class="ch">Instagram · LinkedIn</p><p class="ev">Hoje: blocos de três posts e meses de silêncio. No mercado, quase ninguém tem constância, e quem tiver se destaca.</p></div>
+      <div style="--i:2;border-right:1px solid #BDBDBD"><p class="big">Ser escolhida</p><p class="ch">Deck · site · cases</p><p class="ev">Hoje: deck que não abre e site sem prova. Nenhuma agência mostra o aprovado ao lado do entregue.</p></div>
+    </div>
+    <p class="body rv" style="--i:6;font-size:22px">Vagas e cultura entram como apoio, nunca como o conteúdo principal.</p>
+  </div>
+</section>
+
 <!-- A VIRADA -->
-<section class="scene vr" data-n="A virada" style="background:#E9E9EA">
-  <div class="band b1"></div><div class="band b2"></div><div class="band b3"></div>
-  <img class="vlogo" src="a/logo-2024-navy.svg" alt="">
-  <p class="vlbl vo">Até aqui, a linguagem de hoje.</p>
-  <p class="vlbl vn">Daqui em diante, a linguagem nova.</p>
-  <h2 class="vh vho"><span class="o" style="--k:0">Agora,</span> <span class="o" style="--k:1">a</span> <span class="o" style="--k:2">Stap</span> <span class="o" style="--k:3">muda</span> <span class="o" style="--k:4">de</span> <span class="o" style="--k:5">casca.</span></h2>
-  <h2 class="vh vhn"><span class="n" style="--k:0">Agora,</span> <span class="n" style="--k:1">a</span> <span class="n" style="--k:2">Stap</span> <span class="n it" style="--k:3">muda</span> <span class="n it" style="--k:4">de</span> <span class="n it" style="--k:5">casca.</span></h2>
+<section class="scene vz" data-n="A virada">
+  <div class="world">
+    <div class="pl p5" style="--k:0;left:0;top:0;width:1920px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 128px"><p class="old-t" style="font-size:24px;letter-spacing:6px;text-transform:uppercase;color:#7A7A7A;margin:0 0 30px">Até aqui, a linguagem de hoje</p><p class="old-t" style="font-size:120px;line-height:1.1;margin:0">Agora, a Stap<br>muda de casca.</p></div>
+    <div class="pl p1 card" style="--k:1;left:1060px;top:120px;width:600px;transform:translateZ(-200px) rotate(3deg)"><img src="a/stap-site-atual.jpg" alt="" style="width:100%;display:block"></div>
+    <div class="pl p2 card" style="--k:2;left:1280px;top:470px;width:480px;transform:translateZ(-380px) rotate(-4deg)"><img src="a/deck-8-08.jpg" alt="" style="width:100%;display:block"></div>
+    <div class="pl p3 card" style="--k:3;left:980px;top:640px;width:420px;transform:translateZ(-120px) rotate(-2deg)"><img src="a/deck-27-27.jpg" alt="" style="width:100%;display:block"></div>
+    <div class="pl p4 card" style="--k:4;left:1620px;top:150px;width:220px;transform:translateZ(-520px) rotate(5deg)"><img src="a/ig-stapfeelings.jpg" alt="" style="width:100%;display:block"></div>
+    <div class="pl p6" style="--k:5;left:1690px;top:44px;transform:translateZ(0)"><img src="a/logo-2024-navy.svg" alt="" style="width:110px;display:block"></div>
+  </div>
+  <div class="nb"><div class="grain"></div></div>
+  <h2 class="ttl"><span style="--k:0">Agora,</span> <span style="--k:1">a</span> <span style="--k:2">Stap</span> <span style="--k:3">muda</span> <span style="--k:4"><i>de</i></span> <span style="--k:5"><i>casca.</i></span></h2>
+  <p class="cap">Daqui em diante, a linguagem nova</p>
+  <img class="nl" src="a/logo-off.svg" alt="Stap Feelings">
 </section>
 
 <section class="scene bg-navy" data-n="Como chegamos lá">
@@ -512,6 +750,25 @@ img{max-width:none;display:block}
 </section>
 
 <!-- STATEMENT -->
+<section class="scene fm" data-n="Filme · manifesto">
+  <div class="shot lines"></div>
+  <div class="shot rend"></div>
+  <div class="shot real"></div>
+  <div class="shot" style="pointer-events:none"><div class="bar"></div></div>
+  <div class="ppl" style="background-image:url(a/vw-festival-2.jpg);animation-delay:9.6s"></div><div class="ppl" style="background-image:url(a/syngenta-conselhos-1.jpg);animation-delay:11.0s"></div><div class="ppl" style="background-image:url(a/seara-diac-1.jpg);animation-delay:12.4s"></div><div class="ppl" style="background-image:url(a/harley-rodeo-1.jpg);animation-delay:13.8s"></div>
+  <div class="veil"></div>
+  <p class="lab" style="--t:3s;animation-delay:.4s">01 · O traço</p>
+  <p class="lab" style="--t:3.2s;animation-delay:3.4s">02 · O render</p>
+  <p class="lab" style="--t:2.8s;animation-delay:6.8s">03 · O real</p>
+  <p class="lab" style="--t:6s;animation-delay:9.6s">04 · As pessoas</p>
+  <p class="w" style="--t:3s;animation-delay:.6s">Todo mundo promete emoção.</p>
+  <p class="w" style="--t:3s;animation-delay:3.6s">Na Stap, ela começa <i>num traço,</i><br>vira render,</p>
+  <p class="w" style="--t:2.8s;animation-delay:6.9s">e chega ao público<br><i>do jeito que foi aprovada.</i></p>
+  <p class="w" style="--t:5.8s;animation-delay:9.8s">Quem desenha<br><i>é quem entrega.</i></p>
+  <div class="end"><h1><span>Sentimentos</span><span><i>se constroem.</i></span></h1></div>
+  <button class="replay" type="button">Ver de novo ↺</button>
+</section>
+
 <section class="scene bg-navy" data-n="Manifesto" data-steps="1" id="mfs">
   <div class="mfbg"></div>
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center;gap:48px">
@@ -520,7 +777,7 @@ img{max-width:none;display:block}
   </div>
   <div class="l pad mft" style="--d:3;display:flex;flex-direction:column;justify-content:center;gap:56px;pointer-events:none">
     <h1 class="serif" style="font-size:260px;line-height:.92;letter-spacing:-6px;color:var(--off);white-space:nowrap;margin:0;visibility:hidden"><span class="t1">Sentimentos</span><br><i class="t2">se constroem.</i></h1>
-    <p class="body mfsub" style="color:var(--off)">Do render ao real: criação, arquitetura e produção integradas, do projeto à montagem.</p>
+    <p class="body mfsub" style="color:var(--off);max-width:none;white-space:nowrap">Do render ao real: criação, arquitetura e produção integradas, do projeto à montagem.</p>
   </div>
 </section>
 
@@ -530,19 +787,21 @@ img{max-width:none;display:block}
 
 
 <!-- PLATAFORMA -->
-<section class="scene bg-white" data-n="Plataforma">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center">
-    <div>
-      <div class="row rv" style="border:0;padding:26px 0;--i:1;grid-template-columns:260px 1fr 420px"><span class="lbl acc">Statement</span><span class="serif md">Sentimentos <i class="acc">se constroem.</i></span><span class="body" style="font-size:26px">Assina a Stap.</span></div>
-      <div class="row rv" style="border:0;padding:26px 0;--i:3;grid-template-columns:260px 1fr 420px"><span class="lbl">Prova</span><span class="serif sm">Do render <i>ao real.</i></span><span class="body" style="font-size:26px">O aprovado ao lado do entregue.</span></div>
-      <div class="row rv" style="border:0;padding:26px 0;--i:4;grid-template-columns:260px 1fr 420px"><span class="lbl">Princípio</span><span class="serif sm">Quem desenha <i>é quem entrega.</i></span><span class="body" style="font-size:26px">Uma responsabilidade, do traço à montagem.</span></div>
-      <div class="row rv" style="border:0;padding:26px 0;--i:5;grid-template-columns:260px 1fr 420px"><span class="lbl">Crença</span><span class="serif sm">Você é o que você faz as pessoas sentirem.</span><span class="body" style="font-size:26px">Por que a Stap existe.</span></div>
-      <div class="row rv" style="border:0;padding:26px 0;--i:6;grid-template-columns:260px 1fr 420px"><span class="lbl">Cultura</span><span class="serif sm">Sinta-se em casa.</span><span class="body" style="font-size:26px">A Casa e a relação.</span></div>
+
+
+<!-- DO RENDER AO REAL (etapas) -->
+<section class="scene bg-navy" data-n="Render ao real · o compromisso">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between;color:var(--off)">
+    <div><p class="lbl rv">Do render ao real</p><h2 class="serif lg rv" style="--i:1;color:var(--off);margin-top:24px">Não é só uma imagem bonita. <i class="acc">É um compromisso.</i></h2></div>
+    <div class="lad">
+      <div style="--i:0;--h:120"><p class="lbl" style="color:var(--light)">01 · Promessa</p><p class="serif sm" style="margin-top:14px">O render que o cliente aprova.</p><p class="body" style="font-size:22px;margin-top:12px">Todo mundo mostra a ideia.</p><div class="bar2"></div></div>
+      <div style="--i:1;--h:200"><p class="lbl" style="color:var(--light)">02 · Prova</p><p class="serif sm" style="margin-top:14px">O montado, no mesmo ângulo.</p><p class="body" style="font-size:22px;margin-top:12px">Ninguém no mercado mostra os dois lado a lado.</p><div class="bar2"></div></div>
+      <div style="--i:2;--h:300;border-right:1px solid rgba(238,233,225,.3)"><p class="lbl" style="color:var(--light)">03 · Comprovação</p><p class="serif sm" style="margin-top:14px">Os números da entrega.</p><p class="body" style="font-size:22px;margin-top:12px">Prazo, montagem, área e público, case a case.</p><div class="bar2"></div></div>
     </div>
+    <p class="serif sm rv" style="--i:6;color:var(--off)">O risco de a experiência sair diferente do projeto <i class="acc">é da Stap, não do cliente.</i></p>
   </div>
 </section>
 
-<!-- DO RENDER AO REAL (etapas) -->
 <section class="scene bg-navy" data-n="Do render ao real" data-steps="2">
   <h2 class="l rv" style="--d:1;left:128px;top:70px;color:var(--off);display:flex;align-items:baseline;gap:28px"><span class="tk" style="font-size:150px;line-height:1">Do render</span><span class="serif" style="font-size:150px;line-height:1.05;letter-spacing:-4px;color:var(--light)"><i>ao real.</i></span></h2>
   <div class="l cmpwrap" style="--d:3;left:128px;top:280px;width:1664px;height:700px">
@@ -551,6 +810,23 @@ img{max-width:none;display:block}
     <div class="cmp c3 side" style="cursor:default"><figure><img src="a/ford-render.jpg" alt="Render do estande Ford"><span class="tag tl">Render</span></figure><figure><img src="a/ford-real-orig.jpg" alt="Estande Ford montado"><span class="tag tl" style="background:var(--off);color:var(--navy)">Real</span></figure></div>
   </div>
   <p class="foot" style="left:auto;right:128px;top:200px;bottom:auto">Grunner Agrishow · Grunner · Ford · arraste o traço</p>
+</section>
+
+<section class="scene bg-light" data-n="Render ao real · os números">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">A prova vem <i class="acc">com número.</i></h2>
+    <div class="bn">
+      <div class="rv" style="--i:1"><b>+500</b><p class="body" style="font-size:22px;margin-top:12px">estandes construídos</p></div>
+      <div class="rv" style="--i:2"><b>+250 mil</b><p class="body" style="font-size:22px;margin-top:12px">m² de área construída</p></div>
+      <div class="rv" style="--i:3"><b>7</b><p class="body" style="font-size:22px;margin-top:12px">montagens simultâneas no Circuito Agro</p></div>
+      <div class="rv" style="--i:4"><b>22 t</b><p class="body" style="font-size:22px;margin-top:12px">de caminhão em plataforma elevada · Grunner, Agrishow</p></div>
+    </div>
+    <div class="rv" style="--i:5">
+      <p class="lbl" style="margin-bottom:14px">A ficha que cada case passa a ter</p>
+      <div class="fid"><div><p class="k">Aprovado em</p><p class="v">data do render</p></div><div><p class="k">Montado em</p><p class="v">dias de obra</p></div><div><p class="k">Fidelidade</p><p class="v">% do render entregue</p></div><div><p class="k">Área</p><p class="v">m²</p></div><div><p class="k">Público</p><p class="v">pessoas</p></div></div>
+      <p class="body" style="font-size:20px;margin-top:12px">Números institucionais do deck comercial. A ficha por case precisa ser levantada com produção e atendimento.</p>
+    </div>
+  </div>
 </section>
 
 <!-- TRÊS CONVERSAS -->
@@ -579,7 +855,7 @@ img{max-width:none;display:block}
 
 <!-- REVELAÇÃO -->
 <section class="scene bg-navy" data-n="A nova assinatura" data-video>
-  <video id="reveal" src="a/revelacao.mp4" poster="a/revelacao-still.jpg" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" aria-label="Revelação da nova assinatura Stap Feelings"></video>
+  <video id="reveal" src="a/revelacao.mp4" poster="a/revelacao-still.jpg" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(.62)" aria-label="Revelação da nova assinatura Stap Feelings"></video>
 </section>
 
 <!-- EVOLUÇÃO -->
@@ -625,7 +901,7 @@ img{max-width:none;display:block}
     <div class="rv gr" style="--i:3;background:var(--navy)"><span>Navy · pontual</span></div>
     <div class="rv gr" style="--i:4;background:var(--light);color:var(--navy)"><span>Luz</span></div>
   </div>
-  <p class="l body rv" style="--d:2;--i:5;left:128px;top:860px;max-width:1500px">A cor forte de cada peça é a do cliente, nas fotos. A Stap fica clara em volta: base off-white, azuis como luz, navy em momentos pontuais. Terrosos de apoio vêm dos materiais dos próprios projetos.</p>
+  <p class="l body rv" style="--d:2;--i:5;left:128px;top:860px;max-width:1500px">A cor forte de cada peça é a do cliente, nas fotos. A Stap fica clara em volta: base off-white, azuis como luz, navy em momentos pontuais. Os terrosos de apoio (areia, terracota, oliva) vêm da terra: é onde a Stap mais constrói, no Agro.</p>
 </section>
 
 <!-- DEGRADÊS -->
@@ -654,6 +930,18 @@ img{max-width:none;display:block}
 
 
 <!-- MENU: O STATEMENT VAI PARA A RUA -->
+<section class="scene bg-off" data-n="A marca aplicada">
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:96px">A marca, <i class="acc">no dia a dia.</i></h2>
+  <div class="l ap" style="--d:3;left:128px;top:230px;width:1664px">
+    <div style="--i:0;grid-row:span 2"><img src="a/tpl-01.jpg" alt="Template de apresentação" style="height:50%"><img src="a/tpl-12.jpg" alt="" style="height:50%"><span class="tg">Template de apresentação</span></div>
+    <div class="biz" style="--i:1"><div class="c1"><img src="a/logo-off.svg" alt="" style="width:150px"></div><div class="c2"><b>Nome Sobrenome</b><span>Cargo · stap.com.br</span></div><span class="tg">Cartão de visita</span></div>
+    <div style="--i:2"><img src="a/teams-h.jpg" alt="Fundo de reunião"><span class="tg">Fundo de reunião</span></div>
+    <div class="mail" style="--i:3"><span>Oi, Marina,</span><span>segue o render aprovado e o cronograma de montagem.</span><hr><img src="a/ass-email.png" alt="Assinatura de e-mail" style="width:240px;height:auto;object-fit:contain"><span class="tg">Assinatura de e-mail</span></div>
+    <div class="ig" style="--i:4"><div style="background-image:url(a/g24-render.jpg)"></div><div class="t">Do render<br><i>ao real.</i></div><div style="background-image:url(a/g24-real.jpg)"></div><div class="t" style="background:#1F4FA8">Quem<br><i>constrói.</i></div><div style="background-image:url(a/vw-festival-2.jpg)"></div><div style="background-image:url(a/time-render.jpg)"></div><span class="tg">Feed</span></div>
+  </div>
+  <p class="foot">Peças disponíveis no hub de marca</p>
+</section>
+
 <section class="scene bg-navy" data-n="As peças">
   <p class="l lbl rv" style="--d:1;left:128px;top:100px">O statement vai para a rua</p>
   <nav class="l menu" style="--d:3;left:128px;top:170px;width:1664px" aria-label="Peças da nova marca">
@@ -713,6 +1001,8 @@ img{max-width:none;display:block}
         an.push(el.animate([{transform:'none'},{transform:`translate(${(b.left-a.left)/st}px,${(b.top-a.top)/st}px) scale(${k})`}],{duration:1500,delay:350+i*90,easing:'cubic-bezier(.76,0,.24,1)',fill:'forwards'}))})};
     new MutationObserver(()=>{if(sc.classList.contains('st1')){if(!sc.dataset.p){sc.dataset.p=1;requestAnimationFrame(play)}}else if(sc.dataset.p){delete sc.dataset.p;an.forEach(a=>a.cancel());an=[]}}).observe(sc,{attributes:true,attributeFilter:['class']});
   })();
+  // filme: replay
+  document.querySelectorAll('.fm .replay').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();const sc=b.closest('.scene');sc.classList.remove('on');void sc.offsetWidth;sc.classList.add('on')}));
   // comparador
   document.querySelectorAll('.cmp:not(.side)').forEach(c=>{let d=false;const set=e=>{const r=c.getBoundingClientRect();c.style.setProperty('--x',Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100))+'%')};
     c.addEventListener('pointerdown',e=>{d=true;c.setPointerCapture(e.pointerId);set(e);e.stopPropagation()});c.addEventListener('pointermove',e=>{if(d)set(e)});c.addEventListener('pointerup',()=>d=false);c.addEventListener('click',e=>e.stopPropagation())});
