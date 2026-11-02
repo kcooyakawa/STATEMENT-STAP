@@ -195,6 +195,7 @@ img{max-width:none;display:block}
 .vr .vhn .it{font-style:italic;color:#9ED0F0}
 .vr.on .vho span{clip-path:inset(-10% 0 120% 0);transition-delay:calc(1.75s + var(--k)*.05s)}
 .vr.on .vhn span{clip-path:inset(-10% 0 -20% 0);transition-delay:calc(2.7s + var(--k)*.1s)}
+.sitefull img{transition:transform 9s linear 1.2s}.on .sitefull img{transform:translateY(calc(-100% + 740px))}
 .casca{position:absolute;inset:0;z-index:4;background:#E9E9EA;display:flex;align-items:center;padding:0 128px;clip-path:inset(0 0 0 0);transition:clip-path 1.2s var(--ease) 1.3s;pointer-events:none}
 .casca p{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:96px;color:#404040;margin:0}
 .casca img{position:absolute;right:128px;top:44px;width:110px}
@@ -228,16 +229,18 @@ img{max-width:none;display:block}
 
 <!-- PONTO DE PARTIDA -->
 <section class="scene old bg-white" data-n="Ponto de partida">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:center;gap:64px">
+  <figure class="l rv" style="--d:4;left:1060px;top:0;width:860px;height:1080px;margin:0;overflow:hidden"><img src="a/zoomout.jpg" alt="Pessoa olhando a cidade do alto" style="width:100%;height:100%;object-fit:cover;object-position:55% 50%;filter:grayscale(.55) contrast(.95)"></figure>
+  <div class="l" style="--d:2;left:128px;top:0;bottom:0;width:860px;display:flex;flex-direction:column;justify-content:center;gap:56px">
     <h2 class="serif lg rv">Zoom out: <i class="acc">a Stap e o mercado.</i></h2>
     <p class="body rv" style="--i:2">Antes de mexer em qualquer peça, voltamos um passo: olhamos para a gente e para o mercado. O posicionamento é uma consequência disso.</p>
   </div>
+  <p class="foot" style="left:1090px;color:#F2F2F2">Foto: Unsplash</p>
 </section>
 
 <!-- ATO 01 STAP HOJE -->
 <section class="scene old bg-navy act" data-n="01 · A Stap hoje">
   <p class="l tk" style="--d:5;right:128px;top:150px">01</p>
-  <div class="l" style="--d:2;left:128px;bottom:140px;width:1100px;display:flex;flex-direction:column;gap:24px">
+  <div class="l" style="--d:2;left:128px;bottom:140px;width:1600px;display:flex;flex-direction:column;gap:24px">
     <h2 class="serif xl rv">A Stap hoje.</h2>
     <p class="body rv" style="--i:1">Onde a marca aparece hoje: site, apresentação comercial, Instagram e LinkedIn.</p>
   </div>
@@ -246,12 +249,12 @@ img{max-width:none;display:block}
 <!-- SITE ATUAL -->
 <section class="scene old bg-white" data-n="O site hoje">
   <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O site <i class="acc">chegou ao limite da plataforma.</i></h2>
-  <figure class="l rv" style="--d:3;--i:1;left:128px;top:250px;width:1060px"><img src="a/stap-site-atual.jpg" alt="Primeira tela do site atual da Stap" style="width:100%;display:block;border:1px solid #CFCFCF"></figure>
+  <figure class="l rv sitefull" style="--d:3;--i:1;left:128px;top:250px;width:1060px;height:740px;margin:0;overflow:hidden;border:1px solid #CFCFCF"><img src="a/stap-site-full.jpg" alt="Home do site atual da Stap" style="width:100%;display:block"></figure>
   <div class="l" style="--d:2;left:1260px;top:260px;width:532px;display:flex;flex-direction:column;gap:30px">
     <div class="rv rule" style="--i:2;padding-top:18px"><p class="lbl" style="font-size:17px">A plataforma</p><p class="body" style="font-size:25px;margin-top:8px">Feito no Wix, com banners e imagens dentro do que a ferramenta permite. Pouco espaço para mostrar projeto.</p></div>
     <div class="rv rule" style="--i:3;padding-top:18px"><p class="lbl" style="font-size:17px">O discurso</p><p class="body" style="font-size:25px;margin-top:8px">“Transformamos design em emoção”: a mesma promessa do mercado.</p></div>
   </div>
-  <p class="foot">stap.com.br · primeira tela · 28/out/2026</p>
+  <p class="foot">stap.com.br · home · 02/nov/2026</p>
 </section>
 
 <!-- APRESENTAÇÃO ATUAL -->
@@ -277,23 +280,23 @@ img{max-width:none;display:block}
 <section class="scene old bg-white" data-n="O Instagram hoje">
   <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O Instagram não é ruim. <i class="acc">Falta constância.</i></h2>
   <figure class="l rv" style="--d:3;--i:1;left:128px;top:240px;width:380px"><img src="a/ig-stapfeelings.jpg" alt="Últimos 12 posts do @stapfeelings" style="width:100%;display:block"></figure>
-  <div class="l" style="--d:2;left:640px;top:250px;width:1152px;display:flex;flex-direction:column;gap:34px">
+  <div class="l" style="--d:2;left:640px;top:250px;width:1152px;display:flex;flex-direction:column;gap:26px">
     <div class="rv rule" style="--i:2;padding-top:18px"><p class="lbl" style="font-size:17px">O que funciona</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Os KVs dos eventos dos clientes fazem do feed um portfólio bonito.</p></div>
     <div class="rv rule" style="--i:3;padding-top:18px"><p class="lbl" style="font-size:17px">Ritmo</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">47 posts no total. O último é de 20/fev/2026.</p></div>
     <div class="rv rule" style="--i:4;padding-top:18px"><p class="lbl" style="font-size:17px">Formato</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Os posts saem em trincas, três no mesmo dia, para montar o mosaico do feed. Entre um bloco e outro, meses sem nada.</p></div>
+    <div class="rv rule" style="--i:5;padding-top:18px"><p class="lbl" style="font-size:17px">Por quê</p><p class="body" style="font-size:27px;margin-top:8px;max-width:none">Não há uma equipe dedicada a conteúdo: quem pauta, cria as pílulas, edita os vídeos dos eventos e cuida do calendário. Quem posta com constância, como a TM1, tem essa estrutura.</p></div>
   </div>
   <p class="foot">@stapfeelings · últimos 12 posts · 28/out/2026</p>
 </section>
 
 <!-- LINKEDIN ATUAL -->
 <section class="scene old bg-white" data-n="O LinkedIn hoje">
-  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif md rv">O LinkedIn <i class="acc">existe, mas está vazio.</i></h2>
-    <div class="cols" style="grid-template-columns:repeat(3,1fr)">
-      <div class="rv rule" style="--i:1;padding-top:28px"><p class="tk" style="font-size:200px;line-height:1">1.474</p><p class="body" style="margin-top:18px">seguidores na página “Agência Stap”.</p></div>
-      <div class="rv rule" style="--i:2;padding-top:28px"><p class="tk" style="font-size:200px;line-height:1">0</p><p class="body" style="margin-top:18px">posts publicados. A página mostra “No posts yet”.</p></div>
-      <div class="rv rule" style="--i:3;padding-top:28px"><p class="tk" style="font-size:200px;line-height:1">2</p><p class="body" style="margin-top:18px">descrições diferentes: “agência de live marketing” na busca e “design, arquitetura, montagem” na página.</p></div>
-    </div>
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">O LinkedIn <i class="acc">existe, mas está vazio.</i></h2>
+  <figure class="l rv" style="--d:3;--i:1;left:128px;top:240px;width:680px;margin:0"><img src="a/stap-linkedin.jpg" alt="Página Agência Stap no LinkedIn" style="width:100%;display:block;border:1px solid #CFCFCF"></figure>
+  <div class="l" style="--d:2;left:900px;top:250px;width:892px;display:flex;flex-direction:column;gap:30px">
+    <div class="rv rule" style="--i:2;padding-top:16px"><p class="tk" style="font-size:110px;line-height:1">1.474</p><p class="body" style="font-size:24px;margin-top:6px">seguidores na página “Agência Stap”.</p></div>
+    <div class="rv rule" style="--i:3;padding-top:16px"><p class="tk" style="font-size:110px;line-height:1">0</p><p class="body" style="font-size:24px;margin-top:6px">posts publicados. A página mostra “No posts yet”.</p></div>
+    <div class="rv rule" style="--i:4;padding-top:16px"><p class="tk" style="font-size:110px;line-height:1">2</p><p class="body" style="font-size:24px;margin-top:6px">descrições: “agência de live marketing” na busca, “design, arquitetura, montagem” na página.</p></div>
   </div>
   <p class="foot">linkedin.com/company/agenciastap · 02/nov/2026</p>
 </section>
@@ -327,7 +330,7 @@ img{max-width:none;display:block}
 <!-- TODOS PROMETEM -->
 <section class="scene old bg-white" data-n="Todos prometem emoção">
   <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
-    <h2 class="serif md rv">Todos prometem <i class="acc">a mesma emoção.</i></h2>
+    <h2 class="serif md rv" style="white-space:nowrap">Todos prometem <i class="acc">a mesma emoção.</i></h2>
     <div>
       <div class="row rv" style="--i:1;grid-template-columns:1fr auto"><span class="serif sm">Experiências memoráveis</span><span class="lbl">TM1 · Hype · Rock · BFerraz</span></div>
       <div class="row rv" style="--i:2;grid-template-columns:1fr auto"><span class="serif sm">Conectar marcas e pessoas</span><span class="lbl">TM1 · Hype · Netza · Red Door</span></div>
@@ -340,7 +343,7 @@ img{max-width:none;display:block}
 
 <!-- INSTAGRAM -->
 <section class="scene old bg-navy" data-n="No Instagram">
-  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px;color:var(--off)">No Instagram, <i class="acc">o evento pronto. E quem posta muito, posta escala.</i></h2>
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px;color:var(--off)">No Instagram, todas mostram <i class="acc">o evento pronto.</i></h2>
   <div class="l" style="--d:4;left:128px;top:330px;width:1664px;display:grid;grid-template-columns:repeat(8,1fr);gap:16px"><figure class="rv" style="--i:1"><img src="a/ig-tm1-br.jpg" alt="Últimos 12 posts de TM1 no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">TM1<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">1.227 posts</span></figcaption></figure><figure class="rv" style="--i:2"><img src="a/ig-netza-ag.jpg" alt="Últimos 12 posts de Netza no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Netza<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">1.411 posts</span></figcaption></figure><figure class="rv" style="--i:3"><img src="a/ig-inside-the-hype.jpg" alt="Últimos 12 posts de Hype no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Hype<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">181 posts</span></figcaption></figure><figure class="rv" style="--i:4"><img src="a/ig-innova-aatb.jpg" alt="Últimos 12 posts de Innova AATB no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Innova AATB<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">291 posts</span></figcaption></figure><figure class="rv" style="--i:5"><img src="a/ig-grupospeed.jpg" alt="Últimos 12 posts de Grupo Speed no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Grupo Speed<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">45 posts</span></figcaption></figure><figure class="rv" style="--i:6"><img src="a/ig-agenciabferraz.jpg" alt="Últimos 12 posts de BFerraz no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">BFerraz<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">328 posts</span></figcaption></figure><figure class="rv" style="--i:7"><img src="a/ig-reddoor-ag.jpg" alt="Últimos 12 posts de Red Door no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Red Door<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">448 posts</span></figcaption></figure><figure class="rv" style="--i:8"><img src="a/ig-rockcomunicacao.jpg" alt="Últimos 12 posts de Rock no Instagram" style="width:100%;aspect-ratio:900/1600;object-fit:cover;display:block"><figcaption class="lbl" style="font-size:16px;margin-top:12px;color:var(--light)">Rock<br><span style="font-size:15px;letter-spacing:2px;color:var(--bluegray)">401 posts</span></figcaption></figure></div>
   <p class="foot">Últimos 12 posts e total de posts de cada perfil · 27/out/2026 · @stapfeelings: 47 posts</p>
 </section>
@@ -352,6 +355,32 @@ img{max-width:none;display:block}
     <div><div style="display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding-bottom:10px"><span class="lbl" style="font-size:15px">Agência</span><span class="lbl" style="font-size:15px">Seguidores</span><span class="lbl" style="font-size:15px">Posts · 90 dias</span><span class="lbl" style="font-size:15px">Último post</span><span class="lbl" style="font-size:15px">O que publica</span></div><div class="rv rule" style="--i:1;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">BFerraz</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:459px;background:#9A9A9A"></span><span style="font-size:20px">26.000</span></span><span style="font-size:30px;font-weight:500">0</span><span class="body" style="font-size:21px">5 meses</span><span class="body" style="font-size:21px">teses e cultura, irregular</span></div><div class="rv rule" style="--i:2;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">TM1</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:371px;background:#9A9A9A"></span><span style="font-size:20px">21.000</span></span><span style="font-size:30px;font-weight:500">19</span><span class="body" style="font-size:21px">1 semana</span><span class="body" style="font-size:21px">cases grandes e o CEO em painéis</span></div><div class="rv rule" style="--i:3;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Rock</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:212px;background:#9A9A9A"></span><span style="font-size:20px">12.000</span></span><span style="font-size:30px;font-weight:500">3</span><span class="body" style="font-size:21px">1 mês</span><span class="body" style="font-size:21px">cases de varejo</span></div><div class="rv rule" style="--i:4;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Netza</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:159px;background:#9A9A9A"></span><span style="font-size:20px">9.000</span></span><span style="font-size:30px;font-weight:500">0</span><span class="body" style="font-size:21px">11 meses</span><span class="body" style="font-size:21px">parada</span></div><div class="rv rule" style="--i:5;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Innova AATB</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:124px;background:#9A9A9A"></span><span style="font-size:20px">7.000</span></span><span style="font-size:30px;font-weight:500">15</span><span class="body" style="font-size:21px">1 semana</span><span class="body" style="font-size:21px">18 de 29 posts são vagas</span></div><div class="rv rule" style="--i:6;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Red Door</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:106px;background:#9A9A9A"></span><span style="font-size:20px">6.000</span></span><span style="font-size:30px;font-weight:500">5</span><span class="body" style="font-size:21px">2 semanas</span><span class="body" style="font-size:21px">cases de tecnologia e vagas</span></div><div class="rv rule" style="--i:7;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Hype</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:53px;background:#9A9A9A"></span><span style="font-size:20px">3.000</span></span><span style="font-size:30px;font-weight:500">0</span><span class="body" style="font-size:21px">4 meses</span><span class="body" style="font-size:21px">cases longos, Salão do Automóvel</span></div><div class="rv rule" style="--i:8;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0"><span style="font-size:24px">Grupo Speed</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:10px;background:#9A9A9A"></span><span style="font-size:20px">548</span></span><span style="font-size:30px;font-weight:500">12</span><span class="body" style="font-size:21px">5 dias</span><span class="body" style="font-size:21px">Auto e Agro, quase sem alcance</span></div><div class="rv rule" style="--i:9;display:grid;grid-template-columns:230px 1fr 150px 170px 440px;gap:26px;align-items:center;padding:5px 0;font-weight:600"><span style="font-size:24px">Stap</span><span style="display:flex;align-items:center;gap:14px"><span style="display:block;height:16px;width:26px;background:#2B2B2B"></span><span style="font-size:20px">1.474</span></span><span style="font-size:30px;font-weight:500">0</span><span class="body" style="font-size:21px">nunca</span><span class="body" style="font-size:21px">página sem posts</span></div></div>
   </div>
   <p class="foot">Páginas de empresa no LinkedIn · posts visíveis na página · 02/nov/2026</p>
+</section>
+
+<!-- LINKEDIN LEITURA -->
+<section class="scene old bg-off" data-n="O que o LinkedIn mostra">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">O que o LinkedIn <i class="acc">das agências mostra.</i></h2>
+    <div class="cols" style="grid-template-columns:repeat(4,1fr);gap:40px">
+      <div class="rv rule" style="--i:1;padding-top:24px"><p class="lbl" style="font-size:17px">Audiência parada</p><p class="body" style="font-size:24px;margin-top:10px">BFerraz e Netza têm 26 mil e 9 mil seguidores e não postam há meses. Audiência sem constância some.</p></div>
+      <div class="rv rule" style="--i:2;padding-top:24px"><p class="lbl" style="font-size:17px">Ritmo sem alcance</p><p class="body" style="font-size:24px;margin-top:10px">A Speed posta toda semana sobre Auto e Agro, mas tem 548 seguidores e poucas reações. Constância sem marca também não basta.</p></div>
+      <div class="rv rule" style="--i:3;padding-top:24px"><p class="lbl" style="font-size:17px">Página de RH</p><p class="body" style="font-size:24px;margin-top:10px">Na Innova, 18 de 29 posts são vagas. A página fala com candidato, não com cliente.</p></div>
+      <div class="rv rule" style="--i:4;padding-top:24px"><p class="lbl" style="font-size:17px">Quem junta os dois</p><p class="body" style="font-size:24px;margin-top:10px">Só a TM1: posta toda semana, com cases grandes e o CEO falando em painéis e na imprensa. Pessoas dão alcance à página.</p></div>
+    </div>
+    <p class="serif sm rv" style="--i:5">Ninguém usa o LinkedIn para falar com quem compra estande em Agro e Auto. <i class="acc">O espaço está livre.</i></p>
+  </div>
+</section>
+
+<section class="scene old bg-white" data-n="O que a Stap quer">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">O que a Stap quer <i class="acc">das redes, em ordem.</i></h2>
+    <div>
+      <div class="row rv" style="--i:1;grid-template-columns:90px 380px 1fr"><span class="tk" style="font-size:52px">1</span><span class="serif sm">Ser lembrada</span><span class="body" style="font-size:24px">Aparecer para marketing, trade e compras de Agro e Auto antes de eles abrirem a concorrência.</span></div>
+      <div class="row rv" style="--i:2;grid-template-columns:90px 380px 1fr"><span class="tk" style="font-size:52px">2</span><span class="serif sm">Posicionamento</span><span class="body" style="font-size:24px">Ser a agência que mostra como constrói: o aprovado ao lado do entregue.</span></div>
+      <div class="row rv" style="--i:3;grid-template-columns:90px 380px 1fr"><span class="tk" style="font-size:52px">3</span><span class="serif sm">Relacionamento</span><span class="body" style="font-size:24px">Pessoas da Stap conversando com decisores, não só a página.</span></div>
+      <div class="row rv" style="--i:4;grid-template-columns:90px 380px 1fr"><span class="tk" style="font-size:52px">4</span><span class="serif sm">Vagas</span><span class="body" style="font-size:24px">Quando houver, como apoio. Nunca como o conteúdo principal da página.</span></div>
+    </div>
+  </div>
 </section>
 
 <!-- DIAGNÓSTICO -->
@@ -380,6 +409,15 @@ img{max-width:none;display:block}
   <p class="foot" style="left:1030px">speedsports.com.br/projetos/gwm-agrishow · capturado em 26/out/2026</p>
 </section>
 
+<section class="scene old bg-white" data-n="Exemplo · Netza e Innova">
+  <h2 class="l serif md rv" style="--d:1;left:128px;top:100px">As que mostram números <i class="acc">medem tamanho, não entrega.</i></h2>
+  <div class="l" style="--d:3;left:128px;top:260px;width:1664px;display:grid;grid-template-columns:1fr 1fr;gap:56px">
+    <figure class="rv" style="--i:1;margin:0"><img src="a/case-netza.jpg" alt="Case Fórmula E no site da Netza" style="width:100%;aspect-ratio:16/10;object-fit:contain;background:#fff;display:block;border:1px solid #CFCFCF"><figcaption class="body" style="font-size:24px;margin-top:16px">Netza · Fórmula E. Área, camarotes, ativações e público.</figcaption></figure>
+    <figure class="rv" style="--i:2;margin:0"><img src="a/case-innova.jpg" alt="Case Cummins no site da Innova" style="width:100%;aspect-ratio:16/10;object-fit:contain;background:#fff;display:block;border:1px solid #CFCFCF"><figcaption class="body" style="font-size:24px;margin-top:16px">Innova AATB · Cummins na Fenatran 2024. Desafio, solução e metragem.</figcaption></figure>
+  </div>
+  <p class="foot">Área e público, sim. O aprovado ao lado do entregue, ninguém · sites das agências · out/2026</p>
+</section>
+
 
 
 <!-- MATRIZ (etapas) -->
@@ -401,12 +439,12 @@ img{max-width:none;display:block}
     <span style="position:absolute;left:542px;top:22px;font-size:22px;letter-spacing:1px;color:var(--navy)">Especialista que prova a entrega</span>
     <span style="position:absolute;left:24px;bottom:22px;font-size:22px;letter-spacing:1px;color:var(--label)">Generalista da emoção</span>
     <span style="position:absolute;left:542px;bottom:22px;font-size:22px;letter-spacing:1px;color:var(--label)">Generalista que prova</span>
-    <div style="position:absolute;inset:0" id="mxp"><span class="ag" data-s="1" style="left:180px;top:160px">Grupo Speed</span><span class="ag" data-s="1" style="left:80px;top:280px">Hype</span><span class="ag" data-s="1" style="left:90px;top:520px">TM1</span><span class="ag" data-s="1" style="left:120px;top:640px">BFerraz</span><span class="ag" data-s="1" style="left:300px;top:580px">Rock</span><span class="ag" data-s="1" style="left:600px;top:480px">Netza</span><span class="ag" data-s="1" style="left:700px;top:600px">Innova AATB</span><span class="ag" data-s="1" style="left:620px;top:700px">Red Door</span>
+    <div style="position:absolute;inset:0" id="mxp"><span class="ag" data-s="1" style="left:180px;top:160px">Grupo Speed</span><span class="ag" data-s="1" style="left:80px;top:280px">Hype</span><span class="ag" data-s="1" style="left:90px;top:520px">TM1</span><span class="ag" data-s="1" style="left:120px;top:640px">BFerraz</span><span class="ag" data-s="1" style="left:330px;top:560px">Rock</span><span class="ag" data-s="1" style="left:600px;top:480px">Netza</span><span class="ag" data-s="1" style="left:700px;top:600px">Innova AATB</span><span class="ag" data-s="1" style="left:300px;top:670px">Red Door</span>
       <div data-s="2" style="position:absolute;left:120px;top:72px;padding:6px 18px;border:2px dashed #404040;border-radius:40px;font-size:27px;font-weight:600">Stap hoje</div>
       <div data-s="3" style="position:absolute;left:600px;top:140px"><p style="font-size:64px;font-weight:500;line-height:1">● Stap</p><p class="lbl" style="color:var(--navy);margin-top:12px;font-size:18px">Agro e Auto, com prova</p></div>
     </div>
   </div>
-  <p class="foot" style="left:760px">Netza, Innova e Red Door provam escala e resultado · out/2026</p>
+  <p class="foot" style="left:760px">Netza e Innova provam escala: área, público, metragem · out/2026</p>
 </section>
 
 <!-- A VIRADA -->
@@ -622,7 +660,7 @@ img{max-width:none;display:block}
     <a class="rv" style="--i:1" href="https://kcooyakawa.github.io/DeckStap/#cover-logo" target="_blank" rel="noopener"><span class="n">01</span><span class="t">Deck comercial</span><span class="d">abrir ↗</span></a>
     <a class="rv" style="--i:2" href="https://kcooyakawa.github.io/stap-feelings/index.html" target="_blank" rel="noopener"><span class="n">02</span><span class="t">Site</span><span class="d">abrir ↗</span></a>
     <a class="rv" style="--i:3" href="https://kcooyakawa.github.io/DeckStap/#manifesto-filme" target="_blank" rel="noopener"><span class="n">03</span><span class="t">Vídeo manifesto</span><span class="d">no deck ↗</span></a>
-    <a class="rv" style="--i:4" href="redes.html" target="_blank" rel="noopener"><span class="n">04</span><span class="t">Redes sociais</span><span class="d">abrir ↗</span></a>
+    <a class="rv soon" style="--i:4" href="#" aria-disabled="true" tabindex="-1"><span class="n">04</span><span class="t">Redes sociais</span><span class="d">em construção</span></a>
     <a class="rv" style="--i:5" href="https://kcooyakawa.github.io/STAP-HUB/" target="_blank" rel="noopener"><span class="n">05</span><span class="t">Hub</span><span class="d">abrir ↗</span></a>
   </nav>
 </section>
