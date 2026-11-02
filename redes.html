@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Stap · Redes sociais</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500&display=swap">
+<style>
+/* Layout: palco 1920×1080 escalado. Sem movimento pelo mouse: a animação mora na troca de página.
+   A cena nova entra por um recorte que corre na horizontal; os planos de cada cena viajam em velocidades
+   diferentes (parallax de transição). Cenas com etapas (matriz, render × real) avançam por passos. */
+@font-face{font-family:"Tusker";src:url(fonts/Tusker_Grotesk_3500_Medium.ttf) format("truetype");font-display:swap}
+@font-face{font-family:"PPR Text";src:url(fonts/PPRightGroteskText-Regular.otf) format("opentype");font-display:swap}
+:root{
+  --off:#EEE9E1;--white:#FAF8F4;--navy:#07111F;--navy2:#0B1C2D;--blue:#1F4FA8;--light:#9ED0F0;--ice:#D3E2F2;--sky:#8CBBE8;
+  --muted:#3A4656;--label:#4A5868;--gray:#9C9A94;--bluegray:#B4C3D3;--areia:#D9C9AF;
+  --serif:"Instrument Serif",Georgia,serif;--impact:"Tusker","Arial Narrow",sans-serif;--sans:"PPR Text","Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.76,0,.24,1);--out:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+html,body{height:100%}
+body{background:var(--navy);margin:0;overflow:hidden;font-family:var(--sans);padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+#viewport{position:fixed;inset:0;overflow:hidden;background:var(--navy)}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center;overflow:hidden;background:var(--navy)}
+p,h1,h2,h3,figure{margin:0}
+img{max-width:none;display:block}
+
+/* ——— transição de página ——— */
+.scene{position:absolute;inset:0;overflow:hidden;color:var(--navy);clip-path:inset(0 0 0 100%);visibility:hidden;transition:clip-path .8s var(--ease),visibility 0s .8s;z-index:1}
+.scene.past{clip-path:inset(0 100% 0 0)}
+.scene.on{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .8s var(--ease),visibility 0s;z-index:2}
+.l{position:absolute;transform:translateX(calc(var(--d,2)*90px));transition:transform 1.1s var(--out)}
+.past .l{transform:translateX(calc(var(--d,2)*-90px))}
+.on .l{transform:none}
+/* revelação de texto por recorte horizontal, depois que a página entra */
+.rv{clip-path:inset(0 0 100% 0);translate:0 36px;transition:clip-path .9s var(--out),translate .9s var(--out);transition-delay:calc(var(--i,0)*70ms + 300ms)}
+.on .rv{clip-path:inset(-60% -30% -60% -30%);translate:0 0}
+.done .rv{clip-path:none}
+/* etapas */
+[data-s]{opacity:0;translate:0 24px;transition:opacity .7s var(--out),translate .7s var(--out)}
+.st1 [data-s="1"],.st2 [data-s="1"],.st2 [data-s="2"],.st3 [data-s="1"],.st3 [data-s="2"],.st3 [data-s="3"]{opacity:1;translate:0 0}
+[data-hide]{transition:opacity .7s var(--out)}
+.st3 [data-hide="3"],.st2 [data-hide="2"],.st3 [data-hide="2"]{opacity:.25}
+
+.bg-off{background:var(--off)}.bg-white{background:var(--white)}.bg-light{background:var(--light)}
+.bg-navy{background:var(--navy);color:var(--off)}
+.bg-grad{background:linear-gradient(160deg,#07111F 0%,#1F4FA8 65%,#9ED0F0 100%);color:var(--off)}
+.pad{left:128px;right:128px;top:112px;bottom:112px}
+.lbl{font-family:var(--sans);font-size:22px;letter-spacing:5px;text-transform:uppercase;color:var(--label)}
+.bg-navy .lbl,.bg-grad .lbl{color:var(--light)}
+.serif{font-family:var(--serif);font-weight:400;text-wrap:balance}
+.xxl{font-size:280px;line-height:.92;letter-spacing:-7px}
+.xl{font-size:190px;line-height:.95;letter-spacing:-5px}
+.lg{font-size:132px;line-height:1;letter-spacing:-3px}
+.md{font-size:84px;line-height:1.04;letter-spacing:-2px}
+.sm{font-size:50px;line-height:1.08;letter-spacing:-.5px}
+.xs{font-size:38px;line-height:1.12}
+.acc{color:var(--blue)}.bg-navy .acc,.bg-grad .acc{color:var(--light)}
+.tk{font-family:var(--impact);font-weight:500;line-height:1.05;text-transform:uppercase;padding-top:.04em}
+.body{font-size:27px;line-height:1.55;color:var(--muted);max-width:1000px}
+.bg-navy .body,.bg-grad .body{color:var(--bluegray)}.bg-light .body{color:var(--navy2)}
+.rule{border-top:1px solid currentColor}
+.row{display:grid;gap:32px;align-items:baseline;padding:18px 0;border-top:1px solid currentColor}
+.row:last-child{border-bottom:1px solid currentColor}
+.cols{display:grid;gap:40px}
+.foot{position:absolute;left:128px;bottom:84px;font-size:18px;letter-spacing:4px;text-transform:uppercase;color:var(--label)}
+.bg-navy .foot{color:var(--bluegray)}
+.pan{transition:transform 9s linear 2s}.on .pan{transform:translateY(-353px)}
+.shot{width:100%;object-fit:cover;object-position:top;border:1px solid rgba(7,17,31,.2)}
+
+/* divisores de ato */
+.act .tk{font-size:560px;line-height:1;color:var(--light)}
+.act .serif{color:var(--off)}
+
+/* matriz */
+#mx{left:760px;top:150px;width:1032px;height:800px}
+#mx .ax{position:absolute;background:var(--navy)}
+#mx .ax.h{left:0;right:0;top:400px;height:2px;transform-origin:left;scale:0 1;transition:scale 1s var(--ease) .5s}
+#mx .ax.v{top:0;bottom:0;left:516px;width:2px;transform-origin:top;scale:1 0;transition:scale 1s var(--ease) .7s}
+.on #mx .ax{scale:1 1}
+#mx .ag,#mxp .ag{position:absolute;font-size:27px;font-weight:600;white-space:nowrap}
+#mxp .ag::before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;background:#404040;margin-right:10px;vertical-align:middle}
+#mx .ag{position:absolute;font-size:27px;font-weight:600;white-space:nowrap}
+#mx .ag::before{content:"";display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--navy);margin-right:10px;vertical-align:middle}
+#mx .q{position:absolute;font-size:19px;letter-spacing:3px;text-transform:uppercase;color:var(--label)}
+#mx .target{position:absolute;left:530px;top:14px;width:488px;height:372px;background:var(--light)}
+#mx svg{position:absolute;inset:0;overflow:visible}
+#mx .arrow{stroke-dasharray:640;stroke-dashoffset:640;transition:stroke-dashoffset 1.2s var(--ease) .3s}
+.st3 #mx .arrow{stroke-dashoffset:0}
+
+/* render × real em diagonal */
+.rr{position:absolute;inset:0}
+.rr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rr .real{clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%);transition:clip-path 1.6s var(--ease) .9s}
+.on .rr .real{clip-path:polygon(58% 0,100% 0,100% 100%,38% 100%)}
+.rr .edge{position:absolute;inset:0;pointer-events:none}
+.rr .edge line{stroke:var(--off);stroke-width:4;stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 1.2s var(--ease) 1.4s}
+.on .rr .edge line{stroke-dashoffset:0}
+.pair2{opacity:0;transition:opacity .9s var(--out)}
+.st1 .pair2{opacity:1}
+.st1 .pair1 .real{clip-path:polygon(58% 0,100% 0,100% 100%,38% 100%)}
+
+/* comparador render × real */
+.cmp{position:absolute;inset:0;overflow:hidden;cursor:ew-resize;touch-action:none}
+.cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.cmp .top{clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--x);width:4px;margin-left:-2px;background:var(--off)}
+.cmp .knob{position:absolute;top:50%;left:var(--x);width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--off);color:var(--navy);display:grid;place-items:center;font-size:28px;font-family:var(--sans)}
+.cmp .tag{position:absolute;top:24px;font-size:19px;letter-spacing:4px;text-transform:uppercase;padding:8px 14px;background:rgba(7,17,31,.7);color:var(--off)}
+.cmp .tl{left:24px}.cmp .tr{right:24px;background:var(--off);color:var(--navy)}
+.cmp.c2{opacity:0;pointer-events:none;transition:opacity .7s var(--out)}
+.st1 .cmp.c2{opacity:1;pointer-events:auto}
+.cmp.c3{opacity:0;pointer-events:none;transition:opacity .7s var(--out)}
+.st2 .cmp.c3{opacity:1;pointer-events:auto}
+.cmp.side{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--navy)}
+.cmp.side figure{position:relative;margin:0;overflow:hidden}
+.cmp.side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* degradês */
+.gr{display:flex;flex-direction:column;justify-content:end;padding:24px;color:var(--off)}
+.gr span{font-size:19px;letter-spacing:3px;text-transform:uppercase}
+.gelo{background:linear-gradient(90deg,#EEE9E1 0%,#D3E2F2 45%,#8CBBE8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* menu final */
+.menu a{display:grid;grid-template-columns:110px 1fr auto;align-items:baseline;gap:32px;padding:14px 0;border-top:1px solid rgba(238,233,225,.35);color:var(--off);text-decoration:none;transition:color .3s}
+.menu a:last-child{border-bottom:1px solid rgba(238,233,225,.35)}
+.menu .n{font-family:var(--sans);font-size:22px;letter-spacing:4px;color:var(--light)}
+.menu .t{font-family:var(--impact);font-size:124px;line-height:.9;text-transform:uppercase;transition:letter-spacing .5s var(--out)}
+.menu .d{font-family:var(--serif);font-style:italic;font-size:36px;color:var(--bluegray)}
+.menu a:hover .t,.menu a:focus-visible .t{color:var(--light);letter-spacing:2px}
+.menu a:focus-visible{outline:2px solid var(--light);outline-offset:6px}
+.menu a.soon{pointer-events:none}.menu a.soon .t{color:rgba(238,233,225,.4)}
+
+
+/* ——— linguagem antiga (até a virada no statement) ——— */
+.old{background:#E9E9EA!important;color:#404040!important;--blue:#404040;--light:#B5B5B5;--off:#404040;--label:#7A7A7A;--muted:#595959;--navy:#404040;--navy2:#404040;--ice:#BDBDBD;font-family:'Poppins',Arial,sans-serif}
+.old.bg-white{background:#F2F2F2!important}
+.old.bg-light{background:#DADBDC!important}
+.old.bg-navy,.old.bg-grad{background:#2B2B2B!important;color:#F2F2F2!important;--off:#F2F2F2;--light:#A8A8A8;--label:#A8A8A8;--bluegray:#C8C8C8}
+.old .serif{font-family:'Poppins',Arial,sans-serif!important;font-weight:300!important;letter-spacing:-1px!important;line-height:1.12!important}
+.old .serif i,.old i.acc,.old .acc i,.old i{font-family:'Poppins',Arial,sans-serif!important;font-style:normal!important;font-weight:300!important}
+.old .acc{color:inherit!important}
+.old .xl{font-size:116px!important}.old .lg{font-size:86px!important}.old .md{font-size:58px!important}.old .sm{font-size:36px!important}.old .xs{font-size:28px!important}
+.old h1.serif{font-size:96px!important}
+.old h2.serif:not(.md):not(.lg):not(.xl){font-size:92px!important}
+.old .tk{font-family:'Poppins',Arial,sans-serif!important;font-weight:300!important;text-transform:none!important;letter-spacing:-3px;font-size:100px!important;line-height:1.1!important}
+.old [style*="font-size:170px"],.old [style*="font-size:150px"],.old [style*="font-size:160px"]{font-size:96px!important;letter-spacing:-1px!important}
+.old.act .tk{font-size:320px!important;color:#5A5A5A!important}
+.old .lbl,.old .q{font-family:'Poppins',Arial,sans-serif!important;letter-spacing:2px!important;text-transform:none!important;font-size:18px!important}
+.old .body,.old p,.old span,.old b{font-family:'Poppins',Arial,sans-serif;font-weight:300}
+.old .rule,.old .row{border-color:#BDBDBD!important}
+.old #mx{background:transparent!important;border-color:#BDBDBD!important}
+.old #mx .target{background:#D2D3D4!important}
+.old #mx path{stroke:#404040!important}
+.old #mx .ax{background:#9A9A9A!important}
+.old::after{content:"";position:absolute;right:128px;top:44px;width:110px;height:70px;background:url(a/logo-2024-navy.svg) right top/contain no-repeat;opacity:.85;z-index:3}
+.old.bg-navy::after,.old.bg-grad::after{background-image:url(a/logo-2024-off.svg)}
+/* virada: a casca antiga sai */
+.flip{display:flex;flex-direction:column;color:var(--off)}
+.flip .fr{display:grid;grid-template-columns:300px 1fr 90px 1fr;align-items:center;gap:24px;padding:26px 0;border-color:rgba(238,233,225,.35)}
+.flip .fa,.flip .fb{display:flex;align-items:center;gap:22px;min-height:80px}
+.flip .ov{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:30px;color:#A8A8A8;transition:opacity .6s,filter .6s}
+.flip .nv{font-family:var(--serif);font-size:44px;line-height:1.1;color:var(--off)}
+.flip .nv i{color:var(--light)}
+.flip .ar{font-size:44px;color:var(--light);text-align:center}
+.st1 .fr:nth-child(1) .ov,.st2 .fr:nth-child(-n+2) .ov,.st3 .fr .ov,.st3 .fr .fa img{opacity:.35;text-decoration:line-through}
+.flip [data-s]{translate:40px 0}
+.mf .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.mf .ln>span{display:block;transition:transform .9s var(--ease),opacity .9s var(--out)}
+#mfs.st1 .mf .ln>span{transform:translateY(-115%);opacity:0;transition-delay:calc((5 - var(--k))*.045s)}
+#mfs.st1 .mfl{opacity:0;transition:opacity .4s}
+.mf .last{display:block;white-space:nowrap}
+.mf .w1,.mf .w2{display:inline-block;transform-origin:0 0;will-change:transform}
+.mf .w1{display:inline-grid}.mf .w1>*{grid-area:1/1}
+.mf .w1 .it,.mf .w2 i{color:var(--light);transition:color 1.2s var(--ease) .5s,opacity .25s linear .35s}
+.mf .w1 .rm{opacity:0;transition:opacity .35s linear .45s}
+#mfs.st1 .mf .w1 .it{opacity:0}#mfs.st1 .mf .w1 .rm{opacity:1}#mfs.st1 .mf .w2 i{color:var(--off)}
+.mfbg{position:absolute;inset:0;background:linear-gradient(160deg,#07111F 0%,#1F4FA8 65%,#9ED0F0 100%);clip-path:circle(0% at 12% 80%);transition:clip-path 1.8s cubic-bezier(.65,0,.2,1) .25s;z-index:0}
+#mfs.st1 .mfbg{clip-path:circle(160% at 12% 80%)}
+.mfsub{opacity:0;transform:translateY(20px);transition:opacity .8s var(--out),transform .8s var(--out)}
+#mfs.st1 .mfsub{opacity:1;transform:none;transition-delay:1.7s}
+.vr .band{position:absolute;inset:0;clip-path:inset(0 100% 0 0);transition:clip-path 1.1s var(--ease)}
+.vr .b1{background:#9ED0F0}.vr .b2{background:#1F4FA8}.vr .b3{background:linear-gradient(160deg,#07111F 0%,#0B1C2D 70%,#1F4FA8 140%)}
+.vr.on .b1{clip-path:inset(0 0 0 0);transition-delay:1.6s}.vr.on .b2{clip-path:inset(0 0 0 0);transition-delay:1.78s}.vr.on .b3{clip-path:inset(0 0 0 0);transition-delay:1.96s}
+.vr .vlogo{position:absolute;right:128px;top:44px;width:110px;z-index:3;transition:opacity .5s 1.5s}
+.vr.on .vlogo{opacity:0}
+.vr .vlbl{position:absolute;left:128px;top:120px;z-index:3;font-size:22px;letter-spacing:5px;text-transform:uppercase;margin:0}
+.vr .vo{font-family:'Poppins',Arial,sans-serif;color:#7A7A7A;transition:opacity .4s 1.4s}.vr.on .vo{opacity:0}
+.vr .vn{font-family:var(--sans);color:#9ED0F0;opacity:0;transition:opacity .8s 3.2s}.vr.on .vn{opacity:1}
+.vr .vh{position:absolute;left:128px;top:380px;width:1700px;z-index:3;margin:0;font-weight:400;font-size:150px;line-height:1.15}
+.vr .vh span{display:inline-block;transition:clip-path .7s var(--ease)}
+.vr .vho{font-family:'Poppins',Arial,sans-serif;font-weight:300;color:#404040;letter-spacing:-2px}
+.vr .vho span{clip-path:inset(-10% 0 -20% 0)}
+.vr .vhn{font-family:var(--serif);color:#EEE9E1;letter-spacing:-3px;font-size:180px;line-height:1.05}
+.vr .vhn span{clip-path:inset(100% 0 -20% 0)}
+.vr .vhn .it{font-style:italic;color:#9ED0F0}
+.vr.on .vho span{clip-path:inset(-10% 0 120% 0);transition-delay:calc(1.75s + var(--k)*.05s)}
+.vr.on .vhn span{clip-path:inset(-10% 0 -20% 0);transition-delay:calc(2.7s + var(--k)*.1s)}
+.casca{position:absolute;inset:0;z-index:4;background:#E9E9EA;display:flex;align-items:center;padding:0 128px;clip-path:inset(0 0 0 0);transition:clip-path 1.2s var(--ease) 1.3s;pointer-events:none}
+.casca p{font-family:'Poppins',Arial,sans-serif;font-weight:300;font-size:96px;color:#404040;margin:0}
+.casca img{position:absolute;right:128px;top:44px;width:110px}
+.on .casca{clip-path:inset(0 0 0 100%)}
+.past .casca{clip-path:inset(0 0 0 100%)}
+.old[data-n="Capa"]::after{display:none}
+/* HUD */
+#hud{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:center;padding:12px max(18px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));z-index:5;pointer-events:none;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#fff;mix-blend-mode:difference}
+#hud button{pointer-events:auto;background:none;border:1px solid currentColor;color:inherit;font:inherit;letter-spacing:inherit;padding:8px 14px;cursor:pointer}
+#hud button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#bar{position:fixed;left:0;top:0;height:3px;background:var(--light);z-index:6;transition:width .8s var(--ease)}
+@media (prefers-reduced-motion:reduce){.scene,.l,.rv,[data-s],.rr .real,#mx .ax,#mx .arrow{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div id="bar"></div>
+<div id="viewport"><div id="stage">
+<section class="scene bg-grad" data-n="Capa">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <p class="lbl rv">Redes sociais · Instagram e LinkedIn</p>
+    <h1 class="serif rv" style="--i:1;font-size:210px;line-height:.95;letter-spacing:-5px;color:var(--off)">Ser lembrada<br><i>antes do briefing.</i></h1>
+    <p class="body rv" style="--i:2;color:var(--off)">Estratégia de visibilidade da Stap para quem contrata estande, evento e experiência.</p>
+  </div>
+</section>
+
+<section class="scene bg-white" data-n="O objetivo">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">O objetivo não é seguidor. <i class="acc">É conversa com quem contrata.</i></h2>
+    <div class="cols" style="grid-template-columns:repeat(3,1fr)"><div class="rv rule" style="--i:1;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">01 · Visibilidade</p><p class="serif sm">Aparecer para quem decide.</p><p class="body" style="font-size:24px">Marketing, trade e compras de marcas de Agro e Auto precisam ver a Stap antes de abrir a concorrência.</p></div><div class="rv rule" style="--i:2;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">02 · Prova</p><p class="serif sm">Tirar o risco da escolha.</p><p class="body" style="font-size:24px">Mostrar o render aprovado ao lado do montado. É o que o mercado não mostra.</p></div><div class="rv rule" style="--i:3;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">03 · Contato</p><p class="serif sm">Virar briefing.</p><p class="body" style="font-size:24px">Todo post leva a um caminho curto: site, case, contato com o comercial.</p></div></div>
+  </div>
+</section>
+
+<section class="scene bg-off" data-n="Ponto de partida">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">De onde a gente parte.</h2>
+    <div class="cols" style="grid-template-columns:repeat(3,1fr)"><div class="rv rule" style="--i:1;padding-top:26px"><p class="lbl">Instagram · @stapfeelings</p><p class="tk" style="font-size:150px;line-height:1;margin-top:14px">4.774</p><p class="body" style="font-size:24px;margin-top:12px">seguidores. Feed bonito, mas o último post é de 20/fev/2026 e os posts saem em trincas.</p></div><div class="rv rule" style="--i:2;padding-top:26px"><p class="lbl">LinkedIn · Agência Stap</p><p class="tk" style="font-size:150px;line-height:1;margin-top:14px">0</p><p class="body" style="font-size:24px;margin-top:12px">posts. 1.474 seguidores e duas descrições diferentes da empresa.</p></div><div class="rv rule" style="--i:3;padding-top:26px"><p class="lbl">Mercado</p><p class="tk" style="font-size:150px;line-height:1;margin-top:14px">1</p><p class="body" style="font-size:24px;margin-top:12px">agência com audiência e ritmo no LinkedIn: a TM1. O resto está parado ou posta vagas.</p></div></div>
+  </div>
+</section>
+
+<section class="scene bg-white" data-n="Para quem falamos">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">Para quem <i class="acc">a gente fala.</i></h2>
+    <div><div class="row rv" style="--i:1;grid-template-columns:300px 1fr"><span class="lbl acc">Marketing e trade</span><span class="serif xs">Quem cria a demanda: gerente de marketing, trade e eventos das marcas de Agro e Auto.</span></div><div class="row rv" style="--i:2;grid-template-columns:300px 1fr"><span class="lbl acc">Compras</span><span class="serif xs">Quem fecha o fornecedor e precisa de segurança de prazo e custo.</span></div><div class="row rv" style="--i:3;grid-template-columns:300px 1fr"><span class="lbl acc">Eventos e feiras</span><span class="serif xs">Quem opera no dia e não pode ter surpresa na montagem.</span></div><div class="row rv" style="--i:4;grid-template-columns:300px 1fr"><span class="lbl acc">Agências parceiras</span><span class="serif xs">Agências de publicidade que indicam quem constrói.</span></div></div><p class="body rv" style="--i:6;font-size:22px">Perfis a validar com o comercial: quem de fato chega até a Stap hoje.</p>
+  </div>
+</section>
+
+<section class="scene bg-navy" data-n="Um papel para cada canal">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv" style="color:var(--off)">Um papel <i class="acc">para cada canal.</i></h2>
+    <div style="color:var(--off)"><div class="cols" style="grid-template-columns:repeat(3,1fr)"><div class="rv rule" style="--i:1;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Instagram</p><p class="serif sm">A vitrine.</p><p class="body" style="font-size:24px">Mostra a construção: render × real, montagem em 60 segundos, a Casa e quem faz. É onde o cliente vê o resultado.</p></div><div class="rv rule" style="--i:2;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">LinkedIn · página</p><p class="serif sm">O selo.</p><p class="body" style="font-size:24px">Cases com número, bastidor de negócio e opinião sobre Agro e Auto. É onde compras e marketing checam a Stap.</p></div><div class="rv rule" style="--i:3;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">LinkedIn · pessoas</p><p class="serif sm">O alcance.</p><p class="body" style="font-size:24px">No LinkedIn, gente costuma alcançar mais que página. Virginia, Ricardo, comercial e arquitetura falando do que fazem.</p></div></div></div>
+  </div>
+</section>
+
+<section class="scene bg-white" data-n="O motor é a feira">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">O motor é o calendário <i class="acc">de feiras.</i></h2>
+    <div class="cols" style="grid-template-columns:repeat(3,1fr)"><div class="rv rule" style="--i:1;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Antes · 4 a 6 semanas</p><p class="serif sm">O que vem aí.</p><p class="body" style="font-size:24px">O que observar na feira, bastidor do projeto, o render. Conversa com quem ainda está fechando fornecedor.</p></div><div class="rv rule" style="--i:2;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Durante</p><p class="serif sm">A construção ao vivo.</p><p class="body" style="font-size:24px">Montagem em 60 segundos, render × real no dia, stories da equipe em campo.</p></div><div class="rv rule" style="--i:3;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Depois · até 2 semanas</p><p class="serif sm">O case.</p><p class="body" style="font-size:24px">Carrossel com o aprovado e o entregue, números da entrega e o depoimento do cliente.</p></div></div><p class="body rv" style="--i:5;font-size:23px">Agro e Auto têm calendário fixo de feiras. Cada feira vira três semanas de conteúdo com o mesmo projeto.</p>
+  </div>
+</section>
+
+<section class="scene bg-off" data-n="Seis caminhos">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">Seis caminhos <i class="acc">de conteúdo.</i></h2>
+    <div><div class="row rv" style="--i:1;grid-template-columns:90px 1fr 340px 260px"><span class="tk" style="font-size:40px">01</span><span class="serif xs">Do render ao real</span><span class="body" style="font-size:22px">A série-mãe. Mesmo ângulo, antes e depois.</span><span class="lbl acc" style="font-size:16px">Instagram + LinkedIn · semanal</span></div><div class="row rv" style="--i:2;grid-template-columns:90px 1fr 340px 260px"><span class="tk" style="font-size:40px">02</span><span class="serif xs">Making of</span><span class="body" style="font-size:22px">Montagem, bastidor, o dia antes da feira.</span><span class="lbl acc" style="font-size:16px">Instagram · Reels</span></div><div class="row rv" style="--i:3;grid-template-columns:90px 1fr 340px 260px"><span class="tk" style="font-size:40px">03</span><span class="serif xs">Quem constrói</span><span class="body" style="font-size:22px">Arquiteto, produtor, montador: o rosto da entrega.</span><span class="lbl acc" style="font-size:16px">Instagram + perfis</span></div><div class="row rv" style="--i:4;grid-template-columns:90px 1fr 340px 260px"><span class="tk" style="font-size:40px">04</span><span class="serif xs">Visão Stap</span><span class="body" style="font-size:22px">Opinião sobre feiras, Agro e Auto.</span><span class="lbl acc" style="font-size:16px">LinkedIn · pessoas</span></div><div class="row rv" style="--i:5;grid-template-columns:90px 1fr 340px 260px"><span class="tk" style="font-size:40px">05</span><span class="serif xs">Experiência em movimento</span><span class="body" style="font-size:22px">O público vivendo o espaço pronto.</span><span class="lbl acc" style="font-size:16px">Instagram · Reels e stories</span></div><div class="row rv" style="--i:6;grid-template-columns:90px 1fr 340px 260px"><span class="tk" style="font-size:40px">06</span><span class="serif xs">Confiança que se comprova</span><span class="body" style="font-size:22px">Prazo, números, depoimentos. Só com dado confirmado.</span><span class="lbl acc" style="font-size:16px">LinkedIn · página</span></div></div>
+  </div>
+</section>
+
+<section class="scene bg-white" data-n="Cadência">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">Constância vence volume.</h2>
+    <div class="cols" style="grid-template-columns:repeat(3,1fr)"><div class="rv rule" style="--i:1;padding-top:26px"><p class="lbl acc">Instagram</p><p class="tk" style="font-size:150px;line-height:1;margin-top:14px">3×</p><p class="body" style="font-size:24px;margin-top:12px">por semana, mais stories em semana de feira.</p></div><div class="rv rule" style="--i:2;padding-top:26px"><p class="lbl acc">LinkedIn · página</p><p class="tk" style="font-size:150px;line-height:1;margin-top:14px">2×</p><p class="body" style="font-size:24px;margin-top:12px">por semana: um case ou render × real, uma pauta de negócio.</p></div><div class="rv rule" style="--i:3;padding-top:26px"><p class="lbl acc">LinkedIn · pessoas</p><p class="tk" style="font-size:150px;line-height:1;margin-top:14px">1×</p><p class="body" style="font-size:24px;margin-top:12px">por semana para cada pessoa-chave (2 a 3 pessoas).</p></div></div><p class="body rv" style="--i:5;font-size:23px">Produção em lote, uma vez por mês. Ninguém precisa inventar pauta: é preencher o molde de cada série.</p>
+  </div>
+</section>
+
+<section class="scene bg-navy" data-n="Do post ao briefing">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv" style="color:var(--off)">Do post <i class="acc">ao briefing.</i></h2>
+    <div style="color:var(--off)"><div class="cols" style="grid-template-columns:repeat(3,1fr)"><div class="rv rule" style="--i:1;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Ver</p><p class="serif sm">O post leva ao case.</p><p class="body" style="font-size:24px">Link da bio e dos posts aponta para o case no site, com render × real e contato.</p></div><div class="rv rule" style="--i:2;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Confiar</p><p class="serif sm">O perfil confirma.</p><p class="body" style="font-size:24px">Quem clica encontra a mesma marca em todo lugar: página do LinkedIn, Instagram, site e deck.</p></div><div class="rv rule" style="--i:3;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Chamar</p><p class="serif sm">Alguém responde.</p><p class="body" style="font-size:24px">O comercial responde DMs e comentários em até 24h e conecta no LinkedIn com quem reagiu aos posts.</p></div></div></div><p class="body rv" style="--i:5;font-size:23px;color:var(--bluegray)">Todo link sai com marcação (UTM). Assim dá para saber quantos contatos vieram das redes.</p>
+  </div>
+</section>
+
+<section class="scene bg-white" data-n="Como medimos">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">O que a gente mede.</h2>
+    <div><div class="row rv" style="--i:1;grid-template-columns:300px 1fr"><span class="lbl acc">Contatos</span><span class="serif xs">Pedidos de orçamento e briefings que chegaram pelas redes ou citam as redes.</span></div><div class="row rv" style="--i:2;grid-template-columns:300px 1fr"><span class="lbl acc">Visitas</span><span class="serif xs">Visitas ao site vindas do Instagram e do LinkedIn.</span></div><div class="row rv" style="--i:3;grid-template-columns:300px 1fr"><span class="lbl acc">Decisores</span><span class="serif xs">Quem reage e segue no LinkedIn, por empresa e cargo. Interessa se são marcas de Agro e Auto.</span></div><div class="row rv" style="--i:4;grid-template-columns:300px 1fr"><span class="lbl acc">Constância</span><span class="serif xs">Posts publicados contra posts planejados. Meta: 100% do calendário.</span></div></div><p class="body rv" style="--i:6;font-size:22px">Revisão todo mês. Seguidor e curtida entram só como apoio.</p>
+  </div>
+</section>
+
+<section class="scene bg-off" data-n="Primeiros 90 dias">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">Os primeiros <i class="acc">90 dias.</i></h2>
+    <div class="cols" style="grid-template-columns:repeat(3,1fr)"><div class="rv rule" style="--i:1;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Mês 1</p><p class="serif sm">Arrumar a casa.</p><p class="body" style="font-size:24px">LinkedIn com nome, descrição, capa e logo novos. Bio e destaques do Instagram. Perfis das pessoas-chave. Banco de render × real.</p></div><div class="rv rule" style="--i:2;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Mês 2</p><p class="serif sm">Ligar as séries.</p><p class="body" style="font-size:24px">Render × real toda semana. Primeiros posts das pessoas no LinkedIn. Making of nos jobs em andamento.</p></div><div class="rv rule" style="--i:3;padding-top:26px;display:flex;flex-direction:column;gap:18px"><p class="lbl acc">Mês 3</p><p class="serif sm">A primeira feira como campanha.</p><p class="body" style="font-size:24px">Ciclo completo de antes, durante e depois. Primeira revisão dos números com o comercial.</p></div></div>
+  </div>
+</section>
+
+<section class="scene bg-white" data-n="Quem faz o quê">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <h2 class="serif md rv">Quem faz <i class="acc">o quê.</i></h2>
+    <div><div class="row rv" style="--i:1;grid-template-columns:300px 1fr"><span class="lbl acc">Criação</span><span class="serif xs">Identidade, moldes das séries, edição e calendário.</span></div><div class="row rv" style="--i:2;grid-template-columns:300px 1fr"><span class="lbl acc">Atendimento e produção</span><span class="serif xs">Registro de cada job: render aprovado, fotos e vídeos da montagem, no mesmo ângulo.</span></div><div class="row rv" style="--i:3;grid-template-columns:300px 1fr"><span class="lbl acc">Comercial</span><span class="serif xs">Responde DMs, conecta com decisores e conta de onde veio cada contato.</span></div><div class="row rv" style="--i:4;grid-template-columns:300px 1fr"><span class="lbl acc">Pessoas-chave</span><span class="serif xs">Um post por semana no próprio perfil, com apoio da criação.</span></div><div class="row rv" style="--i:5;grid-template-columns:300px 1fr"><span class="lbl acc">Virginia</span><span class="serif xs">Aprovação nas primeiras semanas.</span></div></div>
+  </div>
+</section>
+
+<section class="scene bg-grad" data-n="Fim">
+  <div class="l pad" style="--d:2;display:flex;flex-direction:column;justify-content:space-between">
+    <p class="lbl rv">Redes sociais · Stap</p>
+    <h1 class="serif rv" style="--i:1;font-size:230px;line-height:.95;letter-spacing:-5px;color:var(--off)">Mostrar<br><i>a construção.</i></h1>
+    <img class="rv" style="--i:2;width:220px;align-self:flex-end" src="a/logo-off.svg" alt="Stap Feelings">
+  </div>
+</section>
+
+</div></div>
+
+<div id="hud"><span id="where">01 · Abertura</span><span style="display:flex;gap:10px"><button id="prev" aria-label="Voltar">←</button><button id="next" aria-label="Avançar">→</button><button id="fs">Tela cheia</button></span></div>
+
+<script>
+(()=>{
+  const stage=document.getElementById('stage'),scenes=[...document.querySelectorAll('.scene')];
+  const where=document.getElementById('where'),bar=document.getElementById('bar'),video=document.getElementById('reveal');
+  let i=0,step=0;
+  function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform=`translate(-50%,-50%) scale(${s})`}
+  addEventListener('resize',fit);fit();
+  function setStep(sc,n){for(let k=1;k<=3;k++)sc.classList.toggle('st'+k,k===n)}
+  function show(n,st){
+    n=Math.max(0,Math.min(scenes.length-1,n));
+    scenes.forEach((s,k)=>{s.classList.toggle('on',k===n);s.classList.toggle('past',k<n);s.classList.remove('done');if(k!==n)setStep(s,0)});clearTimeout(window.__dt);const cur=scenes[n];window.__dt=setTimeout(()=>cur.classList.add('done'),2200);
+    i=n;step=st||0;setStep(scenes[n],step);
+    where.textContent=String(n+1).padStart(2,'0')+' / '+scenes.length+' · '+(scenes[n].dataset.n||'');
+    bar.style.width=((n+1)/scenes.length*100)+'%';
+    if(scenes[n].hasAttribute('data-video')){try{video.currentTime=0;video.playbackRate=1.6;video.play().catch(()=>{})}catch(e){}}else{try{video.pause()}catch(e){}}
+  }
+  function next(){const max=+(scenes[i].dataset.steps||0);if(step<max){step++;setStep(scenes[i],step)}else show(i+1)}
+  function prev(){if(step>0){step--;setStep(scenes[i],step)}else{const p=i-1;if(p<0)return;show(p,+(scenes[p].dataset.steps||0))}}
+  addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' ','Enter'].includes(e.key)){if(e.target.closest('a,button'))return;e.preventDefault();next()}
+    else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
+    else if(e.key==='Home')show(0);else if(e.key==='End')show(scenes.length-1);
+  });
+  document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;
+  document.getElementById('fs').onclick=()=>{const d=document.documentElement;try{(document.fullscreenElement?document.exitFullscreen():d.requestFullscreen())?.catch?.(()=>{})}catch(e){}};
+  stage.addEventListener('click',e=>{if(e.target.closest('a,.cmp'))return;const r=stage.getBoundingClientRect();(e.clientX>r.left+r.width*.25?next:prev)()});
+  let sx=null;addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)(dx<0?next:prev)();sx=null});
+  // manifesto -> statement (FLIP)
+  (()=>{const sc=document.getElementById('mfs');if(!sc)return;let an=[];
+    const play=()=>{an.forEach(a=>a.cancel());an=[];const st=stage.getBoundingClientRect().width/1920;
+      [['.w1','.t1'],['.w2','.t2']].forEach(([w,t],i)=>{const el=sc.querySelector(w),tg=sc.querySelector(t);el.style.transform='none';
+        const a=el.getBoundingClientRect(),b=tg.getBoundingClientRect();const k=b.height/a.height;
+        an.push(el.animate([{transform:'none'},{transform:`translate(${(b.left-a.left)/st}px,${(b.top-a.top)/st}px) scale(${k})`}],{duration:1500,delay:350+i*90,easing:'cubic-bezier(.76,0,.24,1)',fill:'forwards'}))})};
+    new MutationObserver(()=>{if(sc.classList.contains('st1')){if(!sc.dataset.p){sc.dataset.p=1;requestAnimationFrame(play)}}else if(sc.dataset.p){delete sc.dataset.p;an.forEach(a=>a.cancel());an=[]}}).observe(sc,{attributes:true,attributeFilter:['class']});
+  })();
+  // comparador
+  document.querySelectorAll('.cmp:not(.side)').forEach(c=>{let d=false;const set=e=>{const r=c.getBoundingClientRect();c.style.setProperty('--x',Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100))+'%')};
+    c.addEventListener('pointerdown',e=>{d=true;c.setPointerCapture(e.pointerId);set(e);e.stopPropagation()});c.addEventListener('pointermove',e=>{if(d)set(e)});c.addEventListener('pointerup',()=>d=false);c.addEventListener('click',e=>e.stopPropagation())});
+  // abre do render para o meio quando a cena entra
+  if(document.querySelector('.cmp.c1'))new MutationObserver(()=>{const c=document.querySelector('.cmp.c1');if(c.closest('.scene').classList.contains('on')&&!c.dataset.a){c.dataset.a=1;let t0=null;const f=ts=>{t0=t0||ts;const k=Math.min(1,(ts-t0)/1400);const e=1-Math.pow(1-k,3);c.style.setProperty('--x',(100-50*e)+'%');if(k<1)requestAnimationFrame(f)};setTimeout(()=>requestAnimationFrame(f),700)}else if(!c.closest('.scene').classList.contains('on')){delete c.dataset.a;c.style.setProperty('--x','100%')}}).observe(document.querySelector('.cmp.c1').closest('.scene'),{attributes:true,attributeFilter:['class']});
+  show(0);
+})();
+</script>
+
+</body>
+</html>
