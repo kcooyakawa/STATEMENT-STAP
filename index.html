@@ -1492,7 +1492,7 @@ h1.serif,h2.serif{text-wrap:balance}
   // manifesto com locução
   (()=>{const sc=document.getElementById('mfs');if(!sc)return;const au=sc.querySelector('.mfa');const ls=[...sc.querySelectorAll('.mf .ln,.mf .last')];const T=[1.0,2.75,5.3,7.4,9.3,11.9,15.7];const END=17.6;let t0=0,raf=0,fired=false;
     const clock=()=>(!au.paused&&au.currentTime>0)?au.currentTime:(performance.now()-t0)/1000;
-    const tick=()=>{const t=clock();ls.forEach((l,k)=>l.classList.toggle('sh',t>=T[k]));if(t>=END&&!fired){fired=true;if(sc.classList.contains('on')&&!sc.classList.contains('st1'))window.__next()}raf=requestAnimationFrame(tick)};
+    const tick=()=>{const t=clock();const f=sc.classList.contains('st1');ls.forEach((l,k)=>l.classList.toggle('sh',f||t>=T[k]));if(t>=END&&!fired){fired=true;if(sc.classList.contains('on')&&!sc.classList.contains('st1'))window.__next()}raf=requestAnimationFrame(tick)};
     const start=()=>{cancelAnimationFrame(raf);fired=false;ls.forEach(l=>l.classList.remove('sh'));t0=performance.now();try{au.currentTime=0;au.play().catch(()=>{})}catch(e){}raf=requestAnimationFrame(tick)};
     const stop=()=>{cancelAnimationFrame(raf);try{au.pause()}catch(e){}};
     new MutationObserver(()=>{if(sc.classList.contains('on')){if(!sc.dataset.r){sc.dataset.r=1;if(sc.classList.contains('st1')){ls.forEach(l=>l.classList.add('sh'))}else start()}if(sc.classList.contains('st1'))ls.forEach(l=>l.classList.add('sh'))}else{delete sc.dataset.r;stop()}}).observe(sc,{attributes:true,attributeFilter:['class']});
