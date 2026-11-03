@@ -901,6 +901,43 @@ h1.serif,h2.serif{text-wrap:balance}
 .cor2 .cfoot h2{font-size:72px!important}
 .cfb{font-size:21px;color:var(--muted);max-width:820px;margin-top:18px}
 .ct i{width:88px!important;height:88px!important;border-radius:4px!important}
+
+/* revelação */
+.rv2{background:#07111F;overflow:hidden}
+.rv2 img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.rv2 .rvo{height:380px;opacity:0;transition:opacity 1s .3s,filter 1s 2.2s}
+.rv2.on .rvo{opacity:1;animation:rvoff 1.2s ease 2.6s forwards}
+@keyframes rvoff{to{opacity:0;filter:blur(6px)}}
+.rv2 .rvn{height:330px;clip-path:inset(0 100% 0 0);transition:clip-path 1.6s cubic-bezier(.7,0,.2,1) 3s}
+.rv2.on .rvn{clip-path:inset(0 0 0 0)}
+.rv2 .rvb{position:absolute;top:28%;bottom:28%;width:2px;background:#9ED0F0;left:calc(50% - 365px);opacity:0;box-shadow:0 0 30px #9ED0F0}
+.rv2.on .rvb{animation:rvbar 1.6s cubic-bezier(.7,0,.2,1) 3s forwards}
+@keyframes rvbar{0%{opacity:1;transform:translateX(0)}90%{opacity:1}100%{opacity:0;transform:translateX(730px)}}
+.rvg i{position:absolute;background:rgba(158,208,240,.18);transition:transform 1.4s cubic-bezier(.7,0,.2,1) 1.6s}
+.rvg i[style*="--x"]{top:0;bottom:0;width:1px;left:calc(50% - 365px + var(--x)*730px);transform:scaleY(0)}
+.rvg i[style*="--y"]{left:0;right:0;height:1px;top:calc(50% - 165px + var(--y)*330px);transform:scaleX(0)}
+.rv2.on .rvg i{transform:none}
+/* evolução v3 */
+.ev2 .evL,.ev2 .evR{justify-content:center}
+.ev2 .evt{position:absolute;left:96px;top:72px;margin:0;font-size:72px;letter-spacing:-1.5px;color:var(--navy)}
+.ev2 .evL img{width:auto!important;height:330px}.ev2 .evR img{width:auto!important;height:310px}
+.ev2 .evf{position:absolute;left:96px;right:96px;bottom:72px;display:flex;flex-direction:column;gap:12px;grid-template-columns:none}
+.ev2 .evf p{margin:0;font-size:22px;line-height:1.45;color:var(--navy);max-width:640px}
+.ev2 .evL .lbl,.ev2 .evR .lbl{position:static}
+/* cor v3 */
+.cor3 .c3bars{position:absolute;left:0;right:0;top:0;bottom:150px;display:flex}
+.cb3{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:72px 40px 44px;min-width:0;opacity:0;transform:translateY(30px);transition:opacity .8s,transform 1s cubic-bezier(.16,1,.3,1);transition-delay:calc(.3s + var(--i)*.12s)}
+.on .cb3{opacity:1;transform:none}
+.cb3:first-child{padding-left:96px}
+.c3t{font-size:64px;line-height:1.02;letter-spacing:-1.5px;margin:0;font-weight:400}.c3t i{color:#1F4FA8}
+.c3b{margin-top:auto}
+.c3n{font-size:52px;line-height:1;margin:0;letter-spacing:-1px;white-space:nowrap}
+.c3r{font-family:var(--serif);font-style:italic;font-size:26px;margin:8px 0 22px;opacity:.85}
+.c3x{font-size:14px;letter-spacing:1.5px;margin:0;opacity:.7}
+.cor3 .c3ter{position:absolute;left:0;right:0;bottom:0;height:150px;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr}
+.c3ter>p{margin:0;padding:0 96px;display:flex;align-items:center;font-size:16px;letter-spacing:4px;text-transform:uppercase;color:var(--navy);background:#EEE9E1}
+.c3ter>div{display:flex;flex-direction:column;justify-content:flex-end;padding:20px 28px;color:#07111F}
+.c3ter span{font-family:var(--serif);font-size:32px}.c3ter b{font-weight:400;font-size:13px;letter-spacing:1.5px;opacity:.7}
 </style>
 
 </head>
@@ -1336,16 +1373,17 @@ h1.serif,h2.serif{text-wrap:balance}
 </section>
 
 <!-- REVELAÇÃO -->
-<section class="scene bg-navy" data-n="A nova assinatura" data-video>
-  <video id="reveal" src="a/revelacao.mp4" poster="a/revelacao-still.jpg" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(.62)" aria-label="Revelação da nova assinatura Stap Feelings"></video>
+<section class="scene bg-navy rv2" data-n="A nova assinatura">
+  <div class="rvg"><i style="--x:0"></i><i style="--x:1"></i><i style="--y:0"></i><i style="--y:1"></i></div>
+  <img class="rvo" src="a/logo-2024-off.svg" alt="Assinatura anterior">
+  <img class="rvn" src="a/logo-off.svg" alt="Nova assinatura Stap Feelings">
+  <div class="rvb"></div>
 </section>
 
 <!-- EVOLUÇÃO -->
 <section class="scene bg-off ev2" data-n="Evolução">
-  <div class="evL"><img src="a/logo-2024-navy.svg" alt="Assinatura de 2024"><p class="lbl">Até 2026</p></div>
-  <div class="evR"><img src="a/logo-off.svg" alt="Nova assinatura Stap Feelings"><p class="lbl" style="color:var(--light)">2026</p></div>
-  <h2 class="serif evh rv"><span style="color:var(--navy)">Fica o nome.</span> <i style="color:var(--light)">Ganha voz.</i></h2>
-  <div class="evf rv" style="--i:3"><p><b>Fica:</b> o nome, o <i>feelings</i> e o navy. Quem conhece a Stap reconhece.</p><p style="color:var(--off)"><b>Muda:</b> o Stap ganha desenho próprio, com presença; o <i>feelings</i> vai para caixa-alta espaçada.</p></div>
+  <div class="evL"><p class="evt serif">Fica o nome.</p><img src="a/logo-2024-navy.svg" alt="Assinatura de 2024"><div class="evf"><p class="lbl">Até 2026</p><p><b>Fica:</b> o nome, o <i>feelings</i> e o navy. Quem conhece a Stap reconhece.</p></div></div>
+  <div class="evR"><p class="evt serif" style="color:var(--light)"><i>Ganha voz.</i></p><img src="a/logo-off.svg" alt="Nova assinatura Stap Feelings"><div class="evf"><p class="lbl" style="color:var(--light)">2026</p><p style="color:var(--off)"><b>Muda:</b> o Stap ganha desenho próprio, com presença; o <i>feelings</i> vai para caixa-alta espaçada.</p></div></div>
 </section>
 
 <!-- ATO 04 -->
@@ -1366,9 +1404,9 @@ h1.serif,h2.serif{text-wrap:balance}
 </section>
 
 <!-- COR -->
-<section class="scene bg-off cor2" data-n="Cor">
-  <div class="cbars"><div class="cb rv" style="--i:0;flex:38;background:#EEE9E1;color:#07111F"><p class="cbn serif">Off-white</p><p class="cbr">o papel · base</p><p class="cbx">#EEE9E1<br>RGB 238 233 225</p></div><div class="cb rv" style="--i:1;flex:18;background:#F7F5F1;color:#07111F"><p class="cbn serif">Branco quente</p><p class="cbr">respiro</p><p class="cbx">#F7F5F1<br>RGB 247 245 241</p></div><div class="cb rv" style="--i:2;flex:16;background:#07111F;color:#EEE9E1"><p class="cbn serif">Navy</p><p class="cbr">a noite do evento</p><p class="cbx">#07111F<br>RGB 7 17 31</p></div><div class="cb rv" style="--i:3;flex:12;background:#1F4FA8;color:#EEE9E1"><p class="cbn serif">Azul</p><p class="cbr">a planta · ação</p><p class="cbx">#1F4FA8<br>RGB 31 79 168</p></div><div class="cb rv" style="--i:4;flex:16;background:#9ED0F0;color:#07111F"><p class="cbn serif">Luz</p><p class="cbr">a luz · destaque</p><p class="cbx">#9ED0F0<br>RGB 158 208 240</p></div></div>
-  <div class="l cfoot" style="--d:2"><div class="rv" style="--i:6"><h2 class="serif">A cor de quem constrói:<br><i class="acc">o papel, a planta e a luz.</i></h2><p class="body cfb">Off-white é o papel onde o traço começa. O azul é a planta e o render. A luz é o evento aceso. O navy, a noite em que tudo acontece.</p></div><div class="rv cter" style="--i:7"><p class="lbl">Apoio · vem da terra, do Agro</p><div><div class="ct"><i style="background:#D9C9AF"></i><span>Areia<br><b>#D9C9AF</b></span></div><div class="ct"><i style="background:#C9A27E"></i><span>Terracota<br><b>#C9A27E</b></span></div><div class="ct"><i style="background:#9C9A94"></i><span>Concreto<br><b>#9C9A94</b></span></div></div></div></div>
+<section class="scene bg-off cor3" data-n="Cor">
+  <div class="c3bars"><div class="cb3" style="--i:0;flex:36;background:#EEE9E1;color:#07111F"><h2 class="serif c3t">A cor de quem constrói:<br><i>o papel, a planta e a luz.</i></h2><div class="c3b"><p class="serif c3n">Off-white</p><p class="c3r">o papel</p><p class="c3x">#EEE9E1 · RGB 238 233 225</p></div></div><div class="cb3" style="--i:1;flex:16;background:#F7F5F1;color:#07111F"><div class="c3b"><p class="serif c3n">Branco quente</p><p class="c3r">o respiro</p><p class="c3x">#F7F5F1 · RGB 247 245 241</p></div></div><div class="cb3" style="--i:2;flex:18;background:#07111F;color:#EEE9E1"><div class="c3b"><p class="serif c3n">Navy</p><p class="c3r">a noite do evento</p><p class="c3x">#07111F · RGB 7 17 31</p></div></div><div class="cb3" style="--i:3;flex:15;background:#1F4FA8;color:#EEE9E1"><div class="c3b"><p class="serif c3n">Azul</p><p class="c3r">a planta, o render</p><p class="c3x">#1F4FA8 · RGB 31 79 168</p></div></div><div class="cb3" style="--i:4;flex:15;background:#9ED0F0;color:#07111F"><div class="c3b"><p class="serif c3n">Luz</p><p class="c3r">o evento aceso</p><p class="c3x">#9ED0F0 · RGB 158 208 240</p></div></div></div>
+  <div class="c3ter"><p>Apoio · vem da terra, do Agro</p><div style="background:#D9C9AF"><span>Areia</span><b>#D9C9AF</b></div><div style="background:#C9A27E"><span>Terracota</span><b>#C9A27E</b></div><div style="background:#9C9A94"><span>Concreto</span><b>#9C9A94</b></div></div>
 </section>
 
 <!-- DEGRADÊS -->
